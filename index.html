@@ -164,7 +164,7 @@
         }
 
         /* -------------------------------------------
-           HASSAN AI AGENT CHAT WIDGET
+           hassaan AI AGENT CHAT WIDGET
         ---------------------------------------------*/
         .chat-widget { position: fixed; right: 20px; bottom: 20px; z-index: 9999; } 
         .chat-toggle-btn { 
@@ -268,7 +268,7 @@
     <!-- Home Section -->
     <section id="home" class="reveal active">
         <h1 class="neon-text">Fully AI-Controlled<br>Database & Sales</h1>
-        <p>Hassan AI automatically manages our database, handles customer inquiries, and sells custom chatbots, digital numbers, and items 24/7. <br><strong style="color:var(--success);">Flash Sale active today: April 23, 2026.</strong></p>
+        <p>hassaan AI automatically manages our database, handles customer inquiries, and sells custom chatbots, digital numbers, and items 24/7. <br><strong style="color:var(--success);">Flash Sale active today: April 23, 2026.</strong></p>
         <div class="hero-buttons">
             <button onclick="openChatAndStartOrder()" class="btn btn-neon pulse-btn"><i class="fa-solid fa-database"></i> Connect to AI Database</button>
             <a href="#pricing" class="btn glass"><i class="fa-solid fa-tag"></i> Order Chatbot ($35)</a>
@@ -331,7 +331,7 @@
     <!-- Alternative Contact Form Section -->
     <section id="contact" class="reveal">
         <h2 class="section-title neon-text">Scale Your Business Today</h2>
-        <p style="text-align: center; color: var(--text-muted); margin-top: -30px; margin-bottom: 40px;">Chat with Hassan AI (bottom right) to access the database, or fill out this quick form.</p>
+        <p style="text-align: center; color: var(--text-muted); margin-top: -30px; margin-bottom: 40px;">Chat with hassaan AI (bottom right) to access the database, or fill out this quick form.</p>
         
         <div class="contact-container">
             <div class="glass form-glass">
@@ -363,19 +363,19 @@
     </section>
 
     <footer>
-        <div class="logo neon-text" style="font-size: 1.3rem; font-weight: bold; margin-bottom: 5px;">Hassan AI - Built by Adnan Developer</div>
+        <div class="logo neon-text" style="font-size: 1.3rem; font-weight: bold; margin-bottom: 5px;">hassaan AI - Built by Adnan Developer</div>
         <p style="color: var(--text-muted); font-size: 0.9rem;">High-Converting AI Solutions, Database Management & Marketing Funnels.</p>
         <p style="font-size: 0.8rem; margin-top: 15px; opacity: 0.5;">&copy; 2026 Powered by Adnan. All Rights Reserved.</p>
     </footer>
 
-    <!-- HASSAN AI AGENT CHAT WIDGET -->
+    <!-- hassaan AI AGENT CHAT WIDGET -->
     <div class="chat-widget">
         <div class="chat-box" id="chatBox">
             <div class="chat-header">
                 <div class="chat-header-title">
                     <i class="fa-solid fa-robot"></i> 
                     <div>
-                        <div style="font-size: 0.95rem;">Hassan AI <span style="font-size:0.7rem; color:var(--text-muted);">by Adnan</span></div>
+                        <div style="font-size: 0.95rem;">hassaan AI <span style="font-size:0.7rem; color:var(--text-muted);">by Adnan</span></div>
                         <div class="chat-header-status">Online & Managing Database</div>
                     </div>
                 </div>
@@ -496,7 +496,7 @@
             }, 600);
         });
 
-        // --- 3. HASSAN AI AGENT LOGIC (PSYCHOLOGY, SALES & GENDER-BASED ADAPTATION) ---
+        // --- 3. hassaan AI AGENT LOGIC (PSYCHOLOGY, SALES & GENDER-BASED ADAPTATION) ---
         let chatActive = false;
         let autoTTS = false; 
         
@@ -550,7 +550,7 @@
                 
                 if(chatBody.innerHTML.trim() === "") {
                     showBotTyping(() => {
-                        appendMsgBot("Hello! 👋 I am Hassan, an AI created by the brilliant Adnan Developer. Before we dive into the database and business, how are you doing today? Are you okay?");
+                        appendMsgBot("Hello! 👋 I am hassaan, an AI created by the brilliant Adnan Developer. Before we dive into the database and business, how are you doing today? Are you okay?");
                         showQuickReplies([
                             { label: "I am good! Let's chat", action: "triggerIntroduction()" }
                         ]);
@@ -708,7 +708,7 @@
                 
                 db.ref('leads').push({
                     name: orderData.name, email: orderData.email, phone: orderData.phone, website: orderData.website, idea: orderData.details, gender: orderData.gender,
-                    source: 'Hassan Psychological AI Agent', timestamp: new Date().toLocaleString()
+                    source: 'hassaan Psychological AI Agent', timestamp: new Date().toLocaleString()
                 }).catch(e => console.log("DB skip"));
 
                 setTimeout(() => {
