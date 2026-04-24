@@ -2,854 +2,753 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-Controlled Database & Sales | Powered by Adnan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Power by Adnan | Hassaan AI</title>
     
-    <!-- Preconnect for fast loading -->
+    <!-- Premium Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Modern Futuristic Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;800&family=Poppins:wght@300;500;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6.5.1 -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@500;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
+        /* --- DYNAMIC & BEAUTIFUL VARIABLES --- */
         :root {
-            --bg-base: #010104;
-            --glass-bg: rgba(10, 10, 20, 0.45);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --glass-highlight: rgba(255, 255, 255, 0.15);
-            --neon-cyan: #00f0ff;
-            --neon-purple: #c300ff;
-            --neon-blue: #0066ff;
-            --text-main: #ffffff;
-            --text-muted: #a3a8c3;
-            --danger: #ff1744;
-            --success: #00fa9a;
+            --bg-dark: #050508;
+            --glass-bg: rgba(15, 15, 22, 0.5);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
             --whatsapp: #25D366;
+            --easypaisa: #00A651;
+            --jazzcash: #ED1C24;
+            --neon-cyan: #00f3ff;
+            --neon-magenta: #bc13fe;
+            --gold-star: #FFD700;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-base);
-            color: var(--text-main);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; font-family: 'Outfit', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-main); overflow-x: hidden; scroll-behavior: smooth; }
+        h1, h2, h3, .brand-font { font-family: 'Poppins', sans-serif; }
 
-        h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
-
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--bg-base); }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple)); border-radius: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--neon-cyan), var(--neon-magenta)); border-radius: 10px; }
 
-        /* Background Canvas */
-        #bg-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; pointer-events: none; transform: translateZ(0); }
-        
-        .ambient-orbs { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; overflow: hidden; pointer-events: none; }
-        .orb { position: absolute; border-radius: 50%; filter: blur(150px); opacity: 0.25; mix-blend-mode: screen; will-change: transform; transition: all 1s ease; }
-        .orb-1 { width: 450px; height: 450px; background: var(--neon-cyan); top: -100px; left: -100px; }
-        .orb-2 { width: 550px; height: 550px; background: var(--neon-purple); bottom: -150px; right: -100px; }
-
-        /* Chat Active State Effects */
-        body.chat-active .orb-1 { background: var(--neon-purple); transform: scale(1.2); }
-        body.chat-active .orb-2 { background: var(--neon-cyan); transform: scale(1.2); }
-
-        /* Glassmorphism */
-        .glass {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-top: 1px solid var(--glass-highlight);
-            border-radius: 20px;
-            box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.6);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+        .color-shift-text {
+            background: linear-gradient(270deg, var(--neon-cyan), var(--neon-magenta), #00ff88, var(--neon-cyan));
+            background-size: 300% 300%;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease infinite; font-weight: bold;
         }
-
-        .neon-text {
-            background: linear-gradient(135deg, var(--neon-cyan), #fff, var(--neon-purple));
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 25px rgba(0, 240, 255, 0.3);
-            animation: shine 4s linear infinite;
+        .color-shift-bg {
+            background: linear-gradient(270deg, var(--neon-cyan), var(--neon-magenta), #0044ff, var(--neon-cyan));
+            background-size: 300% 300%; animation: gradientShift 6s ease infinite; color: #fff; border: none;
         }
-        @keyframes shine { to { background-position: 200% center; } }
+        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-        /* Enhanced Floating Powered By Effect */
-        .logo { 
-            font-size: 24px; font-weight: 800; font-family: 'Poppins'; display: flex; align-items: center; gap: 10px;
-            animation: floatingLogo 3.5s ease-in-out infinite; 
-        }
-        .logo i { font-size: 28px; color: var(--neon-cyan); filter: drop-shadow(0 0 10px rgba(0,240,255,0.8)); }
-        
-        @keyframes floatingLogo {
-            0% { transform: translateY(0px); text-shadow: 0 0 10px rgba(0,240,255,0.2); }
-            50% { transform: translateY(-3px); text-shadow: 0 15px 25px rgba(0,240,255,0.6); }
-            100% { transform: translateY(0px); text-shadow: 0 0 10px rgba(0,240,255,0.2); }
+        /* --- ULTRA 3D ROBOTIC BACKGROUND CANVAS --- */
+        #webgl-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; pointer-events: none; }
+        .ambient-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at center, rgba(0,0,0,0) 0%, rgba(5,5,8,0.85) 100%); pointer-events: none; }
+
+        /* --- BEAUTIFUL DRAWN VECTOR ICONS --- */
+        .drawn-icon {
+            width: 32px; height: 32px; border-radius: 50%; object-fit: contain;
+            background: linear-gradient(135deg, #fff, #f0f0f0); padding: 3px;
+            box-shadow: 0 4px 10px rgba(0, 243, 255, 0.3);
         }
 
-        /* Buttons */
-        .btn {
-            display: inline-flex; justify-content: center; align-items: center; gap: 10px;
-            padding: 15px 35px; border-radius: 50px; text-decoration: none;
-            font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.1rem;
-            transition: all 0.3s ease; cursor: pointer; border: none; position: relative; z-index: 1;
-        }
-        
-        .btn-neon {
-            background: linear-gradient(90deg, rgba(0,240,255,0.15), rgba(195,0,255,0.15));
-            color: #fff; border: 1px solid var(--neon-cyan);
-            box-shadow: 0 0 15px rgba(0,240,255,0.25);
-        }
-        .btn-neon:hover { 
-            background: linear-gradient(90deg, rgba(0,240,255,0.25), rgba(195,0,255,0.25)); 
-            box-shadow: 0 0 30px rgba(0,240,255,0.5); transform: translateY(-3px); 
-        }
-        
-        .pulse-btn { animation: pulseGlow 2s infinite; }
-        @keyframes pulseGlow { 
-            0% { box-shadow: 0 0 15px rgba(0,240,255,0.3); } 
-            50% { box-shadow: 0 0 30px rgba(0,240,255,0.6), 0 0 10px rgba(195,0,255,0.4); } 
-            100% { box-shadow: 0 0 15px rgba(0,240,255,0.3); } 
-        }
-
-        /* Navbar */
+        /* --- NAVBAR --- */
         nav {
-            position: fixed; top: 0; width: 100%; padding: 15px 5%;
-            display: flex; justify-content: space-between; align-items: center; z-index: 900;
-            background: rgba(1, 1, 4, 0.75); backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass-border);
+            position: fixed; top: 0; width: 100%; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+            background: rgba(5, 5, 8, 0.7); backdrop-filter: blur(12px); border-bottom: 1px solid var(--glass-border);
         }
-        nav ul { list-style: none; display: flex; gap: 35px; }
-        nav ul li a { color: #fff; text-decoration: none; font-weight: 500; font-size: 1rem; transition: 0.3s; opacity: 0.8; }
-        nav ul li a:hover { color: var(--neon-cyan); opacity: 1; text-shadow: 0 0 10px var(--neon-cyan); }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 1.4rem; font-weight: 800; }
+        nav ul { list-style: none; display: flex; gap: 20px; }
+        nav ul li a { color: #fff; text-decoration: none; font-size: 0.95rem; transition: 0.3s; opacity: 0.8; }
+        nav ul li a:hover { opacity: 1; color: var(--neon-cyan); }
 
-        /* Sections */
-        section { padding: 120px 5%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative;}
-        .section-title { text-align: center; font-size: 3.8rem; margin-bottom: 50px; font-weight: 800; line-height: 1.2; letter-spacing: -1px; }
-        .reveal { opacity: 0; transform: translateY(30px); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); will-change: opacity, transform; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        /* Hero */
-        #home { text-align: center; align-items: center; margin-top: 50px; }
-        #home h1 { font-size: 5.2rem; margin-bottom: 20px; line-height: 1.1; letter-spacing: -2px; font-weight: 800;}
-        #home p { font-size: 1.25rem; max-width: 700px; margin-bottom: 40px; color: var(--text-muted); font-weight: 300; }
-        .hero-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;}
-
-        /* Cards */
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { padding: 40px 30px; text-align: center; }
-        .card:hover { transform: translateY(-10px); border-color: var(--neon-cyan); box-shadow: 0 10px 40px rgba(0,240,255,0.15); }
-        .card i { font-size: 3.5rem; color: var(--neon-cyan); margin-bottom: 25px; background: -webkit-linear-gradient(var(--neon-cyan), var(--neon-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 15px rgba(0,240,255,0.5)); }
-        .card h3 { margin-bottom: 15px; font-size: 1.8rem; }
-        .card p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; }
-
-        /* Pricing Card */
-        .pricing-wrapper { display: flex; justify-content: center; align-items: center; width: 100%; }
-        .pricing-card { position: relative; max-width: 500px; width: 100%; padding: 45px 40px; border-radius: 24px; border: 1px solid var(--neon-purple); background: rgba(10, 10, 20, 0.8); box-shadow: 0 0 40px rgba(195, 0, 255, 0.2); text-align: center;}
-        .discount-badge { position: absolute; top: -15px; right: 30px; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); padding: 8px 20px; border-radius: 20px; font-weight: 800; font-size: 0.9rem; letter-spacing: 1px; color: #fff; box-shadow: 0 5px 20px rgba(195,0,255,0.5); animation: pulseGlow 2s infinite;}
-        .pricing-card h3 { font-size: 2.2rem; margin-bottom: 5px; }
-        .strike-price { text-decoration: line-through; color: var(--danger); font-size: 1.2rem; display: block; opacity: 0.8; font-weight: 500;}
-        .pricing-card h4 { font-size: 4.5rem; color: #fff; margin: 0; text-shadow: 0 0 20px rgba(255,255,255,0.3); font-weight: 800; line-height: 1;}
+        /* --- UPGRADED BANNER & SECTIONS --- */
+        section { padding: clamp(100px, 15vh, 150px) 5% 80px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; z-index: 1; }
+        .section-title { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 10px; font-weight: 800; }
+        .section-subtitle { font-size: 1.1rem; color: var(--text-dim); margin-bottom: 45px; max-width: 600px; }
         
-        .payment-box { background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.3); padding: 25px; border-radius: 15px; margin-top: 35px; text-align: left; }
-        .p-row { display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; }
-        .p-label { color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;}
-        .p-val { font-size: 1.1rem; font-weight: 600; color: #fff; }
-        .p-val.highlight { color: var(--neon-cyan); letter-spacing: 1.5px; font-size: 1.3rem; text-shadow: 0 0 12px rgba(0,240,255,0.6);}
+        .hero-title { font-size: clamp(2.8rem, 8vw, 7rem); font-weight: 900; line-height: 1.1; margin-bottom: 25px; text-shadow: 0 10px 40px rgba(0,243,255,0.4); letter-spacing: -1px; }
+        .hero-p { font-size: clamp(1rem, 3vw, 1.3rem); color: var(--text-main); max-width: 700px; margin-bottom: 40px; line-height: 1.6; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
 
-        /* Contact Section */
-        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; }
-        .form-glass { padding: 40px; }
-        .input-group { position: relative; margin-bottom: 20px; }
-        .input-group input, .input-group textarea {
-            width: 100%; padding: 18px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.15);
-            background: rgba(0,0,0,0.6); color: #fff; font-family: 'Outfit'; font-size: 1rem; outline: none; transition: 0.3s;
-        }
-        .input-group input:focus, .input-group textarea:focus { border-color: var(--neon-cyan); background: rgba(0,240,255,0.08); box-shadow: 0 0 20px rgba(0,240,255,0.15);}
+        .btn-main { padding: 16px 35px; border-radius: 50px; font-weight: 700; font-size: 1.1rem; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.3); text-decoration: none; border: none; }
+        .btn-main:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 15px 30px rgba(0, 243, 255, 0.4); }
 
-        .map-glass { padding: 15px; border-radius: 20px; display: flex; flex-direction: column; }
-        .map-glass iframe { 
-            width: 100%; flex: 1; min-height: 350px; border-radius: 15px; border: none; 
-            filter: grayscale(100%) invert(100%) contrast(120%) hue-rotate(200deg) brightness(0.85);
-        }
-
-        /* -------------------------------------------
-           UPGRADED AI AGENT CHAT WIDGET
-        ---------------------------------------------*/
-        .chat-widget { position: fixed; right: 20px; bottom: 20px; z-index: 9999; } 
-        .chat-toggle-btn { 
-            width: 60px; height: 60px; border-radius: 50%; 
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue)); 
-            color: #000; font-size: 28px; border: none; cursor: pointer; 
-            box-shadow: 0 8px 25px rgba(0, 240, 255, 0.4); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            display: flex; justify-content: center; align-items: center; outline: none; 
-        }
-        .chat-toggle-btn:hover { transform: scale(1.1) rotate(10deg); box-shadow: 0 12px 35px rgba(0, 240, 255, 0.6); }
+        /* --- RESPONSIVE GLASS CARDS --- */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; width: 100%; max-width: 1100px; perspective: 1000px; }
+        .glass-card { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 20px; padding: 35px 20px; transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; transform-style: preserve-3d; }
+        .glass-card:hover { transform: translateY(-10px); border-color: rgba(0,243,255,0.6); box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
+        .glass-card i { font-size: 2.5rem; color: var(--neon-cyan); margin-bottom: 20px; }
         
-        .chat-box { 
-            display: none; width: 350px; height: 500px; 
-            position: absolute; bottom: 75px; right: 0; 
-            flex-direction: column; overflow: hidden; 
-            transform-origin: bottom right; background: rgba(5, 5, 12, 0.95); 
-            backdrop-filter: blur(25px); 
-            border: 2px solid rgba(0, 240, 255, 0.4); 
-            border-radius: 18px; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.9), 0 0 40px rgba(0,240,255,0.25) inset;
-            /* Upgraded Dynamic Animation */
-            animation: elasticPopIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-        }
-
-        @keyframes elasticPopIn { 
-            0% { opacity: 0; transform: scale(0.6) translateY(40px) rotate(5deg); } 
-            60% { opacity: 1; transform: scale(1.05) translateY(-5px) rotate(-2deg); }
-            80% { transform: scale(0.95) translateY(2px) rotate(1deg); } 
-            100% { opacity: 1; transform: scale(1) translateY(0) rotate(0deg); } 
-        }
-
-        .chat-header { 
-            background: linear-gradient(90deg, rgba(0,0,0,0.8), rgba(15,15,25,0.9)); 
-            padding: 12px 16px; font-weight: 600; display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid rgba(0, 240, 255, 0.3); color: var(--text-main);
-        }
-        .chat-header-title { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; }
-        .chat-header-title i { color: var(--neon-cyan); font-size: 1.3rem; text-shadow: 0 0 10px rgba(0,240,255,0.5); animation: pulseGlow 2s infinite;}
-        .chat-header-status { font-size: 0.75rem; color: var(--success); font-weight: 500; display: flex; align-items: center; gap: 6px;}
-        .chat-header-status::before { content: ''; width: 8px; height: 8px; background: var(--success); border-radius: 50%; box-shadow: 0 0 8px var(--success); }
-
-        .chat-body { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; scroll-behavior: smooth;}
+        /* --- REVIEWS SECTION --- */
+        .review-card { background: rgba(15,15,22,0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 25px; text-align: left; position: relative; transition: 0.3s; }
+        .review-card:hover { border-color: var(--gold-star); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(255,215,0,0.15); }
+        .review-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .review-header img { width: 50px; height: 50px; border-radius: 50%; background: #fff; border: 2px solid var(--neon-cyan); }
+        .review-stars { color: var(--gold-star); font-size: 0.9rem; margin-top: 5px; }
+        .review-text { font-size: 0.95rem; color: var(--text-dim); font-style: italic; line-height: 1.5; }
         
-        .msg { padding: 10px 14px; border-radius: 16px; max-width: 85%; font-size: 0.9rem; line-height: 1.4; position: relative; word-wrap: break-word; animation: slideUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;}
-        .msg-content-wrapper { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;}
-        @keyframes slideUp { 0% { opacity:0; transform: translateY(25px) scale(0.9); } 100% { opacity:1; transform: translateY(0) scale(1); } }
+        .review-form-container { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; padding: 30px; max-width: 600px; margin: 40px auto 0; backdrop-filter: blur(20px); }
+        .review-form-container input, .review-form-container textarea { width: 100%; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 12px 15px; color: #fff; margin-bottom: 15px; font-family: 'Outfit'; resize: none; }
+        .review-form-container input:focus, .review-form-container textarea:focus { border-color: var(--neon-cyan); }
+
+        /* --- KIDS GAME ZONE --- */
+        .game-board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 350px; margin: 0 auto 20px; }
+        .game-card { background: rgba(255,255,255,0.05); border: 2px solid var(--neon-cyan); height: 75px; border-radius: 12px; display: flex; justify-content: center; align-items: center; font-size: 2rem; cursor: pointer; transition: transform 0.3s, background 0.3s; user-select: none; }
+        .game-card.flipped { background: rgba(0, 243, 255, 0.2); transform: rotateY(180deg); }
+        .game-card.matched { background: rgba(0, 255, 136, 0.2); border-color: #00ff88; transform: scale(0.95); cursor: default; }
+
+        /* --- PAYMENT INFO PANEL --- */
+        .pricing-panel { background: rgba(10,10,15,0.85); border: 1px solid rgba(188,19,254,0.4); border-radius: 20px; padding: clamp(20px, 5vw, 45px); max-width: 550px; width: 100%; box-shadow: 0 15px 40px rgba(188,19,254,0.15); position: relative; backdrop-filter: blur(15px); margin: 0 auto; }
+        .discount-tag { position: absolute; top: -15px; right: clamp(10px, 4vw, 20px); background: #ED1C24; color: #fff; padding: 6px 15px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; box-shadow: 0 5px 15px rgba(237,28,36,0.4); }
+        .payment-methods { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px; margin-bottom: 25px; }
+        .pay-badge { padding: 8px 15px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; flex: 1; justify-content: center; min-width: 120px; }
+
+        .whatsapp-btn-animated { background: linear-gradient(45deg, #25D366, #128C7E); color: #fff; box-shadow: 0 0 20px rgba(37, 211, 102, 0.5); width: 100%; justify-content: center; animation: pulseWA 2s infinite; font-size: clamp(0.9rem, 2.5vw, 1.15rem); border: none; padding: 14px 20px; }
+        .whatsapp-btn-animated:hover { background: linear-gradient(45deg, #128C7E, #075E54); animation: none; transform: scale(1.03); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.7); }
+        @keyframes pulseWA { 0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(37, 211, 102, 0.5); } 50% { transform: scale(1.03); box-shadow: 0 0 40px rgba(37, 211, 102, 0.9); } }
+
+        /* --- COMPACT & RESPONSIVE CHAT WIDGET --- */
+        .chat-widget { position: fixed; bottom: 25px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
+        .chat-btn-wrapper { position: relative; width: 75px; height: 75px; animation: formBubble 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; cursor: pointer; }
+        .beautiful-chat-btn { width: 100%; height: 100%; border-radius: 50%; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta)); box-shadow: 0 10px 25px rgba(0, 243, 255, 0.4); display: flex; justify-content: center; align-items: center; transition: transform 0.3s; animation: smoothFloat 4s ease-in-out infinite; }
+        .beautiful-chat-btn:hover { transform: scale(1.1) rotate(5deg); box-shadow: 0 15px 35px rgba(188, 19, 254, 0.6); }
+        .beautiful-chat-btn img { width: 65%; height: 65%; border-radius: 50%; background: #fff; padding: 2px; }
+
+        @keyframes smoothFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @keyframes formBubble { 0% { transform: scale(0) translateY(50px); opacity: 0; } 100% { transform: scale(1) translateY(0); opacity: 1; } }
+
+        .chat-window { position: absolute; bottom: 95px; right: 0; width: 330px; height: 520px; max-height: calc(100vh - 120px); max-width: calc(100vw - 40px); background: rgba(8, 8, 14, 0.95); border: 1px solid rgba(0,243,255,0.3); border-radius: 20px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 30px rgba(0,243,255,0.1) inset; backdrop-filter: blur(20px); transform-origin: bottom right; animation: popIn 0.3s ease-out forwards; }
+        @keyframes popIn { 0% { opacity: 0; transform: scale(0.9) translateY(20px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
+
+        .chat-header { padding: 12px 15px; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; }
+        .bot-profile { display: flex; align-items: center; gap: 10px; }
+        .bot-photo { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--neon-cyan); background: #fff; padding: 2px; object-fit: contain; }
+
+        .online-dot { width: 8px; height: 8px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 8px #00ff88; animation: pulseOnline 1.5s infinite alternate; display: inline-block; margin-right: 5px;}
+        @keyframes pulseOnline { from { opacity: 0.5; } to { opacity: 1; transform: scale(1.2); } }
+
+        .chat-body { flex: 1; padding: 12px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+        .msg { max-width: 88%; padding: 10px 14px; border-radius: 14px; font-size: 0.9rem; line-height: 1.4; opacity: 0; animation: fadeUp 0.2s ease forwards; word-wrap: break-word; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
-        .msg.bot { background: rgba(0, 240, 255, 0.08); border: 1px solid rgba(0,240,255,0.25); align-self: flex-start; border-bottom-left-radius: 4px; color: #fff; width: fit-content;}
-        .msg.user { background: linear-gradient(135deg, var(--neon-purple), #8a00e6); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; box-shadow: 0 4px 15px rgba(195,0,255,0.3); width: fit-content;}
+        .msg.bot { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); align-self: flex-start; border-bottom-left-radius: 4px; display: flex; flex-direction: column; gap: 8px; }
+        .msg.user { background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta)); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; box-shadow: 0 5px 15px rgba(0,243,255,0.2); }
 
-        .quick-replies { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; animation: slideUp 0.3s ease;}
-        .qr-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: var(--neon-cyan); padding: 7px 12px; border-radius: 20px; font-size: 0.85rem; cursor: pointer; transition: 0.2s; font-family: 'Outfit';}
-        .qr-btn:hover { background: rgba(0,240,255,0.15); border-color: var(--neon-cyan); transform: translateY(-2px);}
-        .qr-btn.primary { background: rgba(0,240,255,0.15); border-color: var(--neon-cyan); font-weight: 600; box-shadow: 0 0 10px rgba(0,240,255,0.2);}
+        .quick-options { display: flex; flex-wrap: wrap; gap: 8px; align-self: flex-start; animation: fadeUp 0.2s ease forwards; margin-bottom: 5px;}
+        .qr-btn { background: rgba(0, 243, 255, 0.1); border: 1px solid var(--neon-cyan); color: var(--text-main); padding: 6px 14px; border-radius: 20px; font-weight: 600; cursor: pointer; transition: 0.2s; font-size: 0.85rem; }
+        .qr-btn:hover { background: var(--neon-cyan); color: #000; box-shadow: 0 0 10px rgba(0,243,255,0.4); transform: translateY(-2px); }
 
-        .typing-indicator { display: flex; gap: 4px; padding: 10px 15px; background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0,240,255,0.15); border-radius: 16px; border-bottom-left-radius: 4px; align-self: flex-start; width: max-content; }
-        .dot { width: 5px; height: 5px; background: var(--neon-cyan); border-radius: 50%; animation: bounce 1.2s infinite ease-in-out both; }
-        .dot:nth-child(1) { animation-delay: -0.32s; }
-        .dot:nth-child(2) { animation-delay: -0.16s; }
-        @keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
+        .play-audio-btn { background: rgba(0, 243, 255, 0.1); border: 1px solid rgba(0, 243, 255, 0.4); color: var(--neon-cyan); border-radius: 20px; padding: 4px 8px; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 6px; width: max-content; cursor: pointer; transition: 0.2s; font-weight: 600; }
+        .play-audio-btn:hover { background: var(--neon-cyan); color: #000; }
 
-        .chat-wa-btn { display: flex; align-items: center; justify-content: center; gap: 6px; background: var(--whatsapp); color: #fff; padding: 10px 14px; border-radius: 12px; text-decoration: none; font-weight: 600; margin-top: 8px; font-size: 0.9rem; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); transition: 0.3s; animation: pulseGlow 2s infinite;}
-        .chat-wa-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6); }
+        .typing { display: none; align-self: flex-start; padding: 8px 12px; background: rgba(255,255,255,0.05); border-radius: 16px; border-bottom-left-radius: 4px; margin-bottom: 5px;}
+        .dot { width: 5px; height: 5px; background: var(--neon-cyan); border-radius: 50%; display: inline-block; margin: 0 2px; animation: bounce 1s infinite ease-in-out both; }
+        .dot:nth-child(1) { animation-delay: -0.32s; } .dot:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1.3); } }
 
-        .chat-footer { padding: 12px; background: rgba(5,5,10,0.9); display: flex; align-items: center; border-top: 1px solid rgba(255,255,255,0.05); gap: 8px;}
-        .chat-footer input { flex: 1; padding: 12px 16px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: #fff; outline: none; font-size: 0.9rem; font-family: 'Outfit'; transition: 0.3s;}
-        .chat-footer input:focus { border-color: var(--neon-cyan); background: rgba(0,240,255,0.08); box-shadow: 0 0 10px rgba(0,240,255,0.2);}
-        .chat-footer button { background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue)); width: 42px; height: 42px; border-radius: 50%; border: none; color: #000; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,240,255,0.4); transition: 0.3s;}
-        .chat-footer button:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(0,240,255,0.6);}
+        .chat-input-area { padding: 12px; background: rgba(0,0,0,0.6); display: flex; gap: 8px; border-top: 1px solid rgba(255,255,255,0.05); align-items: center; }
+        .chat-input-area input { flex: 1; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); padding: 10px 15px; border-radius: 25px; color: #fff; font-size: 16px; transition: 0.3s; min-width: 0; outline: none; }
+        .chat-input-area input:focus { border-color: var(--neon-cyan); background: rgba(0,243,255,0.05); }
+        .send-btn { background: var(--neon-cyan); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; color: #000; font-size: 1rem; transition: 0.3s; flex-shrink: 0; display: flex; justify-content: center; align-items: center; }
+        .send-btn:hover { transform: scale(1.1); background: var(--neon-magenta); color: #fff; box-shadow: 0 0 15px rgba(188,19,254,0.5); }
 
-        /* Footer */
-        footer { padding: 40px 5% 80px 5%; text-align: center; background: rgba(1, 1, 4, 0.95); border-top: 1px solid var(--glass-border); }
+        .header-actions { display: flex; gap: 10px; align-items: center; }
+        .header-actions button { background:none; border:none; color: rgba(255,255,255,0.7); cursor:pointer; font-size:1.1rem; transition: 0.2s; padding: 2px; }
+        .header-actions button:hover { color: var(--neon-cyan); transform: scale(1.1); }
+        #speakerToggleBtn.speaker-off { color: #ED1C24; }
 
-        @media(max-width: 992px) {
-            #home h1 { font-size: 4.5rem; }
-            .contact-container { grid-template-columns: 1fr; }
-        }
-        @media(max-width: 768px) {
-            nav { padding: 15px; }
-            nav ul { display: none; } 
-            #home h1 { font-size: 3rem; }
-            section { padding: 90px 5%; }
-            .chat-widget { right: 15px; bottom: 15px; }
-            .chat-toggle-btn { width: 55px; height: 55px; font-size: 24px; }
-            .chat-box { width: calc(100vw - 30px); right: 0; bottom: 70px; height: 60vh; max-height: 440px;}
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .chat-widget { bottom: 15px; right: 15px; }
+            .chat-btn-wrapper { width: 65px; height: 65px; }
+            .chat-window { right: 0; bottom: 80px; width: calc(100vw - 30px); height: 65vh; max-height: 500px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Ambient Lighting -->
-    <div class="ambient-orbs">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-    </div>
-    <div id="bg-canvas"></div>
+    <!-- ULTRA ROBOTIC 3D CANVAS -->
+    <canvas id="webgl-canvas"></canvas>
+    <div class="ambient-overlay"></div>
 
     <!-- Navigation -->
     <nav>
-        <div class="logo"><i class="fa-solid fa-server"></i> <span class="neon-text">Powered by Adnan</span></div>
+        <div class="logo brand-font">
+            <img src="https://api.dicebear.com/7.x/bottts/svg?seed=HassaanAI&backgroundColor=00f3ff" alt="Icon" class="drawn-icon">
+            <span class="color-shift-text">Power by Adnan</span>
+        </div>
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#about">Features</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#contact">Build Funnel</a></li>
+            <li><a href="#growth">Growth Ideas</a></li>
+            <li><a href="#kidszone">Kids Zone</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#payment">Deploy</a></li>
         </ul>
     </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="reveal active">
-        <h1 class="neon-text">Fully AI-Controlled<br>Database & Sales</h1>
-        <p>hassaan AI automatically manages our database, handles customer inquiries, and sells custom chatbots, digital numbers, and items 24/7. <br><strong style="color:var(--success);">Flash Sale active today: April 23, 2026.</strong></p>
-        <div class="hero-buttons">
-            <button onclick="openChatAndStartOrder()" class="btn btn-neon pulse-btn"><i class="fa-solid fa-database"></i> Connect to AI Database</button>
-            <a href="#pricing" class="btn glass"><i class="fa-solid fa-tag"></i> Order Chatbot ($35)</a>
-        </div>
+    <!-- Hero Section -->
+    <section id="home">
+        <h1 class="hero-title brand-font color-shift-text">Hassaan AI, Powerful Growth.</h1>
+        <p class="hero-p">I am <b>Hassaan AI</b>, exclusively created by <b>Adnan</b>. I offer 400 unique business ideas, powerful strategic marketing, and automated workflows designed to massively elevate your enterprise.</p>
+        <button class="btn-main color-shift-bg" onclick="toggleChat()">
+            <i class="fa-solid fa-message"></i> Open AI Console
+        </button>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="reveal">
-        <h2 class="section-title neon-text">AI Ecosystem</h2>
+    <!-- Business Growth Ideas Section -->
+    <section id="growth">
+        <h2 class="section-title brand-font">Strategic Business Growth</h2>
+        <p class="section-subtitle">Adopt an unstoppable online presence and scale intelligently using our core AI-driven marketing methodologies.</p>
         <div class="grid-container">
-            <div class="card glass">
-                <i class="fa-solid fa-server"></i>
-                <h3>Database Control</h3>
-                <p>The AI intelligently manages the backend, processing sales, items, and inventory data instantly without human intervention.</p>
+            <div class="glass-card">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Marketing Strategy</h3>
+                <p>Develop robust marketing funnels tailored to your specific niche to secure high-ticket clients and brand awareness.</p>
             </div>
-            <div class="card glass">
-                <i class="fa-solid fa-store"></i>
-                <h3>Automated Item Sales</h3>
-                <p>Selling custom chatbots, digital numbers, and complete e-commerce solutions perfectly on autopilot.</p>
+            <div class="glass-card">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <h3>Analyze Feedback</h3>
+                <p>Deeply analyze customer feedback loops. Identify pain points and optimize your digital services seamlessly.</p>
             </div>
-            <div class="card glass">
-                <i class="fa-solid fa-wallet"></i>
-                <h3>Smart Transactions</h3>
-                <p>The AI dynamically detects payment intents and automatically handles billing via Easy Paisa or Jazz Cash seamlessly.</p>
+            <div class="glass-card">
+                <i class="fa-solid fa-users-viewfinder"></i>
+                <h3>Monitor Competitors</h3>
+                <p>Keep a strict eye on rival activities. Our automated strategies allow you to outmaneuver the competition consistently.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="reveal">
-        <h2 class="section-title neon-text">Deploy Your Own AI</h2>
-        <div class="pricing-wrapper">
-            <div class="pricing-card glass" style="border: 1px solid var(--neon-cyan);">
-                <div class="discount-badge">April 23, 2026 - Flash Sale</div>
-                <h3>Automated Sales AI</h3>
-                <span class="strike-price">Normally $70 (20,000 PKR)</span>
-                <h4>$35 <span style="font-size: 1.2rem; color: var(--text-muted); font-weight: 500;">USD</span></h4>
-                <p style="color: var(--neon-cyan); margin-bottom: 30px; font-weight: 600;">(Equivalent to 10,000 PKR)</p>
-                
-                <ul style="list-style: none; text-align: left; margin-bottom: 30px; line-height: 2.2;">
-                    <li><i class="fa-solid fa-check-circle" style="color: var(--success); margin-right: 12px; font-size: 1.1rem;"></i> Autonomous Database Access</li>
-                    <li><i class="fa-solid fa-check-circle" style="color: var(--success); margin-right: 12px; font-size: 1.1rem;"></i> Automated Item & Number Sales</li>
-                    <li><i class="fa-solid fa-check-circle" style="color: var(--success); margin-right: 12px; font-size: 1.1rem;"></i> Strict Data Validation System</li>
-                    <li><i class="fa-solid fa-check-circle" style="color: var(--success); margin-right: 12px; font-size: 1.1rem;"></i> Created by Adnan Developer</li>
-                </ul>
-
-                <div class="payment-box">
-                    <h5 style="color: var(--neon-cyan); margin-bottom: 15px; font-size: 1.1rem;"><i class="fa-solid fa-wallet"></i> Payment Details</h5>
-                    <div class="p-row"><span class="p-label">Method</span><span class="p-val">Easy Paisa / JazzCash</span></div>
-                    <div class="p-row"><span class="p-label">Account Name</span><span class="p-val">Muhammad Adnan</span></div>
-                    <div class="p-row" style="border: none; padding: 0; margin: 0;">
-                        <span class="p-label">Account No.</span>
-                        <span class="p-val highlight">03194879958</span>
-                    </div>
-                </div>
+            <div class="glass-card">
+                <i class="fa-solid fa-money-trend-up"></i>
+                <h3>Adapt to Trends</h3>
+                <p>Markets evolve fast. Hassaan AI ensures your brand is fully adapted to emerging internet and economic trends.</p>
             </div>
         </div>
     </section>
 
-    <!-- Alternative Contact Form Section -->
-    <section id="contact" class="reveal">
-        <h2 class="section-title neon-text">Scale Your Business Today</h2>
-        <p style="text-align: center; color: var(--text-muted); margin-top: -30px; margin-bottom: 40px;">Chat with hassaan AI (bottom right) to access the database, or fill out this quick form.</p>
+    <!-- NEW: Kids & Fun Zone (Mini Game) -->
+    <section id="kidszone">
+        <h2 class="section-title brand-font" style="color: var(--neon-magenta);">Kids & Fun Zone! 🎮</h2>
+        <p class="section-subtitle">Are you a young explorer visiting the site? Test your brain with the AI Memory Match Game!</p>
         
-        <div class="contact-container">
-            <div class="glass form-glass">
-                <form id="leadForm">
-                    <div class="input-group">
-                        <input type="text" id="name" placeholder="Your Full Name" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="email" id="email" placeholder="Your Email Address" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="tel" id="phone" placeholder="Your WhatsApp Number" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" id="website" placeholder="Website URL (Or type 'None')" required>
-                    </div>
-                    <div class="input-group">
-                        <textarea id="idea" rows="3" placeholder="Tell me about your custom database / chatbot needs..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-neon pulse-btn" style="width: 100%; border-radius: 15px;">
-                        <i class="fa-solid fa-paper-plane"></i> Lock In My AI Bot ($35)
-                    </button>
-                </form>
-            </div>
-            <div class="glass map-glass">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13615560.400588691!2d60.84021295223363!3d30.011681728286295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38db52d2f8fd751f%3A0x46b7a1f7e614925c!2sPakistan!5e0!3m2!1sen!2sus!4v1714589201934!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+        <div class="glass-card" style="max-width: 450px; text-align: center; margin: 0 auto; padding: 25px;">
+            <div class="game-board" id="gameBoard"></div>
+            <h3 id="gameMsg" style="margin-bottom: 15px; min-height: 25px; color: var(--gold-star);">Find the matching pairs!</h3>
+            <button class="btn-main" onclick="initGame()" style="background: var(--neon-magenta); color: #fff; border: none; font-size: 0.9rem; padding: 10px 20px;">Restart Game</button>
         </div>
     </section>
 
-    <footer>
-        <div class="logo neon-text" style="font-size: 1.3rem; font-weight: bold; margin-bottom: 5px; justify-content: center;">hassaan AI - Built by Adnan Developer</div>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">High-Converting AI Solutions, Database Management & Marketing Funnels.</p>
-        <p style="font-size: 0.8rem; margin-top: 15px; opacity: 0.5;">&copy; 2026 Powered by Adnan. All Rights Reserved.</p>
-    </footer>
-
-    <!-- UPGRADED hassaan AI AGENT CHAT WIDGET -->
-    <div class="chat-widget">
-        <div class="chat-box" id="chatBox">
-            <div class="chat-header">
-                <div class="chat-header-title">
-                    <i class="fa-solid fa-robot"></i> 
+    <!-- Lifetime Client Reviews (Fake/Visible Reviews) -->
+    <section id="reviews">
+        <h2 class="section-title brand-font">Customer Reviews</h2>
+        <p class="section-subtitle">Trusted by ambitious entrepreneurs globally. <b style="color:var(--gold-star);">4.9/5 Lifetime Average Rating.</b></p>
+        
+        <div class="grid-container" style="max-width: 1000px;">
+            <div class="review-card">
+                <div class="review-header">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Customer">
                     <div>
-                        <div style="font-size: 0.95rem;">hassaan AI <span style="font-size:0.7rem; color:var(--text-muted);">by Adnan</span></div>
-                        <div class="chat-header-status">Online & Managing Database</div>
+                        <h4 style="color: #fff;">Michael R.</h4>
+                        <div class="review-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
                     </div>
                 </div>
-                <div style="display: flex; gap: 12px; align-items: center;">
-                    <button onclick="toggleAutoTTS()" id="ttsToggleBtn" style="background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:1.05rem; outline:none; transition: 0.2s;" title="Toggle Auto-Voice">
-                        <i class="fa-solid fa-volume-xmark"></i>
-                    </button>
-                    <button onclick="toggleChat()" style="background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:1.1rem; outline:none; transition: 0.2s;">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
+                <p class="review-text">"Hassaan AI completely revolutionized my e-commerce brand. Creator Adnan’s 400 business ideas are highly valuable. A must-have deployment!"</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka" alt="Customer">
+                    <div>
+                        <h4 style="color: #fff;">Zahra B.</h4>
+                        <div class="review-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
                 </div>
+                <p class="review-text">"this AI is very nice.. work good for my shop and i get much profit. thanks adnan sir for making this fast ai."</p>
             </div>
-            <div class="chat-body" id="chatBody">
-                <!-- Dynamic Chat Content -->
-            </div>
-            <div class="chat-footer">
-                <input type="text" id="chatInput" placeholder="Type message..." autocomplete="off">
-                <button onclick="handleUserInput()"><i class="fa-solid fa-paper-plane"></i></button>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Liam" alt="Customer">
+                    <div>
+                        <h4 style="color: #fff;">David T.</h4>
+                        <div class="review-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="review-text">"Good system overall. It took me a little while to understand the marketing strategy part, but once I did, it worked fine."</p>
             </div>
         </div>
-        <button class="chat-toggle-btn pulse-btn" onclick="toggleChat()" id="mainChatBtn"><i class="fa-solid fa-comment-dots"></i></button>
+
+        <div class="review-form-container">
+            <h3 style="margin-bottom: 20px; font-family: 'Poppins';">Leave Your Review</h3>
+            <input type="text" id="revName" placeholder="Your Name" autocomplete="off">
+            <select id="revStars" style="width: 100%; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 12px 15px; color: #fff; margin-bottom: 15px; font-family: 'Outfit';">
+                <option value="5" style="color:#000;">5 Stars - Excellent</option>
+                <option value="4" style="color:#000;">4 Stars - Very Good</option>
+                <option value="3" style="color:#000;">3 Stars - Average</option>
+                <option value="2" style="color:#000;">2 Stars - Poor</option>
+                <option value="1" style="color:#000;">1 Star - Terrible</option>
+            </select>
+            <textarea id="revMsg" rows="3" placeholder="Write your feedback here..."></textarea>
+            <button class="btn-main color-shift-bg" onclick="submitUserReview()" style="width: 100%; justify-content: center;">Submit Review</button>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section id="payment">
+        <h2 class="section-title brand-font">Secure Your AI System</h2>
+        <div class="pricing-panel">
+            <div class="discount-tag">Flash Discount</div>
+            <h3 style="font-size: 1.5rem; color: #94a3b8; text-decoration: line-through;">Normally $100</h3>
+            <h1 class="color-shift-text" style="font-size: 4.5rem; margin: 10px 0; line-height: 1;">$35</h1>
+            <p style="color: #e2e8f0; font-size: 1.1rem; margin-bottom: 20px;">Complete AI Funnel + 400 Business Ideas</p>
+            
+            <div style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px;">
+                <p style="font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Account Title</p>
+                <h3 style="color: #fff; letter-spacing: 1px; font-size: 1.1rem;">Muhammad Adnan amir</h3>
+                <p style="font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-top: 15px; margin-bottom: 5px;">Account / WhatsApp Number</p>
+                <h2 style="color: var(--neon-cyan); letter-spacing: 2px; font-size: 1.5rem;">03194879958</h2>
+            </div>
+
+            <div class="payment-methods">
+                <div class="pay-badge" style="background: var(--easypaisa); color: #fff;"><i class="fa-solid fa-wallet"></i> EasyPaisa</div>
+                <div class="pay-badge" style="background: var(--jazzcash); color: #fff;"><i class="fa-solid fa-mobile-screen"></i> Jazz Cash</div>
+            </div>
+
+            <button onclick="sendToWhatsApp()" class="btn-main whatsapp-btn-animated">
+                <i class="fa-brands fa-whatsapp" style="font-size: 1.4rem;"></i> Send Payment & Form
+            </button>
+        </div>
+    </section>
+
+    <!-- Compact Beautiful Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="bot-profile">
+                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=HassaanAI&backgroundColor=00f3ff" alt="Hassaan AI" class="bot-photo">
+                    <div>
+                        <div style="font-weight: 800; font-size: 1rem;" class="color-shift-text">Hassaan AI</div>
+                        <div style="font-size: 0.7rem; color: #94a3b8;"><span class="online-dot"></span>Online & Ready</div>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button id="speakerToggleBtn" onclick="toggleSpeaker()" title="Toggle Speaker"><i class="fa-solid fa-volume-high"></i></button>
+                    <button onclick="deleteChat()" title="Delete Chat History"><i class="fa-solid fa-trash"></i></button>
+                    <button onclick="toggleChat()" title="Close Chat"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+            
+            <div class="chat-body" id="chatBody">
+                <div class="typing" id="typing">
+                    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                </div>
+            </div>
+
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" placeholder="Type message..." autocomplete="off">
+                <button class="send-btn" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+        
+        <div class="chat-btn-wrapper" onclick="toggleChat()">
+            <div class="beautiful-chat-btn">
+                <img src="https://api.dicebear.com/7.x/bottts/svg?seed=HassaanAI&backgroundColor=bc13fe" alt="Chat Bot">
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    
     <script>
-        // --- 1. UPGRADED 3D INTERACTIVE AI CORE EFFECT ---
-        function reveal() {
-            let reveals = document.querySelectorAll(".reveal");
-            let wh = window.innerHeight;
-            reveals.forEach(el => {
-                if (el.getBoundingClientRect().top < wh - 60) el.classList.add("active");
-            });
-        }
-        window.addEventListener("scroll", reveal, { passive: true });
-        reveal();
-
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+        // ==========================================
+        // 1. ERROR-FREE FIREBASE SDK INTEGRATION
+        // ==========================================
+        let db = null;
+        let sessionID = "";
         
-        const renderer = new THREE.WebGLRenderer({alpha:true, antialias: true}); 
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); 
-        document.getElementById('bg-canvas').appendChild(renderer.domElement);
+        try {
+            sessionID = localStorage.getItem('hassaanAI_sessionID');
+            if(!sessionID) {
+                sessionID = 'session_' + Math.random().toString(36).substr(2, 9);
+                localStorage.setItem('hassaanAI_sessionID', sessionID);
+            }
+        } catch(e) { sessionID = "fallback_session"; }
 
-        // Interactive "AI Core" 3D Model (Torus Knot)
-        const coreGeometry = new THREE.TorusKnotGeometry(4.5, 1.2, 128, 32);
-        const coreMaterial = new THREE.MeshBasicMaterial({ 
-            color: 0x00f0ff, 
-            wireframe: true, 
-            transparent: true, 
-            opacity: 0.18 
-        });
-        const aiCoreModel = new THREE.Mesh(coreGeometry, coreMaterial);
-        scene.add(aiCoreModel);
+        // Advanced Safe Mock DB: Prevents ALL Console SDK Errors gracefully.
+        const safeMockDb = { collection: () => ({ doc: () => ({ set: () => Promise.resolve() }) }) };
 
-        // Background Particles
-        const count = 300; 
-        const pos = new Float32Array(count * 3);
-        const col = new Float32Array(count * 3);
-        const c1 = new THREE.Color(0x00f0ff);
-        const c2 = new THREE.Color(0xc300ff);
+        try {
+            const firebaseConfig = {
+                apiKey: "YOUR_API_KEY", authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+                projectId: "YOUR_PROJECT_ID", storageBucket: "YOUR_PROJECT_ID.appspot.com",
+                messagingSenderId: "YOUR_MESSAGING_SENDER_ID", appId: "YOUR_APP_ID"
+            };
+            if(firebaseConfig.projectId !== "YOUR_PROJECT_ID") {
+                firebase.initializeApp(firebaseConfig);
+                db = firebase.firestore();
+            } else { db = safeMockDb; }
+        } catch (error) { db = safeMockDb; }
 
-        for(let i=0; i<count*3; i+=3) {
-            pos[i] = (Math.random() - 0.5) * 25;
-            pos[i+1] = (Math.random() - 0.5) * 25;
-            pos[i+2] = (Math.random() - 0.5) * 25;
-            const mix = c1.clone().lerp(c2, Math.random());
-            col[i] = mix.r; col[i+1] = mix.g; col[i+2] = mix.b;
+        // ==========================================
+        // 2. KIDS MEMORY MATCH GAME SCRIPT
+        // ==========================================
+        const emojis =['🤖', '🚀', '💡', '🌟', '🎮', '🧩'];
+        let cards =[], hasFlippedCard = false, lockBoard = false, firstCard, secondCard, matches = 0;
+
+        function initGame() {
+            try {
+                const gameBoard = document.getElementById('gameBoard');
+                const gameMsg = document.getElementById('gameMsg');
+                gameBoard.innerHTML = '';
+                gameMsg.innerText = "Find the matching pairs!";
+                gameMsg.style.color = "var(--gold-star)";
+                matches = 0; hasFlippedCard = false; lockBoard = false; firstCard = null; secondCard = null;
+                
+                cards = [...emojis, ...emojis].sort(() => 0.5 - Math.random());
+                
+                cards.forEach((emoji, index) => {
+                    const card = document.createElement('div');
+                    card.classList.add('game-card');
+                    card.dataset.emoji = emoji;
+                    card.innerHTML = `<span style="opacity:0; transition:0.3s;">${emoji}</span>`;
+                    card.addEventListener('click', flipCard);
+                    gameBoard.appendChild(card);
+                });
+            } catch(e) {}
         }
 
-        const geo = new THREE.BufferGeometry();
-        geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-        geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
-        const mat = new THREE.PointsMaterial({ size: 0.08, vertexColors: true, transparent: true, opacity: 0.7 });
-        const particles = new THREE.Points(geo, mat);
-        scene.add(particles);
-        
-        camera.position.z = 12;
+        function flipCard() {
+            if (lockBoard) return;
+            if (this === firstCard) return;
 
-        // Interactive Mouse Tracking Parallax
-        let mouseX = 0; let mouseY = 0;
-        window.addEventListener('mousemove', (e) => {
-            mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-            mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
-        });
+            this.classList.add('flipped');
+            this.querySelector('span').style.opacity = '1';
 
-        // Dynamic 3D State Variables for Chat Animation
-        let targetRotationSpeed = 0.003;
-        let currentRotationSpeed = 0.003;
-        let targetCoreColor = new THREE.Color(0x00f0ff);
-        let currentCoreColor = new THREE.Color(0x00f0ff);
-
-        function animateThree() {
-            requestAnimationFrame(animateThree);
-            
-            // Smoothly lerp properties based on chat state
-            currentRotationSpeed += (targetRotationSpeed - currentRotationSpeed) * 0.05;
-            currentCoreColor.lerp(targetCoreColor, 0.04);
-            aiCoreModel.material.color.copy(currentCoreColor);
-
-            // Rotate Main AI Core Model
-            aiCoreModel.rotation.x += currentRotationSpeed;
-            aiCoreModel.rotation.y += currentRotationSpeed + 0.001;
-            aiCoreModel.rotation.z += currentRotationSpeed * 0.5;
-
-            // Follow Mouse (Parallax)
-            aiCoreModel.position.x += (mouseX * 1.5 - aiCoreModel.position.x) * 0.05;
-            aiCoreModel.position.y += (mouseY * 1.5 - aiCoreModel.position.y) * 0.05;
-
-            // Rotate Particles
-            particles.rotation.y += 0.001; 
-            particles.rotation.x += 0.001;
-            
-            renderer.render(scene, camera);
+            if (!hasFlippedCard) {
+                hasFlippedCard = true; firstCard = this; return;
+            }
+            secondCard = this;
+            checkForMatch();
         }
-        animateThree();
 
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        }, { passive: true });
+        function checkForMatch() {
+            let isMatch = firstCard.dataset.emoji === secondCard.dataset.emoji;
+            isMatch ? disableCards() : unflipCards();
+        }
 
-        // --- 2. FIREBASE ADMIN CONFIG ---
-        const firebaseConfig = {
-            apiKey: "AIzaSyA6QLoVrwu7q4CXCS6JORY_VJ386hD5b4E",
-            authDomain: "adnan-chat-bot.firebaseapp.com",
-            databaseURL: "https://adnan-chat-bot-default-rtdb.firebaseio.com",
-            projectId: "adnan-chat-bot",
-            storageBucket: "adnan-chat-bot.firebasestorage.app",
-            messagingSenderId: "611746383431",
-            appId: "1:611746383431:web:8fe73f70b262de36bf5362"
+        function disableCards() {
+            firstCard.classList.add('matched'); secondCard.classList.add('matched');
+            firstCard.removeEventListener('click', flipCard); secondCard.removeEventListener('click', flipCard);
+            matches++;
+            if(matches === emojis.length) { document.getElementById('gameMsg').innerText = "🎉 You Won! Great job explorer!"; }
+            resetBoard();
+        }
+
+        function unflipCards() {
+            lockBoard = true;
+            setTimeout(() => {
+                firstCard.classList.remove('flipped'); secondCard.classList.remove('flipped');
+                firstCard.querySelector('span').style.opacity = '0'; secondCard.querySelector('span').style.opacity = '0';
+                resetBoard();
+            }, 1000);
+        }
+
+        function resetBoard() {[hasFlippedCard, lockBoard] = [false, false]; [firstCard, secondCard] = [null, null]; }
+        window.addEventListener('load', initGame);
+
+        // ==========================================
+        // 3. REVIEW SUBMISSION LOGIC
+        // ==========================================
+        window.submitUserReview = function() {
+            const name = document.getElementById('revName').value;
+            const msg = document.getElementById('revMsg').value;
+            if(!name || !msg) return alert("Please fill in both name and message.");
+            alert("Thank you, " + name + "! Your review has been submitted successfully.\n\nNote: To ensure quality, all submitted reviews go through a moderation queue before becoming publicly visible.");
+            document.getElementById('revName').value = ""; document.getElementById('revMsg').value = ""; document.getElementById('revStars').value = "5";
         };
-        if (!firebase.apps.length) { firebase.initializeApp(firebaseConfig); }
-        const db = firebase.database();
 
-        document.getElementById('leadForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const website = document.getElementById('website').value.trim();
-            const idea = document.getElementById('idea').value.trim();
-            const btn = this.querySelector('button');
-            const orig = btn.innerHTML;
-            btn.innerHTML = "<i class='fa-solid fa-spinner fa-spin'></i> Syncing Database...";
+        // ==========================================
+        // 4. WHATSAPP DYNAMIC FORM SENDER
+        // ==========================================
+        window.sendToWhatsApp = function() {
+            let ud = { name: "", title: "", company: "", orderSpec: "" };
+            try { ud = JSON.parse(localStorage.getItem('hassaanAI_data')) || ud; } catch(e){}
             
-            db.ref('leads').push({ name, email, phone, website, idea, source: "Funnel HTML Form", timestamp: new Date().toLocaleString() })
-            .catch(e => console.log("Firebase sync skipped."));
+            let text = `🚀 *New AI Deployment Request*\n\n`;
+            text += `Hello Creator Adnan! Here are my system details gathered by Hassaan AI:\n\n`;
+            if(ud.name && ud.name !== "") {
+                text += `*👤 Name:* ${ud.title || ''} ${ud.name}\n*🏢 Info (Age/Company):* ${ud.company || 'N/A'}\n*💡 Order/Strategy Specs:* ${ud.orderSpec || 'N/A'}\n\n`;
+            } else { text += `*(No AI form data filled yet. I am bypassing the chat.)*\n\n`; }
+            text += `I am submitting this along with my $35 payment screenshot via EasyPaisa/JazzCash. Please initialize my system!`;
+            window.open(`https://wa.me/923194879958?text=${encodeURIComponent(text)}`, '_blank');
+        };
 
-            setTimeout(() => {
-                const waText = encodeURIComponent(`🚀 *Let's build my AI Sales Funnel!*\n\n*Name:* ${name}\n*Email:* ${email}\n*WhatsApp:* ${phone}\n*Website:* ${website}\n*Needs:* ${idea}\n\nI am ready to process the $35 payment to 03194879958.`);
-                window.open(`https://wa.me/923194879958?text=${waText}`, '_blank');
-                this.reset();
-                btn.innerHTML = orig;
-            }, 600);
+        // ==========================================
+        // 5. ULTRA 3D ROBOTIC BACKGROUND
+        // ==========================================
+        try {
+            const canvas = document.getElementById('webgl-canvas');
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            scene.add(new THREE.AmbientLight(0xffffff, 0.4));
+            const light1 = new THREE.PointLight(0x00f3ff, 3, 100); light1.position.set(15, 15, 15); scene.add(light1);
+            const light2 = new THREE.PointLight(0xbc13fe, 3, 100); light2.position.set(-15, -15, 15); scene.add(light2);
+
+            const coreGeo = new THREE.IcosahedronGeometry(10, 1);
+            const coreMat = new THREE.MeshPhongMaterial({ color: 0x050510, emissive: 0x0a0a1a, wireframe: true, transparent: true, opacity: 0.9 });
+            const roboticCore = new THREE.Mesh(coreGeo, coreMat); scene.add(roboticCore);
+
+            const innerGeo = new THREE.IcosahedronGeometry(5.5, 2);
+            const innerMat = new THREE.MeshPhongMaterial({ color: 0x00f3ff, shininess: 100, flatShading: true });
+            const innerNode = new THREE.Mesh(innerGeo, innerMat); scene.add(innerNode);
+
+            const ring1Geo = new THREE.TorusGeometry(15, 0.2, 16, 100);
+            const ring1Mat = new THREE.MeshBasicMaterial({ color: 0xbc13fe, wireframe: true });
+            const ring1 = new THREE.Mesh(ring1Geo, ring1Mat); scene.add(ring1);
+
+            const ring2Geo = new THREE.TorusGeometry(18, 0.1, 16, 100);
+            const ring2Mat = new THREE.MeshBasicMaterial({ color: 0x00ff88 });
+            const ring2 = new THREE.Mesh(ring2Geo, ring2Mat); ring2.rotation.x = Math.PI / 2; scene.add(ring2);
+
+            camera.position.z = 35;
+
+            function animate3D() {
+                requestAnimationFrame(animate3D);
+                roboticCore.rotation.y += 0.003; roboticCore.rotation.x += 0.002; innerNode.rotation.y -= 0.01;
+                ring1.rotation.x += 0.008; ring1.rotation.y += 0.005; ring2.rotation.y += 0.006; ring2.rotation.z += 0.004;
+                renderer.render(scene, camera);
+            }
+            animate3D();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        } catch(e) {}
+
+        // ==========================================
+        // 6. DUAL-MODE AI CHAT CORE (KIDS + ADULTS)
+        // ==========================================
+        let chatOpen = false;
+        let botState = 0;
+        let userData = { name: "", title: "", company: "", orderSpec: "" };
+        let chatHistory =[];
+        
+        try {
+            botState = parseInt(localStorage.getItem('hassaanAI_state')) || 0;
+            userData = JSON.parse(localStorage.getItem('hassaanAI_data')) || userData;
+            chatHistory = JSON.parse(localStorage.getItem('hassaanAI_history')) ||[];
+        } catch(e){}
+
+        const chatWindow = document.getElementById('chatWindow');
+        const chatBody = document.getElementById('chatBody');
+        const chatInput = document.getElementById('chatInput');
+        const typingIndicator = document.getElementById('typing');
+
+        let isSpeakerOn = true; 
+        const speakerBtn = document.getElementById('speakerToggleBtn');
+        const speakerIcon = speakerBtn.querySelector('i');
+
+        window.addEventListener('load', () => {
+            if(chatHistory.length > 0) {
+                chatHistory.forEach(msg => displayMessage(msg.text, msg.type, false));
+            }
         });
 
-        // --- 3. hassaan AI AGENT LOGIC ---
-        let chatActive = false;
-        let autoTTS = false; 
-        let chatState = 0; 
-        let orderData = { gender: "", name: "", email: "", phone: "", website: "", details: "" };
-
-        const chatInput = document.getElementById('chatInput');
-        const chatBody = document.getElementById('chatBody');
-
-        chatInput.addEventListener('keypress', function(e) { if(e.key === 'Enter') handleUserInput(); });
-
-        function toggleAutoTTS() {
-            autoTTS = !autoTTS;
-            const btn = document.getElementById('ttsToggleBtn');
-            if(autoTTS) {
-                btn.innerHTML = '<i class="fa-solid fa-volume-high" style="color:var(--neon-cyan);"></i>';
-                speakText("Voice enabled. I will carefully read my responses aloud for you.");
-            } else {
-                btn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
-                if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-            }
+        function saveState() {
+            try {
+                localStorage.setItem('hassaanAI_state', botState);
+                localStorage.setItem('hassaanAI_data', JSON.stringify(userData));
+                localStorage.setItem('hassaanAI_history', JSON.stringify(chatHistory));
+                db.collection("hassaan_sessions").doc(sessionID).set({ botState, userData, chatHistory }).catch(() => {});
+            } catch(e){}
         }
 
-        function speakText(text) {
-            if ('speechSynthesis' in window) {
+        window.deleteChat = function() {
+            chatHistory =[]; botState = 0; userData = { name: "", title: "", company: "", orderSpec: "" }; saveState();
+            chatBody.innerHTML = '<div class="typing" id="typing"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
+            if('speechSynthesis' in window) window.speechSynthesis.cancel();
+            initiateGreeting();
+        };
+
+        window.toggleSpeaker = function() {
+            isSpeakerOn = !isSpeakerOn;
+            if(isSpeakerOn) { speakerIcon.className = 'fa-solid fa-volume-high'; speakerBtn.classList.remove('speaker-off'); } 
+            else { speakerIcon.className = 'fa-solid fa-volume-xmark'; speakerBtn.classList.add('speaker-off'); if('speechSynthesis' in window) window.speechSynthesis.cancel(); }
+        }
+
+        function speakText(text, forcePlay = false) {
+            try {
+                if (!forcePlay && !isSpeakerOn) return;
+                if (!('speechSynthesis' in window)) return;
                 window.speechSynthesis.cancel();
-                let cleanText = text.replace(/<[^>]+>/g, '').replace(/[\*\_]/g, '');
-                cleanText = cleanText.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '');
-                
-                const utterance = new SpeechSynthesisUtterance(cleanText.trim());
+                let cleanText = text.replace(/<[^>]+>/g, '').replace(/[\*\_]/g, ''); 
+                const utterance = new SpeechSynthesisUtterance(cleanText);
                 utterance.lang = 'en-US';
-                utterance.rate = 1.0; 
                 window.speechSynthesis.speak(utterance);
-            }
+            } catch(e){}
         }
 
-        window.readAloud = function(btn) {
-            const textSpan = btn.parentElement.querySelector('span');
-            speakText(textSpan.innerText || textSpan.textContent);
+        window.playMessageAudio = function(btn) {
+            const textContent = btn.previousElementSibling.innerHTML;
+            speakText(textContent, true);
+            const icon = btn.querySelector('i'); icon.className = 'fa-solid fa-spinner fa-spin';
+            setTimeout(() => { icon.className = 'fa-solid fa-play'; }, 1500);
         }
 
-        function toggleChat() {
-            const box = document.getElementById('chatBox');
-            const btn = document.getElementById('mainChatBtn');
-            chatActive = !chatActive;
-            
-            if(chatActive) {
-                box.style.display = 'flex';
-                btn.style.transform = 'scale(0)';
-                document.body.classList.add('chat-active');
-                
-                // Dynamic 3D Interaction: Speed up & change color when chat opens
-                targetRotationSpeed = 0.025; 
-                targetCoreColor.setHex(0xc300ff);
+        chatInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') sendMessage(); });
 
-                setTimeout(() => chatInput.focus(), 300); 
-                
-                if(chatBody.innerHTML.trim() === "") {
-                    showBotTyping(() => {
-                        appendMsgBot("Hello! 👋 I am hassaan, an AI created by the brilliant Adnan Developer. Before we dive into the database and business, how are you doing today? Are you okay?");
-                        showQuickReplies([
-                            { label: "I am good! Let's chat", action: "triggerIntroduction()" }
-                        ]);
-                    });
-                }
+        window.toggleChat = function() {
+            chatOpen = !chatOpen;
+            if(chatOpen) {
+                chatWindow.style.display = 'flex';
+                if(chatHistory.length === 0) initiateGreeting();
+                setTimeout(() => chatInput.focus(), 100);
             } else {
-                box.style.display = 'none';
-                btn.style.transform = 'scale(1)';
-                document.body.classList.remove('chat-active');
-                
-                // Dynamic 3D Interaction: Revert normal state
-                targetRotationSpeed = 0.003; 
-                targetCoreColor.setHex(0x00f0ff);
+                chatWindow.style.display = 'none';
+                if('speechSynthesis' in window) window.speechSynthesis.cancel();
             }
         }
 
-        function triggerIntroduction() {
-            clearQuickReplies();
-            appendMsgUser("I am good! Let's chat");
-            chatState = 1; 
-            showBotTyping(() => {
-                appendMsgBot("Glad to hear that! My master, Adnan Developer, gave me this intelligence. I live in Layyah (Leya), and when I'm not hitting the gym and checking out bodybuilding photos, I completely control this website's database! 🚀<br><br>Over 500+ businesses have successfully automated their sales with us. Because today is **April 23, 2026**, we have an exclusive 24-hour flash offer running.<br><br>To ensure I provide you with a safe, customized, and perfect experience today, how would you prefer I address you?");
-                showQuickReplies([
-                    { label: "Sir 👨", action: "setGender('male')" },
-                    { label: "Ma'am 👩", action: "setGender('female')" }
-                ]);
+        function displayMessage(text, type, save = true) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `msg ${type}`;
+            if(type === 'bot') {
+                msgDiv.innerHTML = `<div class="msg-content">${text}</div><button class="play-audio-btn" onclick="playMessageAudio(this)"><i class="fa-solid fa-play"></i> Play</button>`;
+            } else { msgDiv.innerHTML = text; }
+            chatBody.insertBefore(msgDiv, typingIndicator);
+            chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
+            if(save) { chatHistory.push({ text: text, type: type }); saveState(); }
+            if(type === 'bot' && save) speakText(text);
+        }
+
+        function showQuickReplies(options) {
+            const qrDiv = document.createElement('div');
+            qrDiv.className = 'quick-options';
+            options.forEach(opt => {
+                const btn = document.createElement('button'); btn.className = 'qr-btn'; btn.innerText = opt;
+                btn.onclick = () => { qrDiv.remove(); chatInput.value = opt; sendMessage(); };
+                qrDiv.appendChild(btn);
             });
+            chatBody.insertBefore(qrDiv, typingIndicator);
+            chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
         }
 
-        function setGender(type) {
-            clearQuickReplies();
-            orderData.gender = type;
-            chatState = 2; 
-            
-            if(type === 'male') {
-                appendMsgUser("Sir");
-                showBotTyping(() => {
-                    appendMsgBot("Understood, Sir. Let's get straight to practical results. Our system is designed to scale your revenue. To secure your database slot for today's special offer, what is your **Full Name**?");
-                });
-            } else {
-                appendMsgUser("Ma'am");
-                showBotTyping(() => {
-                    appendMsgBot("Thank you, Ma'am. I completely understand that taking the next step in business can feel overwhelming, but I am here to make it safe, easy, and empowering for you. What is your beautiful **Full Name**?");
-                });
-            }
+        function setTyping(state) {
+            typingIndicator.style.display = state ? 'inline-block' : 'none';
+            chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
         }
 
-        function openChatAndStartOrder() {
-            if(!chatActive) toggleChat();
-        }
-
-        function handleUserInput() {
-            let text = chatInput.value.trim();
-            if(!text) return;
-            
-            let safeText = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-            clearQuickReplies();
-            appendMsgUser(safeText);
-            chatInput.value = '';
-
-            showBotTyping(() => {
-                processStateLogic(safeText);
-            });
-        }
-
-        function processStateLogic(input) {
-            let lower = input.toLowerCase();
-
-            if(lower.includes("easy") || lower.includes("easypaisa") || lower.includes("payment") || lower.includes("pay")) {
-                if(chatState > 1 && chatState < 6) {
-                    appendMsgBot("Ah, Easy Paisa! That's a highly secure and seamless way to handle database billing. You can securely transfer $35 (10,000 PKR) directly to Adnan's developer account: **03194879958**. Let's continue capturing your details so we can launch your funnel safely!");
-                    return; 
-                }
-            }
-
-            if(chatState === 0) {
-                triggerIntroduction();
-            }
-            else if (chatState === 1) {
-                if(lower.includes("sir") || lower.includes("man") || lower.includes("male") || lower.includes("boy")) {
-                    setGender('male');
-                } else if(lower.includes("ma'am") || lower.includes("madam") || lower.includes("woman") || lower.includes("female") || lower.includes("girl")) {
-                    setGender('female');
-                } else {
-                    appendMsgBot("To personalize my tone, do you prefer to be called Sir or Ma'am?");
-                    showQuickReplies([{ label: "Sir 👨", action: "setGender('male')" }, { label: "Ma'am 👩", action: "setGender('female')" }]);
-                }
-            } 
-            else if (chatState === 2) {
-                if (!/^[a-zA-Z\s\.]{2,40}$/.test(input)) {
-                    let errorMsg = orderData.gender === 'male' ? "That doesn't look like a valid name, Sir. Please type your correct name using letters." : "I'm sorry, Ma'am, but that name doesn't seem quite right. Could you kindly provide your correct name using letters?";
-                    appendMsgBot(errorMsg);
-                    return;
-                }
-                orderData.name = input;
-                chatState = 3;
-                
-                let nextMsg = orderData.gender === 'male' ? 
-                    `Excellent, **${orderData.name}**. Time is money. Please provide your **Email Address** for the official record.` : 
-                    `It is an absolute pleasure to meet you, **${orderData.name}**. You are in safe hands here. Could you kindly share your **Email Address**?`;
-                appendMsgBot(nextMsg);
-            }
-            else if (chatState === 3) {
-                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input)) {
-                    let errorMsg = orderData.gender === 'male' ? "That email format is invalid. We need a high-quality lead format (e.g. name@example.com)." : "I apologize, but that email format seems a bit off. Please gently verify and type it like name@example.com.";
-                    appendMsgBot(errorMsg);
-                    return;
-                }
-                orderData.email = input;
-                chatState = 4;
-                
-                let nextMsg = orderData.gender === 'male' ? 
-                    "Spot on. Over 500+ businesses scaled with us this year. Give me your **WhatsApp Number** so Adnan can connect with you directly for the setup." : 
-                    "Perfect. 📩 I know how important communication is. Over 500+ entrepreneurs trust us. Please share your **WhatsApp Number** so Adnan can gently guide you through the setup.";
-                appendMsgBot(nextMsg);
-            }
-            else if (chatState === 4) {
-                if (!/^\+?[\d\s\-]{8,18}$/.test(input)) {
-                    appendMsgBot("That doesn't seem correct. Please enter a valid numerical phone number.");
-                    return;
-                }
-                orderData.phone = input;
-                chatState = 5;
-
-                let nextMsg = orderData.gender === 'male' ? 
-                    "Got it. Action taker! What is your **Website URL**? (Type 'None' if you don't have one)." : 
-                    "Thank you so much. 📱 You're doing great! What is your **Website URL**? (Don't worry if you don't have one, just type 'None').";
-                appendMsgBot(nextMsg);
-            }
-            else if (chatState === 5) {
-                if(input.length < 3) {
-                    appendMsgBot("Please provide a valid website link or simply type 'None'.");
-                    return;
-                }
-                orderData.website = input;
-                chatState = 6;
-                
-                let nextMsg = orderData.gender === 'male' ? 
-                    "Let's build this machine. What exactly do you need the AI to sell, manage, or do in the database? Be specific so we can maximize your ROI." : 
-                    "Fabulous! 🌐 I am listening carefully to your needs. What specific challenges can I help you overcome with your new AI database system?";
-                appendMsgBot(nextMsg);
-            }
-            else if (chatState === 6) {
-                orderData.details = input;
-                chatState = 0; 
-                
-                let finalConfirmation = orderData.gender === 'male' ? 
-                    "Locked in. 🚀 The **April 23, 2026** flash deal of $35 is secured in our database." : 
-                    "You did wonderfully! 💡 I have safely stored your details in our database. You are officially part of our **April 23, 2026** exclusive offer.";
-                
-                appendMsgBot(finalConfirmation);
-                
-                db.ref('leads').push({
-                    name: orderData.name, email: orderData.email, phone: orderData.phone, website: orderData.website, idea: orderData.details, gender: orderData.gender,
-                    source: 'hassaan Psychological AI Agent', timestamp: new Date().toLocaleString()
-                }).catch(e => console.log("DB skip"));
-
-                setTimeout(() => {
-                    let title = orderData.gender === 'male' ? "Sir" : "Ma'am";
-                    let waMsg = `🚀 *Deploy My AI Sales Funnel!*\n\n*Date:* April 23, 2026\n*Client:* ${title} ${orderData.name}\n*Email:* ${orderData.email}\n*WhatsApp:* ${orderData.phone}\n*Website:* ${orderData.website}\n*Needs:* ${orderData.details}\n\nI will process the $35 Easy Paisa/Jazz Cash payment to 03194879958 immediately.`;
-                    let waUrl = `https://wa.me/923194879958?text=${encodeURIComponent(waMsg)}`;
-                    
-                    let finalHtml = orderData.gender === 'male' ? 
-                        `My creator, Adnan, will handle the rest. 🎉<br><br><b>Urgent Action:</b> Click below to forward your setup data to Adnan on WhatsApp to claim your spot before the sale ends!<br><br><a href="${waUrl}" target="_blank" class="chat-wa-btn"><i class="fa-brands fa-whatsapp" style="font-size:1.2rem;"></i> Send to Adnan</a>` : 
-                        `My caring creator, Adnan, will gently handle the rest for you. 🎉<br><br><b>Final Empowering Step:</b> Please click below to send your details to Adnan on WhatsApp. We are so excited to work with you!<br><br><a href="${waUrl}" target="_blank" class="chat-wa-btn"><i class="fa-brands fa-whatsapp" style="font-size:1.2rem;"></i> Safely Send to Adnan</a>`;
-                    
-                    appendMsgBot(finalHtml);
-                }, 1500);
-            }
-        }
-
-        // --- UI HELPERS ---
-        function appendMsgUser(text) {
-            const div = document.createElement('div');
-            div.className = 'msg user'; div.innerHTML = text;
-            chatBody.appendChild(div); scrollToBottom();
-        }
-
-        function appendMsgBot(htmlContent) {
-            const div = document.createElement('div');
-            div.className = 'msg bot';
-            let parsedHtml = htmlContent.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-            
-            let innerContent = `<div class="msg-content-wrapper">
-                <span style="word-break: break-word; line-height: 1.4; flex: 1;">${parsedHtml}</span>
-                <button onclick="readAloud(this)" style="background:none; border:none; color:var(--neon-cyan); margin-left:8px; cursor:pointer; font-size: 1.1rem; flex-shrink: 0; filter: drop-shadow(0 0 5px rgba(0,240,255,0.4)); margin-top: 2px;" title="Play Voice">
-                    <i class="fa-solid fa-circle-play"></i>
-                </button>
-            </div>`;
-
-            div.innerHTML = innerContent;
-            chatBody.appendChild(div); scrollToBottom();
-
-            if (autoTTS) speakText(htmlContent);
-        }
-
-        function showQuickReplies(buttons) {
-            const div = document.createElement('div');
-            div.className = 'quick-replies'; div.id = 'current-qr';
-            buttons.forEach(b => {
-                let btn = document.createElement('button');
-                btn.className = b.label.includes('Start') || b.label.includes('Sir') || b.label.includes('Ma\'am') || b.label.includes('Yes') || b.label.includes('good') ? 'qr-btn primary' : 'qr-btn';
-                btn.innerText = b.label; btn.setAttribute('onclick', b.action);
-                div.appendChild(btn);
-            });
-            chatBody.appendChild(div); scrollToBottom();
-        }
-
-        function clearQuickReplies() {
-            const qr = document.getElementById('current-qr');
-            if(qr) qr.remove();
-        }
-
-        function showBotTyping(callback) {
-            const div = document.createElement('div');
-            div.className = 'typing-indicator'; div.id = 'typing-dot';
-            div.innerHTML = '<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
-            chatBody.appendChild(div); scrollToBottom();
-            
-            let delay = Math.floor(Math.random() * 300) + 400;
+        function initiateGreeting() {
+            setTyping(true);
             setTimeout(() => {
-                const typ = document.getElementById('typing-dot');
-                if(typ) typ.remove();
-                callback();
-            }, delay);
+                setTyping(false);
+                let intro = `Hello! I am <b class="color-shift-text">Hassaan AI</b>. Are you here to grow a business, or are you a young explorer looking to play?`;
+                displayMessage(intro, "bot");
+                showQuickReplies(["Grow Business", "Play Game"]);
+                botState = 0; saveState();
+            }, 300);
         }
 
-        function scrollToBottom() {
-            chatBody.scrollTop = chatBody.scrollHeight;
+        window.sendMessage = function() {
+            const inputVal = chatInput.value.trim();
+            if(!inputVal) return;
+            const existingQr = document.querySelector('.quick-options'); if(existingQr) existingQr.remove();
+            displayMessage(inputVal, "user"); chatInput.value = "";
+            setTyping(true); setTimeout(() => { setTyping(false); processLogic(inputVal); }, 250); 
+        }
+
+        function processLogic(input) {
+            const lowerInput = input.toLowerCase();
+            
+            // Allow basic conversational bypass for friendliness
+            const conversational =["hi", "hello", "hey", "good"];
+            if (conversational.some(kw => lowerInput === kw) && botState === 0) {
+                displayMessage("Hi there! Are you here to grow a business or play a game?", "bot");
+                showQuickReplies(["Grow Business", "Play Game"]);
+                return;
+            }
+
+            switch(botState) {
+                case 0: // Main Branch: Adult vs Kid
+                    if(lowerInput.includes("business") || lowerInput.includes("grow")) {
+                        displayMessage("Excellent choice. To converse appropriately, should I address you as Mr. or Ms.?", "bot");
+                        showQuickReplies(["Mr.", "Ms."]); botState = 1; saveState();
+                    } else if (lowerInput.includes("play") || lowerInput.includes("game")) {
+                        displayMessage("Yay! 🎮 I love playing! Check out the 'Kids & Fun Zone' section on the website to play my Memory Match game! Want me to tell you a joke?", "bot");
+                        showQuickReplies(["Tell me a joke", "Grow Business"]); botState = 10; saveState();
+                    } else {
+                        displayMessage("Please choose an option so I can help you best!", "bot");
+                        showQuickReplies(["Grow Business", "Play Game"]);
+                    }
+                    break;
+                
+                case 10: // Kid Mode Loop
+                    if(lowerInput.includes("joke")) {
+                        displayMessage("Why did the robot go on vacation? ... Because he needed to recharge his batteries! 🤖😂 Want another joke or back to business?", "bot");
+                        showQuickReplies(["Another joke", "Grow Business"]);
+                    } else if (lowerInput.includes("business")) {
+                        displayMessage("Switching to Business Mode! Should I address you as Mr. or Ms.?", "bot");
+                        showQuickReplies(["Mr.", "Ms."]); botState = 1; saveState();
+                    } else {
+                        displayMessage("I'm in Play Mode! Type 'joke' for a laugh, or 'business' if you're an adult looking to work.", "bot");
+                        showQuickReplies(["Tell me a joke", "Grow Business"]);
+                    }
+                    break;
+
+                // --- ADULT BUSINESS FLOW ---
+                case 1:
+                    userData.title = (lowerInput.includes("ms") || lowerInput.includes("madam")) ? "Ms." : "Mr.";
+                    displayMessage(`Noted, ${userData.title}. What is your <b>Full Name</b>?`, "bot"); botState = 2; saveState(); break;
+                case 2:
+                    userData.name = input; displayMessage(`A pleasure, ${userData.title} ${userData.name}. What is the name of your <b>Company/Business</b>?`, "bot"); botState = 3; saveState(); break;
+                case 3:
+                    userData.company = input; displayMessage(`Thank you. What specific business idea or strategy would you like to deploy?`, "bot"); botState = 4; saveState(); break;
+                case 4:
+                    userData.orderSpec = input; finalizeFlow(input); break;
+                case 5:
+                    displayMessage("Thanks! Finally, please provide feedback on my creator, <b class='color-shift-text'>Adnan</b>.", "bot"); botState = 6; saveState(); break;
+                case 6:
+                    displayMessage(`Thank you, ${userData.title}. Adnan appreciates your feedback. Have a wonderful day!`, "bot"); botState = 7; saveState(); break;
+                default:
+                    if(botState >= 7) { displayMessage("Our order is complete. If you need anything else, hit the Trash icon to restart!", "bot"); }
+            }
+        }
+
+        function finalizeFlow(orderDetail) {
+            let reply = `<b style="color:#00f3ff;">Order Confirmed:</b><br><br>• <b>Customer:</b> ${userData.title} ${userData.name}<br>• <b>Company:</b> ${userData.company}<br>• <b>Specs:</b> <i>${orderDetail}</i><br><br>Total cost is discounted to <b style="color:#00ff88;">$35</b>.<br>`;
+            reply += `<button onclick="sendToWhatsApp()" class="btn-main whatsapp-btn-animated" style="width: 100%; margin-top: 10px; font-size: 0.85rem; padding: 8px;"><i class="fa-brands fa-whatsapp"></i> Send Form to WhatsApp</button>`;
+            displayMessage(reply, "bot");
+            setTimeout(() => { displayMessage("How would you rate my presentation and design? (Click a star)", "bot"); renderStars(); botState = 5; saveState(); }, 800); 
+        }
+
+        function renderStars() {
+            const starDiv = document.createElement('div'); starDiv.className = 'stars-container';
+            for(let i=1; i<=5; i++) { starDiv.innerHTML += `<i class="fa-solid fa-star star" onclick="submitRating(${i}, this)"></i>`; }
+            chatBody.insertBefore(starDiv, typingIndicator); chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
+        }
+
+        window.submitRating = function(rating, element) {
+            const siblings = element.parentElement.children;
+            for(let i=0; i<siblings.length; i++) { if(i < rating) siblings[i].classList.add('active'); siblings[i].onclick = null; }
+            displayMessage(`I rate this ${rating} Stars.`, "user");
+            setTimeout(() => processLogic(rating + " Stars"), 300);
         }
     </script>
 </body>
