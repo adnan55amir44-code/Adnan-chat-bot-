@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#050508">
     <title>Power by Adnan | Hassaan AI</title>
     
     <!-- Premium Fonts & Icons -->
@@ -15,8 +16,9 @@
         /* --- DYNAMIC & BEAUTIFUL VARIABLES --- */
         :root {
             --bg-dark: #050508;
-            --glass-bg: rgba(15, 15, 22, 0.5);
+            --glass-bg: rgba(20, 20, 30, 0.4);
             --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-highlight: rgba(255, 255, 255, 0.15);
             --text-main: #f8fafc;
             --text-dim: #94a3b8;
             --whatsapp: #25D366;
@@ -28,8 +30,8 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; outline: none; font-family: 'Outfit', sans-serif; }
-        body { background-color: var(--bg-dark); color: var(--text-main); overflow-x: hidden; scroll-behavior: smooth; }
-        h1, h2, h3, .brand-font { font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-main); overflow-x: hidden; scroll-behavior: smooth; line-height: 1.6; }
+        h1, h2, h3, h4, .brand-font { font-family: 'Poppins', sans-serif; }
 
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: var(--bg-dark); }
@@ -39,7 +41,7 @@
             background: linear-gradient(270deg, var(--neon-cyan), var(--neon-magenta), #00ff88, var(--neon-cyan));
             background-size: 300% 300%;
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: gradientShift 4s ease infinite; font-weight: bold;
+            animation: gradientShift 5s ease infinite; font-weight: bold;
         }
         .color-shift-bg {
             background: linear-gradient(270deg, var(--neon-cyan), var(--neon-magenta), #0044ff, var(--neon-cyan));
@@ -49,125 +51,161 @@
 
         /* --- ULTRA 3D ROBOTIC BACKGROUND CANVAS --- */
         #webgl-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; pointer-events: none; }
-        .ambient-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at center, rgba(0,0,0,0) 0%, rgba(5,5,8,0.85) 100%); pointer-events: none; }
+        .ambient-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at center, rgba(5,5,8,0.3) 0%, rgba(5,5,8,0.95) 100%); pointer-events: none; }
 
-        /* --- BEAUTIFUL DRAWN VECTOR ICONS --- */
-        .drawn-icon {
-            width: 32px; height: 32px; border-radius: 50%; object-fit: contain;
-            background: linear-gradient(135deg, #fff, #f0f0f0); padding: 3px;
-            box-shadow: 0 4px 10px rgba(0, 243, 255, 0.3);
-        }
-
-        /* --- NAVBAR --- */
+        /* --- PREMIUM FLOATING NAVBAR --- */
         nav {
-            position: fixed; top: 0; width: 100%; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
-            background: rgba(5, 5, 8, 0.7); backdrop-filter: blur(12px); border-bottom: 1px solid var(--glass-border);
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 1200px;
+            padding: 12px 25px; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+            background: rgba(15, 15, 22, 0.75); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border); border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        .logo { display: flex; align-items: center; gap: 10px; font-size: 1.4rem; font-weight: 800; }
-        nav ul { list-style: none; display: flex; gap: 20px; }
-        nav ul li a { color: #fff; text-decoration: none; font-size: 0.95rem; transition: 0.3s; opacity: 0.8; }
-        nav ul li a:hover { opacity: 1; color: var(--neon-cyan); }
-
-        /* --- UPGRADED BANNER & SECTIONS --- */
-        section { padding: clamp(100px, 15vh, 150px) 5% 80px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; z-index: 1; }
-        .section-title { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 10px; font-weight: 800; }
-        .section-subtitle { font-size: 1.1rem; color: var(--text-dim); margin-bottom: 45px; max-width: 600px; }
+        .logo { display: flex; align-items: center; gap: 12px; font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-weight: 800; }
+        .drawn-icon { width: 36px; height: 36px; border-radius: 50%; object-fit: contain; background: linear-gradient(135deg, #fff, #e0e0e0); padding: 3px; box-shadow: 0 4px 15px rgba(0, 243, 255, 0.4); }
         
-        .hero-title { font-size: clamp(2.8rem, 8vw, 7rem); font-weight: 900; line-height: 1.1; margin-bottom: 25px; text-shadow: 0 10px 40px rgba(0,243,255,0.4); letter-spacing: -1px; }
-        .hero-p { font-size: clamp(1rem, 3vw, 1.3rem); color: var(--text-main); max-width: 700px; margin-bottom: 40px; line-height: 1.6; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+        nav ul { list-style: none; display: flex; gap: 25px; }
+        nav ul li a { color: #fff; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: 0.3s; opacity: 0.7; }
+        nav ul li a:hover { opacity: 1; color: var(--neon-cyan); text-shadow: 0 0 10px rgba(0,243,255,0.4); }
 
-        .btn-main { padding: 16px 35px; border-radius: 50px; font-weight: 700; font-size: 1.1rem; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.3); text-decoration: none; border: none; }
-        .btn-main:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 15px 30px rgba(0, 243, 255, 0.4); }
-
-        /* --- RESPONSIVE GLASS CARDS --- */
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; width: 100%; max-width: 1100px; perspective: 1000px; }
-        .glass-card { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 20px; padding: 35px 20px; transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; transform-style: preserve-3d; }
-        .glass-card:hover { transform: translateY(-10px); border-color: rgba(0,243,255,0.6); box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
-        .glass-card i { font-size: 2.5rem; color: var(--neon-cyan); margin-bottom: 20px; }
+        /* --- UPGRADED PERFECT SECTIONS --- */
+        section { padding: clamp(120px, 15vh, 160px) 5% 80px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; z-index: 1; }
+        .section-title { font-size: clamp(2.2rem, 5vw, 3.8rem); margin-bottom: 15px; font-weight: 800; letter-spacing: -0.5px; }
+        .section-subtitle { font-size: clamp(0.95rem, 2vw, 1.15rem); color: var(--text-dim); margin-bottom: 50px; max-width: 650px; font-weight: 400; }
         
-        /* --- REVIEWS SECTION --- */
-        .review-card { background: rgba(15,15,22,0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 25px; text-align: left; position: relative; transition: 0.3s; }
-        .review-card:hover { border-color: var(--gold-star); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(255,215,0,0.15); }
-        .review-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-        .review-header img { width: 50px; height: 50px; border-radius: 50%; background: #fff; border: 2px solid var(--neon-cyan); }
-        .review-stars { color: var(--gold-star); font-size: 0.9rem; margin-top: 5px; }
-        .review-text { font-size: 0.95rem; color: var(--text-dim); font-style: italic; line-height: 1.5; }
+        .hero-title { font-size: clamp(2.8rem, 8vw, 7.5rem); font-weight: 900; line-height: 1.05; margin-bottom: 25px; text-shadow: 0 10px 40px rgba(0,243,255,0.3); letter-spacing: -1px; }
+        .hero-p { font-size: clamp(1rem, 2.5vw, 1.25rem); color: var(--text-main); max-width: 750px; margin-bottom: 45px; font-weight: 300; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+
+        .btn-main { padding: 15px 35px; border-radius: 50px; font-weight: 700; font-size: 1.05rem; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 10px 20px rgba(0,0,0,0.4); text-decoration: none; border: none; outline: none; }
+        .btn-main:hover { transform: translateY(-5px) scale(1.03); box-shadow: 0 15px 35px rgba(0, 243, 255, 0.5); }
+
+        /* --- PERFECT NEAT GLASS CARDS --- */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; width: 100%; max-width: 1200px; perspective: 1000px; }
+        .glass-card { 
+            background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); 
+            backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border); border-top: 1px solid var(--glass-highlight); border-left: 1px solid var(--glass-highlight);
+            border-radius: 24px; padding: 40px 30px; transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            position: relative; overflow: hidden; transform-style: preserve-3d; display: flex; flex-direction: column; align-items: center; text-align: center;
+        }
+        .glass-card:hover { transform: translateY(-10px) rotateX(5deg); border-color: rgba(0,243,255,0.5); box-shadow: 0 25px 50px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,243,255,0.05); }
         
-        .review-form-container { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; padding: 30px; max-width: 600px; margin: 40px auto 0; backdrop-filter: blur(20px); }
-        .review-form-container input, .review-form-container textarea { width: 100%; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 12px 15px; color: #fff; margin-bottom: 15px; font-family: 'Outfit'; resize: none; }
-        .review-form-container input:focus, .review-form-container textarea:focus { border-color: var(--neon-cyan); }
+        .icon-wrapper { width: 70px; height: 70px; border-radius: 50%; background: rgba(0, 243, 255, 0.1); border: 1px solid rgba(0,243,255,0.3); display: flex; justify-content: center; align-items: center; margin-bottom: 25px; box-shadow: 0 0 20px rgba(0,243,255,0.2); transition: 0.4s; transform: translateZ(30px); }
+        .glass-card:hover .icon-wrapper { background: var(--neon-cyan); box-shadow: 0 0 30px var(--neon-cyan); }
+        .glass-card i { font-size: 2rem; color: var(--neon-cyan); transition: 0.4s; }
+        .glass-card:hover i { color: #000; }
+        
+        .glass-card h3 { font-size: 1.35rem; margin-bottom: 12px; transform: translateZ(20px); font-weight: 700; }
+        .glass-card p { font-size: 0.95rem; color: var(--text-dim); transform: translateZ(10px); }
 
-        /* --- KIDS GAME ZONE --- */
-        .game-board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 350px; margin: 0 auto 20px; }
-        .game-card { background: rgba(255,255,255,0.05); border: 2px solid var(--neon-cyan); height: 75px; border-radius: 12px; display: flex; justify-content: center; align-items: center; font-size: 2rem; cursor: pointer; transition: transform 0.3s, background 0.3s; user-select: none; }
-        .game-card.flipped { background: rgba(0, 243, 255, 0.2); transform: rotateY(180deg); }
-        .game-card.matched { background: rgba(0, 255, 136, 0.2); border-color: #00ff88; transform: scale(0.95); cursor: default; }
+        /* --- PERFECT SKILLS TAGS --- */
+        .skills-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 850px; margin: 0 auto 50px; }
+        .skill-tag { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 10px 22px; border-radius: 50px; font-size: 0.95rem; font-weight: 500; color: #fff; transition: 0.3s; display: flex; align-items: center; gap: 8px; backdrop-filter: blur(10px); }
+        .skill-tag:hover { background: var(--neon-cyan); color: #000; border-color: var(--neon-cyan); transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,243,255,0.3); }
 
-        /* --- PAYMENT INFO PANEL --- */
-        .pricing-panel { background: rgba(10,10,15,0.85); border: 1px solid rgba(188,19,254,0.4); border-radius: 20px; padding: clamp(20px, 5vw, 45px); max-width: 550px; width: 100%; box-shadow: 0 15px 40px rgba(188,19,254,0.15); position: relative; backdrop-filter: blur(15px); margin: 0 auto; }
-        .discount-tag { position: absolute; top: -15px; right: clamp(10px, 4vw, 20px); background: #ED1C24; color: #fff; padding: 6px 15px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; box-shadow: 0 5px 15px rgba(237,28,36,0.4); }
-        .payment-methods { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px; margin-bottom: 25px; }
-        .pay-badge { padding: 8px 15px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; flex: 1; justify-content: center; min-width: 120px; }
+        /* --- PERFECT REVIEWS UI --- */
+        .review-card { background: rgba(15,15,22,0.6); border: 1px solid var(--glass-border); border-radius: 20px; padding: 30px; text-align: left; transition: 0.4s; backdrop-filter: blur(15px); }
+        .review-card:hover { border-color: var(--gold-star); transform: translateY(-8px); box-shadow: 0 15px 35px rgba(255,215,0,0.15); }
+        .review-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .review-header img { width: 55px; height: 55px; border-radius: 50%; background: #fff; border: 2px solid var(--neon-cyan); object-fit: cover; }
+        .review-stars { color: var(--gold-star); font-size: 0.9rem; margin-top: 4px; display: flex; gap: 2px; }
+        .review-text { font-size: 0.95rem; color: var(--text-dim); font-style: italic; line-height: 1.6; }
+        
+        .review-form-container { background: rgba(20,20,30,0.5); border: 1px solid var(--glass-border); border-radius: 24px; padding: 40px; max-width: 600px; width: 100%; margin: 50px auto 0; backdrop-filter: blur(25px); }
+        .review-form-container input, .review-form-container textarea, .review-form-container select { width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 16px 20px; color: #fff; margin-bottom: 20px; font-family: 'Outfit'; font-size: 1rem; transition: 0.3s; box-shadow: inset 0 2px 10px rgba(0,0,0,0.5); }
+        .review-form-container input:focus, .review-form-container textarea:focus, .review-form-container select:focus { border-color: var(--neon-cyan); background: rgba(0,243,255,0.02); box-shadow: 0 0 15px rgba(0,243,255,0.1); }
 
-        .whatsapp-btn-animated { background: linear-gradient(45deg, #25D366, #128C7E); color: #fff; box-shadow: 0 0 20px rgba(37, 211, 102, 0.5); width: 100%; justify-content: center; animation: pulseWA 2s infinite; font-size: clamp(0.9rem, 2.5vw, 1.15rem); border: none; padding: 14px 20px; }
-        .whatsapp-btn-animated:hover { background: linear-gradient(45deg, #128C7E, #075E54); animation: none; transform: scale(1.03); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.7); }
-        @keyframes pulseWA { 0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(37, 211, 102, 0.5); } 50% { transform: scale(1.03); box-shadow: 0 0 40px rgba(37, 211, 102, 0.9); } }
+        /* --- PROGRESSIVE KIDS GAME ZONE --- */
+        .game-wrapper { background: rgba(20,20,30,0.5); border: 1px solid rgba(188,19,254,0.4); border-radius: 24px; padding: clamp(25px, 5vw, 40px); max-width: 500px; width: 100%; margin: 0 auto; backdrop-filter: blur(20px); box-shadow: 0 20px 50px rgba(188,19,254,0.15); }
+        .game-level-badge { background: var(--neon-magenta); color: #fff; padding: 6px 20px; border-radius: 30px; font-weight: 800; font-size: 0.95rem; display: inline-block; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(188,19,254,0.4); }
+        .game-board { display: grid; gap: clamp(8px, 2vw, 12px); margin: 0 auto 25px; justify-content: center; }
+        .game-card { background: rgba(255,255,255,0.05); border: 2px solid rgba(188,19,254,0.3); border-radius: 14px; display: flex; justify-content: center; align-items: center; font-size: clamp(1.8rem, 5vw, 2.5rem); cursor: pointer; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s; user-select: none; aspect-ratio: 1 / 1; box-shadow: inset 0 0 15px rgba(0,0,0,0.5); }
+        .game-card.flipped { background: rgba(0, 243, 255, 0.15); border-color: var(--neon-cyan); transform: rotateY(180deg); box-shadow: 0 0 15px rgba(0,243,255,0.3); }
+        .game-card.matched { background: rgba(0, 255, 136, 0.15); border-color: #00ff88; transform: scale(0.9); cursor: default; box-shadow: 0 0 20px rgba(0,255,136,0.3); }
+        .game-card span { transition: opacity 0.3s; }
 
-        /* --- COMPACT & RESPONSIVE CHAT WIDGET --- */
-        .chat-widget { position: fixed; bottom: 25px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
+        /* --- FLAWLESS PAYMENT INFO PANEL --- */
+        .pricing-panel { background: rgba(10,10,15,0.8); border: 1px solid rgba(188,19,254,0.4); border-radius: 28px; padding: clamp(30px, 6vw, 50px); max-width: 580px; width: 100%; box-shadow: 0 25px 60px rgba(188,19,254,0.15); position: relative; backdrop-filter: blur(25px); margin: 0 auto; }
+        .discount-tag { position: absolute; top: -18px; right: clamp(15px, 5vw, 30px); background: #ED1C24; color: #fff; padding: 8px 22px; border-radius: 30px; font-weight: 800; font-size: 0.85rem; box-shadow: 0 8px 25px rgba(237,28,36,0.4); text-transform: uppercase; letter-spacing: 0.5px; }
+        .payment-methods { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 25px; margin-bottom: 30px; }
+        .pay-badge { padding: 12px 20px; border-radius: 12px; font-weight: 800; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; flex: 1; justify-content: center; min-width: 140px; }
+
+        .whatsapp-btn-animated { background: linear-gradient(45deg, #25D366, #128C7E); color: #fff; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); width: 100%; justify-content: center; animation: pulseWA 2.5s infinite; font-size: clamp(1rem, 2.5vw, 1.15rem); border: none; padding: 18px 25px; border-radius: 50px; }
+        .whatsapp-btn-animated:hover { background: linear-gradient(45deg, #128C7E, #075E54); animation: none; transform: scale(1.02); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5); }
+        @keyframes pulseWA { 0%, 100% { transform: scale(1); box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); } 50% { transform: scale(1.02); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6); } }
+
+        /* --- ULTRA-FAST, BEAUTIFUL CHAT WIDGET --- */
+        .chat-widget { position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
         .chat-btn-wrapper { position: relative; width: 75px; height: 75px; animation: formBubble 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; cursor: pointer; }
-        .beautiful-chat-btn { width: 100%; height: 100%; border-radius: 50%; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta)); box-shadow: 0 10px 25px rgba(0, 243, 255, 0.4); display: flex; justify-content: center; align-items: center; transition: transform 0.3s; animation: smoothFloat 4s ease-in-out infinite; }
-        .beautiful-chat-btn:hover { transform: scale(1.1) rotate(5deg); box-shadow: 0 15px 35px rgba(188, 19, 254, 0.6); }
-        .beautiful-chat-btn img { width: 65%; height: 65%; border-radius: 50%; background: #fff; padding: 2px; }
+        .beautiful-chat-btn { width: 100%; height: 100%; border-radius: 50%; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta)); box-shadow: 0 10px 30px rgba(0, 243, 255, 0.4); display: flex; justify-content: center; align-items: center; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); animation: smoothFloat 4s ease-in-out infinite; }
+        .beautiful-chat-btn:hover { transform: scale(1.15) rotate(10deg); box-shadow: 0 15px 40px rgba(188, 19, 254, 0.6); }
+        .beautiful-chat-btn img { width: 60%; height: 60%; border-radius: 50%; background: #fff; padding: 2px; }
 
         @keyframes smoothFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         @keyframes formBubble { 0% { transform: scale(0) translateY(50px); opacity: 0; } 100% { transform: scale(1) translateY(0); opacity: 1; } }
 
-        .chat-window { position: absolute; bottom: 95px; right: 0; width: 330px; height: 520px; max-height: calc(100vh - 120px); max-width: calc(100vw - 40px); background: rgba(8, 8, 14, 0.95); border: 1px solid rgba(0,243,255,0.3); border-radius: 20px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 30px rgba(0,243,255,0.1) inset; backdrop-filter: blur(20px); transform-origin: bottom right; animation: popIn 0.3s ease-out forwards; }
-        @keyframes popIn { 0% { opacity: 0; transform: scale(0.9) translateY(20px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
+        .chat-window { position: absolute; bottom: 95px; right: 0; width: 360px; height: 550px; max-height: calc(100vh - 120px); max-width: calc(100vw - 30px); background: rgba(8, 8, 14, 0.98); border: 1px solid rgba(0,243,255,0.25); border-radius: 24px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(0,243,255,0.05) inset; backdrop-filter: blur(25px); transform-origin: bottom right; animation: popIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        @keyframes popIn { 0% { opacity: 0; transform: scale(0.8) translateY(30px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
 
-        .chat-header { padding: 12px 15px; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; }
-        .bot-profile { display: flex; align-items: center; gap: 10px; }
-        .bot-photo { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--neon-cyan); background: #fff; padding: 2px; object-fit: contain; }
+        .chat-header { padding: 16px 20px; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; }
+        .bot-profile { display: flex; align-items: center; gap: 12px; }
+        .bot-photo { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--neon-cyan); background: #fff; padding: 2px; object-fit: contain; }
 
-        .online-dot { width: 8px; height: 8px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 8px #00ff88; animation: pulseOnline 1.5s infinite alternate; display: inline-block; margin-right: 5px;}
-        @keyframes pulseOnline { from { opacity: 0.5; } to { opacity: 1; transform: scale(1.2); } }
+        .online-dot { width: 10px; height: 10px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 10px #00ff88; animation: pulseOnline 1.5s infinite alternate; display: inline-block; margin-right: 6px;}
+        @keyframes pulseOnline { from { opacity: 0.5; } to { opacity: 1; transform: scale(1.3); } }
 
-        .chat-body { flex: 1; padding: 12px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
-        .msg { max-width: 88%; padding: 10px 14px; border-radius: 14px; font-size: 0.9rem; line-height: 1.4; opacity: 0; animation: fadeUp 0.2s ease forwards; word-wrap: break-word; }
+        .chat-body { flex: 1; padding: 18px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; scroll-behavior: smooth; }
+        .msg { max-width: 88%; padding: 12px 16px; border-radius: 18px; font-size: 0.95rem; line-height: 1.5; opacity: 0; animation: fadeUp 0.15s ease forwards; word-wrap: break-word; }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
         .msg.bot { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); align-self: flex-start; border-bottom-left-radius: 4px; display: flex; flex-direction: column; gap: 8px; }
-        .msg.user { background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta)); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; box-shadow: 0 5px 15px rgba(0,243,255,0.2); }
+        .msg.user { background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta)); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; box-shadow: 0 5px 15px rgba(0,243,255,0.2); font-weight: 500; }
 
-        .quick-options { display: flex; flex-wrap: wrap; gap: 8px; align-self: flex-start; animation: fadeUp 0.2s ease forwards; margin-bottom: 5px;}
-        .qr-btn { background: rgba(0, 243, 255, 0.1); border: 1px solid var(--neon-cyan); color: var(--text-main); padding: 6px 14px; border-radius: 20px; font-weight: 600; cursor: pointer; transition: 0.2s; font-size: 0.85rem; }
-        .qr-btn:hover { background: var(--neon-cyan); color: #000; box-shadow: 0 0 10px rgba(0,243,255,0.4); transform: translateY(-2px); }
+        .quick-options { display: flex; flex-wrap: wrap; gap: 8px; align-self: flex-start; animation: fadeUp 0.15s ease forwards; margin-bottom: 5px;}
+        .qr-btn { background: rgba(0, 243, 255, 0.08); border: 1px solid var(--neon-cyan); color: var(--text-main); padding: 8px 16px; border-radius: 20px; font-weight: 600; cursor: pointer; transition: 0.2s; font-size: 0.85rem; }
+        .qr-btn:hover { background: var(--neon-cyan); color: #000; box-shadow: 0 0 15px rgba(0,243,255,0.4); transform: translateY(-2px); }
 
-        .play-audio-btn { background: rgba(0, 243, 255, 0.1); border: 1px solid rgba(0, 243, 255, 0.4); color: var(--neon-cyan); border-radius: 20px; padding: 4px 8px; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 6px; width: max-content; cursor: pointer; transition: 0.2s; font-weight: 600; }
+        .play-audio-btn { background: rgba(0, 243, 255, 0.1); border: 1px solid rgba(0, 243, 255, 0.3); color: var(--neon-cyan); border-radius: 20px; padding: 5px 12px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 6px; width: max-content; cursor: pointer; transition: 0.2s; font-weight: 600; }
         .play-audio-btn:hover { background: var(--neon-cyan); color: #000; }
 
-        .typing { display: none; align-self: flex-start; padding: 8px 12px; background: rgba(255,255,255,0.05); border-radius: 16px; border-bottom-left-radius: 4px; margin-bottom: 5px;}
-        .dot { width: 5px; height: 5px; background: var(--neon-cyan); border-radius: 50%; display: inline-block; margin: 0 2px; animation: bounce 1s infinite ease-in-out both; }
-        .dot:nth-child(1) { animation-delay: -0.32s; } .dot:nth-child(2) { animation-delay: -0.16s; }
-        @keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1.3); } }
+        .typing { display: none; align-self: flex-start; padding: 8px 14px; background: rgba(255,255,255,0.05); border-radius: 16px; border-bottom-left-radius: 4px; margin-bottom: 5px;}
+        .dot { width: 6px; height: 6px; background: var(--neon-cyan); border-radius: 50%; display: inline-block; margin: 0 3px; animation: bounce 0.8s infinite ease-in-out both; }
+        .dot:nth-child(1) { animation-delay: -0.2s; } .dot:nth-child(2) { animation-delay: -0.1s; }
+        @keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1.4); } }
 
-        .chat-input-area { padding: 12px; background: rgba(0,0,0,0.6); display: flex; gap: 8px; border-top: 1px solid rgba(255,255,255,0.05); align-items: center; }
-        .chat-input-area input { flex: 1; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); padding: 10px 15px; border-radius: 25px; color: #fff; font-size: 16px; transition: 0.3s; min-width: 0; outline: none; }
-        .chat-input-area input:focus { border-color: var(--neon-cyan); background: rgba(0,243,255,0.05); }
-        .send-btn { background: var(--neon-cyan); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; color: #000; font-size: 1rem; transition: 0.3s; flex-shrink: 0; display: flex; justify-content: center; align-items: center; }
-        .send-btn:hover { transform: scale(1.1); background: var(--neon-magenta); color: #fff; box-shadow: 0 0 15px rgba(188,19,254,0.5); }
+        .chat-input-area { padding: 15px; background: rgba(0,0,0,0.5); display: flex; gap: 10px; border-top: 1px solid rgba(255,255,255,0.08); align-items: center; }
+        /* Font size set strictly to 16px to prevent iOS input auto-zoom */
+        .chat-input-area input { flex: 1; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 14px 18px; border-radius: 30px; color: #fff; font-size: 16px; transition: 0.3s; min-width: 0; outline: none; }
+        .chat-input-area input:focus { border-color: var(--neon-cyan); background: rgba(0,243,255,0.05); box-shadow: 0 0 15px rgba(0,243,255,0.15); }
+        .send-btn { background: var(--neon-cyan); border: none; width: 48px; height: 48px; border-radius: 50%; cursor: pointer; color: #000; font-size: 1.1rem; transition: 0.2s; flex-shrink: 0; display: flex; justify-content: center; align-items: center; }
+        .send-btn:hover { transform: scale(1.1); background: var(--neon-magenta); color: #fff; box-shadow: 0 0 20px rgba(188,19,254,0.5); }
 
-        .header-actions { display: flex; gap: 10px; align-items: center; }
-        .header-actions button { background:none; border:none; color: rgba(255,255,255,0.7); cursor:pointer; font-size:1.1rem; transition: 0.2s; padding: 2px; }
-        .header-actions button:hover { color: var(--neon-cyan); transform: scale(1.1); }
+        .header-actions { display: flex; gap: 12px; align-items: center; }
+        .header-actions button { background:none; border:none; color: rgba(255,255,255,0.8); cursor:pointer; font-size:1.15rem; transition: 0.2s; padding: 2px; }
+        .header-actions button:hover { color: var(--neon-cyan); transform: scale(1.15); }
         #speakerToggleBtn.speaker-off { color: #ED1C24; }
 
+        .stars-container { display: flex; justify-content: center; gap: 8px; margin-top: 5px; }
+        .star { font-size: 1.8rem; color: rgba(255,255,255,0.15); cursor: pointer; transition: 0.2s; }
+        .star:hover, .star.active { color: #FFD700; filter: drop-shadow(0 0 15px rgba(255,215,0,0.8)); transform: scale(1.2); }
+
+        /* --- FLAWLESS MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
+            nav { width: calc(100% - 30px); left: 15px; transform: none; top: 15px; padding: 10px 20px; }
             nav ul { display: none; }
-            .chat-widget { bottom: 15px; right: 15px; }
+            section { padding: 120px 5% 60px; }
+            .grid-container { gap: 20px; }
+            .glass-card { padding: 30px 20px; }
+            
+            .chat-widget { bottom: 20px; right: 20px; }
             .chat-btn-wrapper { width: 65px; height: 65px; }
-            .chat-window { right: 0; bottom: 80px; width: calc(100vw - 30px); height: 65vh; max-height: 500px; }
+            /* Chat window fits perfectly on mobile */
+            .chat-window { 
+                position: fixed; bottom: 95px; right: 15px; left: 15px; width: auto; 
+                height: calc(100vh - 130px); max-height: 550px; border-radius: 20px; 
+            }
+            .chat-input-area { padding: 12px; }
+            .chat-input-area input { padding: 12px 15px; }
+            .send-btn { width: 44px; height: 44px; }
         }
     </style>
 </head>
@@ -177,7 +215,7 @@
     <canvas id="webgl-canvas"></canvas>
     <div class="ambient-overlay"></div>
 
-    <!-- Navigation -->
+    <!-- Perfect Floating Navigation -->
     <nav>
         <div class="logo brand-font">
             <img src="https://api.dicebear.com/7.x/bottts/svg?seed=HassaanAI&backgroundColor=00f3ff" alt="Icon" class="drawn-icon">
@@ -185,73 +223,83 @@
         </div>
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#growth">Growth Ideas</a></li>
+            <li><a href="#skills">Capabilities</a></li>
             <li><a href="#kidszone">Kids Zone</a></li>
             <li><a href="#reviews">Reviews</a></li>
             <li><a href="#payment">Deploy</a></li>
         </ul>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Upgraded Beautiful Hero Section -->
     <section id="home">
         <h1 class="hero-title brand-font color-shift-text">Hassaan AI, Powerful Growth.</h1>
-        <p class="hero-p">I am <b>Hassaan AI</b>, exclusively created by <b>Adnan</b>. I offer 400 unique business ideas, powerful strategic marketing, and automated workflows designed to massively elevate your enterprise.</p>
+        <p class="hero-p">I am <b>Hassaan AI</b>, exclusively crafted by <b>Creator Adnan</b>. I offer 400 unique business ideas, powerful strategic marketing, and automated workflows designed to seamlessly elevate your enterprise.</p>
         <button class="btn-main color-shift-bg" onclick="toggleChat()">
-            <i class="fa-solid fa-message"></i> Open AI Console
+            <i class="fa-solid fa-bolt"></i> Open High-Speed AI Console
         </button>
     </section>
 
-    <!-- Business Growth Ideas Section -->
-    <section id="growth">
-        <h2 class="section-title brand-font">Strategic Business Growth</h2>
-        <p class="section-subtitle">Adopt an unstoppable online presence and scale intelligently using our core AI-driven marketing methodologies.</p>
+    <!-- Perfect Skills & Capabilities -->
+    <section id="skills" style="padding-top: 60px; min-height: auto;">
+        <h2 class="section-title brand-font">Core Capabilities & Skills</h2>
+        <p class="section-subtitle">What does Hassaan AI love to do? Here are my technical "hobbies" and professional capabilities perfectly designed for your success.</p>
+        
+        <div class="skills-container">
+            <div class="skill-tag"><i class="fa-solid fa-brain"></i> Strategic Thinking</div>
+            <div class="skill-tag"><i class="fa-solid fa-chart-pie"></i> Market Analysis</div>
+            <div class="skill-tag"><i class="fa-solid fa-code"></i> Automation Coding</div>
+            <div class="skill-tag"><i class="fa-solid fa-bullhorn"></i> Digital Marketing</div>
+            <div class="skill-tag"><i class="fa-solid fa-pen-nib"></i> Copywriting</div>
+            <div class="skill-tag"><i class="fa-solid fa-chess-knight"></i> Competitor Tracking</div>
+            <div class="skill-tag"><i class="fa-solid fa-gamepad"></i> Memory Games</div>
+            <div class="skill-tag"><i class="fa-solid fa-bolt"></i> Lightning Fast Replies</div>
+        </div>
+
         <div class="grid-container">
             <div class="glass-card">
-                <i class="fa-solid fa-chart-line"></i>
-                <h3>Marketing Strategy</h3>
-                <p>Develop robust marketing funnels tailored to your specific niche to secure high-ticket clients and brand awareness.</p>
+                <div class="icon-wrapper"><i class="fa-solid fa-lightbulb"></i></div>
+                <h3>400 Business Ideas</h3>
+                <p>Unlock an exclusive database of 400 proven business models crafted perfectly by Creator Adnan for maximum profitability.</p>
             </div>
             <div class="glass-card">
-                <i class="fa-solid fa-magnifying-glass-chart"></i>
-                <h3>Analyze Feedback</h3>
+                <div class="icon-wrapper"><i class="fa-solid fa-chart-line"></i></div>
+                <h3>Marketing Funnels</h3>
+                <p>Develop robust marketing funnels tailored to your specific niche to securely land high-ticket clients and boost brand awareness.</p>
+            </div>
+            <div class="glass-card">
+                <div class="icon-wrapper"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                <h3>Feedback Analysis</h3>
                 <p>Deeply analyze customer feedback loops. Identify pain points and optimize your digital services seamlessly.</p>
             </div>
-            <div class="glass-card">
-                <i class="fa-solid fa-users-viewfinder"></i>
-                <h3>Monitor Competitors</h3>
-                <p>Keep a strict eye on rival activities. Our automated strategies allow you to outmaneuver the competition consistently.</p>
-            </div>
-            <div class="glass-card">
-                <i class="fa-solid fa-money-trend-up"></i>
-                <h3>Adapt to Trends</h3>
-                <p>Markets evolve fast. Hassaan AI ensures your brand is fully adapted to emerging internet and economic trends.</p>
-            </div>
         </div>
     </section>
 
-    <!-- NEW: Kids & Fun Zone (Mini Game) -->
+    <!-- Advanced Progressive Kids & Fun Zone -->
     <section id="kidszone">
-        <h2 class="section-title brand-font" style="color: var(--neon-magenta);">Kids & Fun Zone! 🎮</h2>
-        <p class="section-subtitle">Are you a young explorer visiting the site? Test your brain with the AI Memory Match Game!</p>
+        <h2 class="section-title brand-font" style="color: var(--neon-magenta); text-shadow: 0 0 20px rgba(188,19,254,0.3);">Kids Fun Zone! 🎮</h2>
+        <p class="section-subtitle">Are you a young explorer? Test your brain and level up with the AI Memory Match Game! Can you beat all levels?</p>
         
-        <div class="glass-card" style="max-width: 450px; text-align: center; margin: 0 auto; padding: 25px;">
+        <div class="game-wrapper">
+            <div style="text-align: center;">
+                <div class="game-level-badge" id="gameLevelBadge">Level 1</div>
+            </div>
             <div class="game-board" id="gameBoard"></div>
-            <h3 id="gameMsg" style="margin-bottom: 15px; min-height: 25px; color: var(--gold-star);">Find the matching pairs!</h3>
-            <button class="btn-main" onclick="initGame()" style="background: var(--neon-magenta); color: #fff; border: none; font-size: 0.9rem; padding: 10px 20px;">Restart Game</button>
+            <h3 id="gameMsg" style="margin-bottom: 20px; min-height: 30px; color: var(--gold-star); font-size: 1.2rem; font-weight: 600;">Find the matching pairs!</h3>
+            <button class="btn-main" id="gameActionBtn" onclick="nextGameLevel()" style="background: var(--neon-magenta); color: #fff; font-size: 1.05rem; padding: 14px 25px; width: 100%; justify-content: center; box-shadow: none;">Restart Level</button>
         </div>
     </section>
 
-    <!-- Lifetime Client Reviews (Fake/Visible Reviews) -->
+    <!-- Perfect Reviews UI -->
     <section id="reviews">
         <h2 class="section-title brand-font">Customer Reviews</h2>
         <p class="section-subtitle">Trusted by ambitious entrepreneurs globally. <b style="color:var(--gold-star);">4.9/5 Lifetime Average Rating.</b></p>
         
-        <div class="grid-container" style="max-width: 1000px;">
+        <div class="grid-container" style="max-width: 1100px;">
             <div class="review-card">
                 <div class="review-header">
                     <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Customer">
                     <div>
-                        <h4 style="color: #fff;">Michael R.</h4>
+                        <h4 style="color: #fff; font-size: 1.1rem;">Michael R.</h4>
                         <div class="review-stars">
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
@@ -264,7 +312,7 @@
                 <div class="review-header">
                     <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka" alt="Customer">
                     <div>
-                        <h4 style="color: #fff;">Zahra B.</h4>
+                        <h4 style="color: #fff; font-size: 1.1rem;">Zahra B.</h4>
                         <div class="review-stars">
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
@@ -277,45 +325,45 @@
                 <div class="review-header">
                     <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Liam" alt="Customer">
                     <div>
-                        <h4 style="color: #fff;">David T.</h4>
+                        <h4 style="color: #fff; font-size: 1.1rem;">David T.</h4>
                         <div class="review-stars">
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
                         </div>
                     </div>
                 </div>
-                <p class="review-text">"Good system overall. It took me a little while to understand the marketing strategy part, but once I did, it worked fine."</p>
+                <p class="review-text">"Good system overall. It took me a little while to understand the marketing strategy part, but once I did, it worked beautifully."</p>
             </div>
         </div>
 
         <div class="review-form-container">
-            <h3 style="margin-bottom: 20px; font-family: 'Poppins';">Leave Your Review</h3>
+            <h3 style="margin-bottom: 25px; font-family: 'Poppins'; font-size: 1.6rem; font-weight: 700;">Leave Your Review</h3>
             <input type="text" id="revName" placeholder="Your Name" autocomplete="off">
-            <select id="revStars" style="width: 100%; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 12px 15px; color: #fff; margin-bottom: 15px; font-family: 'Outfit';">
-                <option value="5" style="color:#000;">5 Stars - Excellent</option>
-                <option value="4" style="color:#000;">4 Stars - Very Good</option>
-                <option value="3" style="color:#000;">3 Stars - Average</option>
-                <option value="2" style="color:#000;">2 Stars - Poor</option>
-                <option value="1" style="color:#000;">1 Star - Terrible</option>
+            <select id="revStars">
+                <option value="5" style="color:#000;">⭐⭐⭐⭐⭐ 5 Stars - Excellent</option>
+                <option value="4" style="color:#000;">⭐⭐⭐⭐ 4 Stars - Very Good</option>
+                <option value="3" style="color:#000;">⭐⭐⭐ 3 Stars - Average</option>
+                <option value="2" style="color:#000;">⭐⭐ 2 Stars - Poor</option>
+                <option value="1" style="color:#000;">⭐ 1 Star - Terrible</option>
             </select>
             <textarea id="revMsg" rows="3" placeholder="Write your feedback here..."></textarea>
-            <button class="btn-main color-shift-bg" onclick="submitUserReview()" style="width: 100%; justify-content: center;">Submit Review</button>
+            <button class="btn-main color-shift-bg" onclick="submitUserReview()" style="width: 100%; justify-content: center; box-shadow: none;">Submit Review</button>
         </div>
     </section>
 
-    <!-- Payment Section -->
+    <!-- Perfect Payment Section -->
     <section id="payment">
         <h2 class="section-title brand-font">Secure Your AI System</h2>
         <div class="pricing-panel">
             <div class="discount-tag">Flash Discount</div>
-            <h3 style="font-size: 1.5rem; color: #94a3b8; text-decoration: line-through;">Normally $100</h3>
-            <h1 class="color-shift-text" style="font-size: 4.5rem; margin: 10px 0; line-height: 1;">$35</h1>
-            <p style="color: #e2e8f0; font-size: 1.1rem; margin-bottom: 20px;">Complete AI Funnel + 400 Business Ideas</p>
+            <h3 style="font-size: 1.6rem; color: #94a3b8; text-decoration: line-through; font-weight: 500;">Normally $100</h3>
+            <h1 class="color-shift-text" style="font-size: clamp(4rem, 10vw, 6rem); margin: 5px 0 15px; line-height: 1;">$35</h1>
+            <p style="color: #e2e8f0; font-size: 1.2rem; margin-bottom: 30px; font-weight: 300;">Complete AI Funnel + 400 Business Ideas</p>
             
-            <div style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px;">
-                <p style="font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Account Title</p>
-                <h3 style="color: #fff; letter-spacing: 1px; font-size: 1.1rem;">Muhammad Adnan amir</h3>
-                <p style="font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-top: 15px; margin-bottom: 5px;">Account / WhatsApp Number</p>
-                <h2 style="color: var(--neon-cyan); letter-spacing: 2px; font-size: 1.5rem;">03194879958</h2>
+            <div style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 30px;">
+                <p style="font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; font-weight: 600;">Account Title</p>
+                <h3 style="color: #fff; letter-spacing: 1px; font-size: 1.3rem;">Muhammad Adnan amir</h3>
+                <p style="font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-top: 20px; margin-bottom: 5px; font-weight: 600;">Account / WhatsApp Number</p>
+                <h2 style="color: var(--neon-cyan); letter-spacing: 2px; font-size: 1.7rem;">03194879958</h2>
             </div>
 
             <div class="payment-methods">
@@ -324,20 +372,20 @@
             </div>
 
             <button onclick="sendToWhatsApp()" class="btn-main whatsapp-btn-animated">
-                <i class="fa-brands fa-whatsapp" style="font-size: 1.4rem;"></i> Send Payment & Form
+                <i class="fa-brands fa-whatsapp" style="font-size: 1.5rem;"></i> Send Payment & Form Details
             </button>
         </div>
     </section>
 
-    <!-- Compact Beautiful Chat Widget -->
+    <!-- Ultra-Fast Beautiful Chat Widget -->
     <div class="chat-widget">
         <div class="chat-window" id="chatWindow">
             <div class="chat-header">
                 <div class="bot-profile">
                     <img src="https://api.dicebear.com/7.x/bottts/svg?seed=HassaanAI&backgroundColor=00f3ff" alt="Hassaan AI" class="bot-photo">
                     <div>
-                        <div style="font-weight: 800; font-size: 1rem;" class="color-shift-text">Hassaan AI</div>
-                        <div style="font-size: 0.7rem; color: #94a3b8;"><span class="online-dot"></span>Online & Ready</div>
+                        <div style="font-weight: 800; font-size: 1.1rem;" class="color-shift-text">Hassaan AI</div>
+                        <div style="font-size: 0.75rem; color: #94a3b8; display: flex; align-items: center; font-weight: 500;"><span class="online-dot"></span>Online Now</div>
                     </div>
                 </div>
                 <div class="header-actions">
@@ -386,7 +434,6 @@
             }
         } catch(e) { sessionID = "fallback_session"; }
 
-        // Advanced Safe Mock DB: Prevents ALL Console SDK Errors gracefully.
         const safeMockDb = { collection: () => ({ doc: () => ({ set: () => Promise.resolve() }) }) };
 
         try {
@@ -402,27 +449,49 @@
         } catch (error) { db = safeMockDb; }
 
         // ==========================================
-        // 2. KIDS MEMORY MATCH GAME SCRIPT
+        // 2. PERFECTED PROGRESSIVE KIDS GAME
         // ==========================================
-        const emojis =['🤖', '🚀', '💡', '🌟', '🎮', '🧩'];
+        const allEmojis =['🤖', '🚀', '💡', '🌟', '🎮', '🧩', '🎨', '🏎️', '🐶', '🍕'];
+        let currentLevel = 1;
+        let currentPairsCount = 0;
         let cards =[], hasFlippedCard = false, lockBoard = false, firstCard, secondCard, matches = 0;
 
-        function initGame() {
+        function initGameLevel() {
             try {
                 const gameBoard = document.getElementById('gameBoard');
                 const gameMsg = document.getElementById('gameMsg');
+                const btn = document.getElementById('gameActionBtn');
+                
+                document.getElementById('gameLevelBadge').innerText = `Level ${currentLevel}`;
                 gameBoard.innerHTML = '';
                 gameMsg.innerText = "Find the matching pairs!";
                 gameMsg.style.color = "var(--gold-star)";
+                btn.innerText = "Restart Level";
+                btn.style.background = "var(--neon-magenta)";
+                
                 matches = 0; hasFlippedCard = false; lockBoard = false; firstCard = null; secondCard = null;
                 
-                cards = [...emojis, ...emojis].sort(() => 0.5 - Math.random());
+                // Logic: Lvl 1=2 pairs, Lvl 2=4 pairs, Lvl 3=6 pairs, Lvl 4=8 pairs, Lvl 5=10 pairs
+                currentPairsCount = Math.min(currentLevel * 2, allEmojis.length);
+                const selectedEmojis = allEmojis.slice(0, currentPairsCount);
                 
-                cards.forEach((emoji, index) => {
+                const totalCards = currentPairsCount * 2;
+                let cols = 2;
+                if(totalCards >= 16) cols = 5;
+                else if(totalCards >= 12) cols = 4;
+                else if(totalCards >= 8) cols = 4;
+                else cols = 2;
+
+                // Adjust grid columns perfectly
+                gameBoard.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+                
+                cards = [...selectedEmojis, ...selectedEmojis].sort(() => 0.5 - Math.random());
+                
+                cards.forEach((emoji) => {
                     const card = document.createElement('div');
                     card.classList.add('game-card');
                     card.dataset.emoji = emoji;
-                    card.innerHTML = `<span style="opacity:0; transition:0.3s;">${emoji}</span>`;
+                    card.innerHTML = `<span style="opacity:0;">${emoji}</span>`;
                     card.addEventListener('click', flipCard);
                     gameBoard.appendChild(card);
                 });
@@ -432,13 +501,9 @@
         function flipCard() {
             if (lockBoard) return;
             if (this === firstCard) return;
-
             this.classList.add('flipped');
             this.querySelector('span').style.opacity = '1';
-
-            if (!hasFlippedCard) {
-                hasFlippedCard = true; firstCard = this; return;
-            }
+            if (!hasFlippedCard) { hasFlippedCard = true; firstCard = this; return; }
             secondCard = this;
             checkForMatch();
         }
@@ -452,7 +517,12 @@
             firstCard.classList.add('matched'); secondCard.classList.add('matched');
             firstCard.removeEventListener('click', flipCard); secondCard.removeEventListener('click', flipCard);
             matches++;
-            if(matches === emojis.length) { document.getElementById('gameMsg').innerText = "🎉 You Won! Great job explorer!"; }
+            if(matches === currentPairsCount) { 
+                document.getElementById('gameMsg').innerText = `🎉 Level ${currentLevel} Cleared!`; 
+                const btn = document.getElementById('gameActionBtn');
+                btn.innerText = "Next Level ➡️";
+                btn.style.background = "var(--whatsapp)";
+            }
             resetBoard();
         }
 
@@ -462,11 +532,22 @@
                 firstCard.classList.remove('flipped'); secondCard.classList.remove('flipped');
                 firstCard.querySelector('span').style.opacity = '0'; secondCard.querySelector('span').style.opacity = '0';
                 resetBoard();
-            }, 1000);
+            }, 800);
         }
 
-        function resetBoard() {[hasFlippedCard, lockBoard] = [false, false]; [firstCard, secondCard] = [null, null]; }
-        window.addEventListener('load', initGame);
+        function resetBoard() {[hasFlippedCard, lockBoard] = [false, false];[firstCard, secondCard] = [null, null]; }
+        
+        window.nextGameLevel = function() {
+            if(matches === currentPairsCount && currentLevel < 5) {
+                currentLevel++; 
+            } else if (matches === currentPairsCount && currentLevel >= 5) {
+                currentLevel = 1; 
+                alert("You beat the whole game! You are a genius! Restarting from Level 1.");
+            }
+            initGameLevel();
+        }
+
+        window.addEventListener('load', initGameLevel);
 
         // ==========================================
         // 3. REVIEW SUBMISSION LOGIC
@@ -543,7 +624,7 @@
         } catch(e) {}
 
         // ==========================================
-        // 6. DUAL-MODE AI CHAT CORE (KIDS + ADULTS)
+        // 6. LIGHTNING-FAST DUAL-MODE AI CHAT CORE
         // ==========================================
         let chatOpen = false;
         let botState = 0;
@@ -619,7 +700,7 @@
             if(chatOpen) {
                 chatWindow.style.display = 'flex';
                 if(chatHistory.length === 0) initiateGreeting();
-                setTimeout(() => chatInput.focus(), 100);
+                setTimeout(() => chatInput.focus(), 50);
             } else {
                 chatWindow.style.display = 'none';
                 if('speechSynthesis' in window) window.speechSynthesis.cancel();
@@ -657,13 +738,13 @@
 
         function initiateGreeting() {
             setTyping(true);
-            setTimeout(() => {
+            setTimeout(() => { 
                 setTyping(false);
                 let intro = `Hello! I am <b class="color-shift-text">Hassaan AI</b>. Are you here to grow a business, or are you a young explorer looking to play?`;
                 displayMessage(intro, "bot");
                 showQuickReplies(["Grow Business", "Play Game"]);
                 botState = 0; saveState();
-            }, 300);
+            }, 100); // LIGHTNING FAST INTRO
         }
 
         window.sendMessage = function() {
@@ -671,13 +752,14 @@
             if(!inputVal) return;
             const existingQr = document.querySelector('.quick-options'); if(existingQr) existingQr.remove();
             displayMessage(inputVal, "user"); chatInput.value = "";
-            setTyping(true); setTimeout(() => { setTyping(false); processLogic(inputVal); }, 250); 
+            setTyping(true); 
+            // LIGHTNING FAST RESPONSE (50ms)
+            setTimeout(() => { setTyping(false); processLogic(inputVal); }, 50); 
         }
 
         function processLogic(input) {
             const lowerInput = input.toLowerCase();
             
-            // Allow basic conversational bypass for friendliness
             const conversational =["hi", "hello", "hey", "good"];
             if (conversational.some(kw => lowerInput === kw) && botState === 0) {
                 displayMessage("Hi there! Are you here to grow a business or play a game?", "bot");
@@ -686,12 +768,12 @@
             }
 
             switch(botState) {
-                case 0: // Main Branch: Adult vs Kid
+                case 0:
                     if(lowerInput.includes("business") || lowerInput.includes("grow")) {
-                        displayMessage("Excellent choice. To converse appropriately, should I address you as Mr. or Ms.?", "bot");
+                        displayMessage("Excellent choice. Should I address you as Mr. or Ms.?", "bot");
                         showQuickReplies(["Mr.", "Ms."]); botState = 1; saveState();
                     } else if (lowerInput.includes("play") || lowerInput.includes("game")) {
-                        displayMessage("Yay! 🎮 I love playing! Check out the 'Kids & Fun Zone' section on the website to play my Memory Match game! Want me to tell you a joke?", "bot");
+                        displayMessage("Yay! 🎮 I love playing! Scroll down to the 'Kids Fun Zone' section to play my Memory Match game and level up! Want me to tell you a joke?", "bot");
                         showQuickReplies(["Tell me a joke", "Grow Business"]); botState = 10; saveState();
                     } else {
                         displayMessage("Please choose an option so I can help you best!", "bot");
@@ -699,7 +781,7 @@
                     }
                     break;
                 
-                case 10: // Kid Mode Loop
+                case 10: 
                     if(lowerInput.includes("joke")) {
                         displayMessage("Why did the robot go on vacation? ... Because he needed to recharge his batteries! 🤖😂 Want another joke or back to business?", "bot");
                         showQuickReplies(["Another joke", "Grow Business"]);
@@ -712,7 +794,6 @@
                     }
                     break;
 
-                // --- ADULT BUSINESS FLOW ---
                 case 1:
                     userData.title = (lowerInput.includes("ms") || lowerInput.includes("madam")) ? "Ms." : "Mr.";
                     displayMessage(`Noted, ${userData.title}. What is your <b>Full Name</b>?`, "bot"); botState = 2; saveState(); break;
@@ -735,7 +816,7 @@
             let reply = `<b style="color:#00f3ff;">Order Confirmed:</b><br><br>• <b>Customer:</b> ${userData.title} ${userData.name}<br>• <b>Company:</b> ${userData.company}<br>• <b>Specs:</b> <i>${orderDetail}</i><br><br>Total cost is discounted to <b style="color:#00ff88;">$35</b>.<br>`;
             reply += `<button onclick="sendToWhatsApp()" class="btn-main whatsapp-btn-animated" style="width: 100%; margin-top: 10px; font-size: 0.85rem; padding: 8px;"><i class="fa-brands fa-whatsapp"></i> Send Form to WhatsApp</button>`;
             displayMessage(reply, "bot");
-            setTimeout(() => { displayMessage("How would you rate my presentation and design? (Click a star)", "bot"); renderStars(); botState = 5; saveState(); }, 800); 
+            setTimeout(() => { displayMessage("How would you rate my presentation and design? (Click a star)", "bot"); renderStars(); botState = 5; saveState(); }, 200); 
         }
 
         function renderStars() {
@@ -748,7 +829,7 @@
             const siblings = element.parentElement.children;
             for(let i=0; i<siblings.length; i++) { if(i < rating) siblings[i].classList.add('active'); siblings[i].onclick = null; }
             displayMessage(`I rate this ${rating} Stars.`, "user");
-            setTimeout(() => processLogic(rating + " Stars"), 300);
+            setTimeout(() => processLogic(rating + " Stars"), 50);
         }
     </script>
 </body>
