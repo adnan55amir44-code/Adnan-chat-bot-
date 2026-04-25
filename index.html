@@ -3,376 +3,408 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#050508">
-    <title>Power by Adnan | Hassaan AI</title>
+    <meta name="theme-color" content="#030305">
+    <title>Hassaan AI | Advanced Intelligent Chatbot Agency</title>
     
     <!-- Premium Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@500;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <style>
-        /* --- DYNAMIC & BEAUTIFUL VARIABLES --- */
+        /* --- ULTRA-PREMIUM VARIABLES --- */
         :root {
-            --bg-dark: #050508;
-            --glass-bg: rgba(20, 20, 30, 0.4);
+            --bg-dark: #030305;
+            --glass-bg: rgba(12, 12, 18, 0.4);
             --glass-border: rgba(255, 255, 255, 0.08);
             --glass-highlight: rgba(255, 255, 255, 0.15);
             --text-main: #f8fafc;
             --text-dim: #94a3b8;
             --whatsapp: #25D366;
-            --easypaisa: #00A651;
-            --jazzcash: #ED1C24;
             --neon-cyan: #00f3ff;
             --neon-magenta: #bc13fe;
-            --gold-star: #FFD700;
+            --neon-purple: #7000ff;
+            --golden-sun: #ffaa00;
+            --bezier: cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; outline: none; font-family: 'Outfit', sans-serif; }
-        body { background-color: var(--bg-dark); color: var(--text-main); overflow-x: hidden; scroll-behavior: smooth; line-height: 1.6; }
+        body { background-color: var(--bg-dark); color: var(--text-main); overflow-x: hidden; scroll-behavior: smooth; line-height: 1.6; -webkit-font-smoothing: antialiased; }
         h1, h2, h3, h4, .brand-font { font-family: 'Poppins', sans-serif; }
 
-        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg-dark); }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--neon-cyan), var(--neon-magenta)); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--neon-cyan), var(--golden-sun)); border-radius: 10px; }
+
+        /* --- STUNNING ANIMATIONS --- */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(0,243,255,0.4); } 50% { box-shadow: 0 0 40px rgba(0,243,255,0.8); } }
+
+        .animate-fade-up { animation: fadeInUp 1s var(--bezier) forwards; opacity: 0; }
+        .delay-1 { animation-delay: 0.15s; } .delay-2 { animation-delay: 0.3s; } .delay-3 { animation-delay: 0.45s; }
 
         .color-shift-text {
-            background: linear-gradient(270deg, var(--neon-cyan), var(--neon-magenta), #00ff88, var(--neon-cyan));
+            background: linear-gradient(270deg, var(--neon-cyan), var(--neon-magenta), var(--golden-sun), var(--neon-cyan));
             background-size: 300% 300%;
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: gradientShift 5s ease infinite; font-weight: bold;
+            animation: gradientShift 8s ease infinite; font-weight: 800;
         }
-        .color-shift-bg {
-            background: linear-gradient(270deg, var(--neon-cyan), var(--neon-magenta), #0044ff, var(--neon-cyan));
-            background-size: 300% 300%; animation: gradientShift 6s ease infinite; color: #fff; border: none;
-        }
-        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-        /* --- ULTRA 3D ROBOTIC BACKGROUND CANVAS --- */
-        #webgl-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; pointer-events: none; }
-        .ambient-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at center, rgba(5,5,8,0.3) 0%, rgba(5,5,8,0.95) 100%); pointer-events: none; }
+        /* --- ULTRA 3D BACKGROUND, MESH & AMBIENT ORBS --- */
+        .mesh-grid { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -3; pointer-events: none; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 50px 50px; mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0)); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0)); }
+        #webgl-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; pointer-events: none; opacity: 0.8; }
+        .ambient-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at center, rgba(3,3,5,0.1) 0%, rgba(3,3,5,0.98) 100%); pointer-events: none; }
+        
+        .glow-orb { position: fixed; width: 45vw; height: 45vw; border-radius: 50%; background: var(--neon-cyan); filter: blur(140px); opacity: 0.12; z-index: -1; top: -10%; left: -10%; pointer-events: none; animation: orbMove 25s infinite alternate ease-in-out;}
+        .glow-orb.magenta { background: var(--neon-magenta); top: 60%; left: 70%; animation-delay: -5s; opacity: 0.08;}
+        .glow-orb.sun { background: var(--golden-sun); top: 20%; left: 50%; animation-delay: -10s; opacity: 0.12;}
+        @keyframes orbMove { 0% { transform: scale(1) translate(0, 0); } 100% { transform: scale(1.1) translate(40px, -40px); } }
+
+        /* --- CUSTOM TOAST NOTIFICATIONS --- */
+        #toastContainer { position: fixed; top: 100px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 12px; }
+        .custom-toast { background: rgba(8, 8, 12, 0.95); color: #fff; padding: 16px 24px; border-radius: 16px; font-weight: 500; font-size: 0.95rem; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid var(--neon-cyan); backdrop-filter: blur(10px); animation: toastIn 0.4s var(--bezier) forwards; display: flex; align-items: center; gap: 12px; }
+        .custom-toast.success { border-left-color: #00ff88; }
+        @keyframes toastIn { from { transform: translateX(120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
         /* --- PREMIUM FLOATING NAVBAR --- */
         nav {
-            position: fixed; top: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 1200px;
-            padding: 12px 25px; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
-            background: rgba(15, 15, 22, 0.75); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border); border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: fixed; top: 25px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 1200px;
+            padding: 12px 28px; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+            background: rgba(10, 10, 15, 0.65); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border); border-radius: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.1);
+            transition: 0.4s var(--bezier);
         }
-        .logo { display: flex; align-items: center; gap: 12px; font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-weight: 800; }
-        .drawn-icon { width: 36px; height: 36px; border-radius: 50%; object-fit: contain; background: linear-gradient(135deg, #fff, #e0e0e0); padding: 3px; box-shadow: 0 4px 15px rgba(0, 243, 255, 0.4); }
+        .logo { display: flex; align-items: center; gap: 14px; font-size: clamp(1.2rem, 2.5vw, 1.5rem); font-weight: 800; cursor: pointer; letter-spacing: -0.5px;}
+        .drawn-icon { width: 38px; height: 38px; border-radius: 50%; object-fit: contain; background: #fff; padding: 4px; box-shadow: 0 0 20px rgba(0, 243, 255, 0.4); }
         
-        nav ul { list-style: none; display: flex; gap: 25px; }
-        nav ul li a { color: #fff; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: 0.3s; opacity: 0.7; }
-        nav ul li a:hover { opacity: 1; color: var(--neon-cyan); text-shadow: 0 0 10px rgba(0,243,255,0.4); }
+        nav ul { list-style: none; display: flex; gap: 40px; align-items: center; transition: 0.3s ease-in-out; }
+        nav ul li a { color: var(--text-dim); text-decoration: none; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.5px; transition: 0.3s var(--bezier); }
+        nav ul li a:hover { color: #fff; text-shadow: 0 0 15px rgba(255,255,255,0.4); transform: translateY(-2px); display: inline-block;}
+        .mobile-menu-btn { display: none; font-size: 1.5rem; color: #fff; cursor: pointer; background: transparent; border: none; transition: 0.3s; }
 
         /* --- UPGRADED PERFECT SECTIONS --- */
-        section { padding: clamp(120px, 15vh, 160px) 5% 80px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; z-index: 1; }
-        .section-title { font-size: clamp(2.2rem, 5vw, 3.8rem); margin-bottom: 15px; font-weight: 800; letter-spacing: -0.5px; }
-        .section-subtitle { font-size: clamp(0.95rem, 2vw, 1.15rem); color: var(--text-dim); margin-bottom: 50px; max-width: 650px; font-weight: 400; }
+        section { padding: clamp(120px, 15vh, 180px) 5% 100px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; z-index: 1; scroll-margin-top: 80px; transition: all 0.5s ease;}
+        .section-title { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 20px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.15; }
+        .section-subtitle { font-size: clamp(1rem, 2vw, 1.15rem); color: var(--text-dim); margin-bottom: 60px; max-width: 700px; font-weight: 400; line-height: 1.8; }
         
-        .hero-title { font-size: clamp(2.8rem, 8vw, 7.5rem); font-weight: 900; line-height: 1.05; margin-bottom: 25px; text-shadow: 0 10px 40px rgba(0,243,255,0.3); letter-spacing: -1px; }
-        .hero-p { font-size: clamp(1rem, 2.5vw, 1.25rem); color: var(--text-main); max-width: 750px; margin-bottom: 45px; font-weight: 300; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+        .hero-container { display: flex; flex-direction: column; align-items: center; gap: 30px; max-width: 1000px; margin: 0 auto;}
+        .badge { background: rgba(0,243,255,0.05); border: 1px solid rgba(0,243,255,0.3); color: var(--neon-cyan); padding: 8px 24px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; display: inline-block; margin-bottom: 15px; box-shadow: 0 0 20px rgba(0,243,255,0.1); backdrop-filter: blur(10px); }
+        .hero-title { font-size: clamp(3.2rem, 8vw, 7rem); font-weight: 900; line-height: 1.05; margin-bottom: 25px; letter-spacing: -2.5px; text-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .hero-p { font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--text-dim); max-width: 800px; margin-bottom: 45px; font-weight: 400; line-height: 1.8; }
 
-        .btn-main { padding: 15px 35px; border-radius: 50px; font-weight: 700; font-size: 1.05rem; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 10px 20px rgba(0,0,0,0.4); text-decoration: none; border: none; outline: none; }
-        .btn-main:hover { transform: translateY(-5px) scale(1.03); box-shadow: 0 15px 35px rgba(0, 243, 255, 0.5); }
+        /* Glowing Button */
+        .btn-main { position: relative; padding: clamp(16px, 2.5vw, 20px) clamp(35px, 5vw, 45px); border-radius: 50px; font-weight: 700; font-size: clamp(1rem, 2vw, 1.1rem); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 12px; transition: 0.4s var(--bezier); background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); color: #fff; border: none; z-index: 1; overflow: hidden; letter-spacing: 0.5px; text-decoration: none; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);}
+        .btn-main::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, var(--neon-purple), var(--neon-cyan)); opacity: 0; transition: 0.4s var(--bezier); z-index: -1; }
+        .btn-main:hover::before { opacity: 1; }
+        .btn-main:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 243, 255, 0.4); }
 
-        /* --- PERFECT NEAT GLASS CARDS --- */
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; width: 100%; max-width: 1200px; perspective: 1000px; }
-        .glass-card { 
-            background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); 
-            backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
-            border: 1px solid var(--glass-border); border-top: 1px solid var(--glass-highlight); border-left: 1px solid var(--glass-highlight);
-            border-radius: 24px; padding: 40px 30px; transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            position: relative; overflow: hidden; transform-style: preserve-3d; display: flex; flex-direction: column; align-items: center; text-align: center;
-        }
-        .glass-card:hover { transform: translateY(-10px) rotateX(5deg); border-color: rgba(0,243,255,0.5); box-shadow: 0 25px 50px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,243,255,0.05); }
+        /* --- FLAWLESS FEATURES GRID --- */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; width: 100%; max-width: 1200px; margin-top: 20px;}
+        .feature-card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-top: 1px solid rgba(255,255,255,0.12); border-radius: 30px; padding: 45px 35px; text-align: left; transition: 0.5s var(--bezier); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4);}
+        .feature-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at top right, rgba(0,243,255,0.1), transparent 60%); opacity: 0; transition: 0.5s; }
+        .feature-card:hover::before { opacity: 1; }
+        .feature-card:hover { transform: translateY(-12px); border-color: rgba(0,243,255,0.4); box-shadow: 0 30px 60px rgba(0,0,0,0.6), inset 0 0 30px rgba(0,243,255,0.05); }
+
+        .feature-icon { width: 65px; height: 65px; border-radius: 20px; background: rgba(0,243,255,0.05); border: 1px solid rgba(0,243,255,0.2); display: flex; justify-content: center; align-items: center; margin-bottom: 30px; color: var(--neon-cyan); font-size: 1.8rem; transition: 0.5s var(--bezier); box-shadow: inset 0 2px 10px rgba(255,255,255,0.05);}
+        .feature-card:hover .feature-icon { background: var(--neon-cyan); color: #000; box-shadow: 0 10px 30px rgba(0,243,255,0.5); transform: scale(1.1) rotate(8deg); border-color: transparent;}
+        .feature-card h3 { font-size: 1.5rem; color: #fff; margin-bottom: 15px; font-weight: 700; letter-spacing: -0.5px;}
+        .feature-card p { font-size: 1.05rem; color: var(--text-dim); line-height: 1.7; }
+
+        /* --- DEMO SANDBOX SECTION --- */
+        .sandbox-panel { background: rgba(12,12,18,0.7); border: 1px solid rgba(255,170,0,0.3); border-top: 1px solid rgba(255,170,0,0.6); border-radius: 36px; padding: clamp(40px, 6vw, 60px); max-width: 800px; width: 100%; box-shadow: 0 40px 80px rgba(0,0,0,0.8), inset 0 0 50px rgba(255,170,0,0.05); backdrop-filter: blur(40px); margin: 0 auto; text-align: left; transition: 0.5s var(--bezier); position: relative; overflow: hidden;}
+        .sandbox-panel::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,170,0,0.05) 0%, transparent 60%); pointer-events: none; }
+        .sandbox-panel h3 { font-size: 1.8rem; color: #fff; margin-bottom: 10px; font-weight: 800; }
+        .sandbox-panel p.demo-sub { color: var(--golden-sun); font-size: 1.1rem; margin-bottom: 35px; font-weight: 500; letter-spacing: 0.5px; }
         
-        .icon-wrapper { width: 70px; height: 70px; border-radius: 50%; background: rgba(0, 243, 255, 0.1); border: 1px solid rgba(0,243,255,0.3); display: flex; justify-content: center; align-items: center; margin-bottom: 25px; box-shadow: 0 0 20px rgba(0,243,255,0.2); transition: 0.4s; transform: translateZ(30px); }
-        .glass-card:hover .icon-wrapper { background: var(--neon-cyan); box-shadow: 0 0 30px var(--neon-cyan); }
-        .glass-card i { font-size: 2rem; color: var(--neon-cyan); transition: 0.4s; }
-        .glass-card:hover i { color: #000; }
-        
-        .glass-card h3 { font-size: 1.35rem; margin-bottom: 12px; transform: translateZ(20px); font-weight: 700; }
-        .glass-card p { font-size: 0.95rem; color: var(--text-dim); transform: translateZ(10px); }
+        .input-group { margin-bottom: 25px; position: relative; }
+        .input-group label { display: block; margin-bottom: 10px; color: #fff; font-weight: 600; font-size: 1.05rem; }
+        .sandbox-input { width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15); padding: 18px 25px; border-radius: 20px; color: #fff; font-size: 1rem; transition: 0.4s var(--bezier); outline: none; font-family: 'Outfit'; }
+        .sandbox-input:focus { border-color: var(--golden-sun); background: rgba(255,170,0,0.03); box-shadow: 0 0 0 4px rgba(255,170,0,0.1); }
+        textarea.sandbox-input { resize: vertical; min-height: 120px; }
 
-        /* --- PERFECT SKILLS TAGS --- */
-        .skills-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 850px; margin: 0 auto 50px; }
-        .skill-tag { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 10px 22px; border-radius: 50px; font-size: 0.95rem; font-weight: 500; color: #fff; transition: 0.3s; display: flex; align-items: center; gap: 8px; backdrop-filter: blur(10px); }
-        .skill-tag:hover { background: var(--neon-cyan); color: #000; border-color: var(--neon-cyan); transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,243,255,0.3); }
-
-        /* --- PERFECT REVIEWS UI --- */
-        .review-card { background: rgba(15,15,22,0.6); border: 1px solid var(--glass-border); border-radius: 20px; padding: 30px; text-align: left; transition: 0.4s; backdrop-filter: blur(15px); }
-        .review-card:hover { border-color: var(--gold-star); transform: translateY(-8px); box-shadow: 0 15px 35px rgba(255,215,0,0.15); }
-        .review-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
-        .review-header img { width: 55px; height: 55px; border-radius: 50%; background: #fff; border: 2px solid var(--neon-cyan); object-fit: cover; }
-        .review-stars { color: var(--gold-star); font-size: 0.9rem; margin-top: 4px; display: flex; gap: 2px; }
-        .review-text { font-size: 0.95rem; color: var(--text-dim); font-style: italic; line-height: 1.6; }
-        
-        .review-form-container { background: rgba(20,20,30,0.5); border: 1px solid var(--glass-border); border-radius: 24px; padding: 40px; max-width: 600px; width: 100%; margin: 50px auto 0; backdrop-filter: blur(25px); }
-        .review-form-container input, .review-form-container textarea, .review-form-container select { width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 16px 20px; color: #fff; margin-bottom: 20px; font-family: 'Outfit'; font-size: 1rem; transition: 0.3s; box-shadow: inset 0 2px 10px rgba(0,0,0,0.5); }
-        .review-form-container input:focus, .review-form-container textarea:focus, .review-form-container select:focus { border-color: var(--neon-cyan); background: rgba(0,243,255,0.02); box-shadow: 0 0 15px rgba(0,243,255,0.1); }
-
-        /* --- PROGRESSIVE KIDS GAME ZONE --- */
-        .game-wrapper { background: rgba(20,20,30,0.5); border: 1px solid rgba(188,19,254,0.4); border-radius: 24px; padding: clamp(25px, 5vw, 40px); max-width: 500px; width: 100%; margin: 0 auto; backdrop-filter: blur(20px); box-shadow: 0 20px 50px rgba(188,19,254,0.15); }
-        .game-level-badge { background: var(--neon-magenta); color: #fff; padding: 6px 20px; border-radius: 30px; font-weight: 800; font-size: 0.95rem; display: inline-block; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(188,19,254,0.4); }
-        .game-board { display: grid; gap: clamp(8px, 2vw, 12px); margin: 0 auto 25px; justify-content: center; }
-        .game-card { background: rgba(255,255,255,0.05); border: 2px solid rgba(188,19,254,0.3); border-radius: 14px; display: flex; justify-content: center; align-items: center; font-size: clamp(1.8rem, 5vw, 2.5rem); cursor: pointer; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s; user-select: none; aspect-ratio: 1 / 1; box-shadow: inset 0 0 15px rgba(0,0,0,0.5); }
-        .game-card.flipped { background: rgba(0, 243, 255, 0.15); border-color: var(--neon-cyan); transform: rotateY(180deg); box-shadow: 0 0 15px rgba(0,243,255,0.3); }
-        .game-card.matched { background: rgba(0, 255, 136, 0.15); border-color: #00ff88; transform: scale(0.9); cursor: default; box-shadow: 0 0 20px rgba(0,255,136,0.3); }
-        .game-card span { transition: opacity 0.3s; }
+        .btn-sandbox { background: linear-gradient(135deg, var(--golden-sun), #ff5500); width: 100%; margin-top: 15px; }
+        .btn-sandbox::before { background: linear-gradient(135deg, #ff5500, var(--golden-sun)); }
+        .btn-sandbox:hover { box-shadow: 0 20px 40px rgba(255,170,0,0.4); }
 
         /* --- FLAWLESS PAYMENT INFO PANEL --- */
-        .pricing-panel { background: rgba(10,10,15,0.8); border: 1px solid rgba(188,19,254,0.4); border-radius: 28px; padding: clamp(30px, 6vw, 50px); max-width: 580px; width: 100%; box-shadow: 0 25px 60px rgba(188,19,254,0.15); position: relative; backdrop-filter: blur(25px); margin: 0 auto; }
-        .discount-tag { position: absolute; top: -18px; right: clamp(15px, 5vw, 30px); background: #ED1C24; color: #fff; padding: 8px 22px; border-radius: 30px; font-weight: 800; font-size: 0.85rem; box-shadow: 0 8px 25px rgba(237,28,36,0.4); text-transform: uppercase; letter-spacing: 0.5px; }
-        .payment-methods { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 25px; margin-bottom: 30px; }
-        .pay-badge { padding: 12px 20px; border-radius: 12px; font-weight: 800; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; flex: 1; justify-content: center; min-width: 140px; }
-
-        .whatsapp-btn-animated { background: linear-gradient(45deg, #25D366, #128C7E); color: #fff; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); width: 100%; justify-content: center; animation: pulseWA 2.5s infinite; font-size: clamp(1rem, 2.5vw, 1.15rem); border: none; padding: 18px 25px; border-radius: 50px; }
-        .whatsapp-btn-animated:hover { background: linear-gradient(45deg, #128C7E, #075E54); animation: none; transform: scale(1.02); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5); }
-        @keyframes pulseWA { 0%, 100% { transform: scale(1); box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); } 50% { transform: scale(1.02); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6); } }
+        .pricing-panel { background: rgba(8,8,12,0.85); border: 1px solid rgba(188,19,254,0.3); border-top: 1px solid rgba(188,19,254,0.6); border-radius: 36px; padding: clamp(40px, 6vw, 60px); max-width: 620px; width: 100%; box-shadow: 0 40px 80px rgba(0,0,0,0.8), inset 0 0 40px rgba(188,19,254,0.05); position: relative; backdrop-filter: blur(40px); margin: 0 auto; text-align: center; transition: 0.5s var(--bezier);}
+        .pricing-panel:hover { transform: translateY(-10px); box-shadow: 0 50px 100px rgba(0,0,0,0.9), inset 0 0 40px rgba(188,19,254,0.1); }
+        .discount-tag { position: absolute; top: -20px; right: clamp(20px, 5vw, 40px); background: linear-gradient(135deg, #ff0055, #ED1C24); color: #fff; padding: 10px 28px; border-radius: 30px; font-weight: 800; font-size: 0.9rem; box-shadow: 0 12px 30px rgba(237,28,36,0.5); text-transform: uppercase; letter-spacing: 1.5px; animation: float 4s ease-in-out infinite;}
+        
+        .whatsapp-btn-animated { background: linear-gradient(45deg, #25D366, #128C7E); color: #fff; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); width: 100%; justify-content: center; font-size: clamp(1.1rem, 2.5vw, 1.25rem); border: none; padding: 22px 25px; border-radius: 50px; cursor: pointer; text-decoration: none; display: flex; align-items: center; gap: 12px; font-family: 'Outfit'; font-weight: 800; transition: 0.4s var(--bezier);}
+        .whatsapp-btn-animated:hover { transform: scale(1.02); box-shadow: 0 15px 45px rgba(37, 211, 102, 0.6); filter: brightness(1.1); }
 
         /* --- ULTRA-FAST, BEAUTIFUL CHAT WIDGET --- */
-        .chat-widget { position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
-        .chat-btn-wrapper { position: relative; width: 75px; height: 75px; animation: formBubble 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; cursor: pointer; }
-        .beautiful-chat-btn { width: 100%; height: 100%; border-radius: 50%; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta)); box-shadow: 0 10px 30px rgba(0, 243, 255, 0.4); display: flex; justify-content: center; align-items: center; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); animation: smoothFloat 4s ease-in-out infinite; }
-        .beautiful-chat-btn:hover { transform: scale(1.15) rotate(10deg); box-shadow: 0 15px 40px rgba(188, 19, 254, 0.6); }
-        .beautiful-chat-btn img { width: 60%; height: 60%; border-radius: 50%; background: #fff; padding: 2px; }
+        .chat-widget { position: fixed; bottom: clamp(20px, 4vw, 35px); right: clamp(20px, 4vw, 35px); z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
+        .chat-btn-wrapper { position: relative; width: clamp(65px, 15vw, 80px); height: clamp(65px, 15vw, 80px); animation: fadeInUp 0.8s var(--bezier) forwards; cursor: pointer; }
+        .beautiful-chat-btn { width: 100%; height: 100%; border-radius: 50%; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); box-shadow: 0 15px 40px rgba(0, 243, 255, 0.4); display: flex; justify-content: center; align-items: center; transition: 0.4s var(--bezier); animation: pulseGlow 3s infinite alternate;}
+        .beautiful-chat-btn:hover { transform: scale(1.1) rotate(15deg); box-shadow: 0 20px 50px rgba(112, 0, 255, 0.6); animation: none; }
+        .beautiful-chat-btn img { width: 55%; height: 55%; border-radius: 50%; background: #fff; padding: 3px; object-fit: contain; }
 
-        @keyframes smoothFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-        @keyframes formBubble { 0% { transform: scale(0) translateY(50px); opacity: 0; } 100% { transform: scale(1) translateY(0); opacity: 1; } }
-
-        .chat-window { position: absolute; bottom: 95px; right: 0; width: 360px; height: 550px; max-height: calc(100vh - 120px); max-width: calc(100vw - 30px); background: rgba(8, 8, 14, 0.98); border: 1px solid rgba(0,243,255,0.25); border-radius: 24px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(0,243,255,0.05) inset; backdrop-filter: blur(25px); transform-origin: bottom right; animation: popIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        .chat-window { position: absolute; bottom: calc(100% + 20px); right: 0; width: 400px; height: 650px; max-height: calc(100dvh - 140px); background: rgba(10, 10, 15, 0.95); border: 1px solid rgba(255,255,255,0.15); border-radius: 30px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.95), inset 0 1px 1px rgba(255,255,255,0.2); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); transform-origin: bottom right; animation: popIn 0.4s var(--bezier) forwards; }
         @keyframes popIn { 0% { opacity: 0; transform: scale(0.8) translateY(30px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
 
-        .chat-header { padding: 16px 20px; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; }
-        .bot-profile { display: flex; align-items: center; gap: 12px; }
-        .bot-photo { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--neon-cyan); background: #fff; padding: 2px; object-fit: contain; }
+        .chat-header { padding: 22px 24px; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0;}
+        .bot-profile { display: flex; align-items: center; gap: 14px; }
+        .bot-photo { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--neon-cyan); background: #fff; padding: 2px; object-fit: contain; transition: 0.3s; }
 
-        .online-dot { width: 10px; height: 10px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 10px #00ff88; animation: pulseOnline 1.5s infinite alternate; display: inline-block; margin-right: 6px;}
-        @keyframes pulseOnline { from { opacity: 0.5; } to { opacity: 1; transform: scale(1.3); } }
+        .online-dot { width: 10px; height: 10px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 15px #00ff88; animation: pulseOnline 2s infinite alternate; display: inline-block; margin-right: 6px;}
+        @keyframes pulseOnline { from { opacity: 0.5; transform: scale(0.9); } to { opacity: 1; transform: scale(1.2); } }
 
-        .chat-body { flex: 1; padding: 18px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; scroll-behavior: smooth; }
-        .msg { max-width: 88%; padding: 12px 16px; border-radius: 18px; font-size: 0.95rem; line-height: 1.5; opacity: 0; animation: fadeUp 0.15s ease forwards; word-wrap: break-word; }
+        .chat-body { flex: 1; padding: 22px; overflow-y: auto; display: flex; flex-direction: column; gap: 18px; scroll-behavior: smooth; }
+        .chat-body::-webkit-scrollbar { width: 6px; }
+        .chat-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 10px; }
+
+        .msg { max-width: 88%; padding: 16px 20px; border-radius: 20px; font-size: 0.95rem; line-height: 1.6; opacity: 0; animation: fadeUp 0.3s var(--bezier) forwards; word-wrap: break-word; }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
-        .msg.bot { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); align-self: flex-start; border-bottom-left-radius: 4px; display: flex; flex-direction: column; gap: 8px; }
-        .msg.user { background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta)); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; box-shadow: 0 5px 15px rgba(0,243,255,0.2); font-weight: 500; }
+        .msg.bot { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); align-self: flex-start; border-bottom-left-radius: 6px; display: flex; flex-direction: column; gap: 10px; color: #f8fafc; box-shadow: 0 5px 15px rgba(0,0,0,0.2);}
+        .msg.user { background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); color: #fff; align-self: flex-end; border-bottom-right-radius: 6px; box-shadow: 0 10px 25px rgba(0,243,255,0.25); font-weight: 500; }
 
-        .quick-options { display: flex; flex-wrap: wrap; gap: 8px; align-self: flex-start; animation: fadeUp 0.15s ease forwards; margin-bottom: 5px;}
-        .qr-btn { background: rgba(0, 243, 255, 0.08); border: 1px solid var(--neon-cyan); color: var(--text-main); padding: 8px 16px; border-radius: 20px; font-weight: 600; cursor: pointer; transition: 0.2s; font-size: 0.85rem; }
-        .qr-btn:hover { background: var(--neon-cyan); color: #000; box-shadow: 0 0 15px rgba(0,243,255,0.4); transform: translateY(-2px); }
+        /* AI Reasoning Box UI */
+        .reasoning-box {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: #00ff88;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 12px 14px;
+            border-radius: 8px;
+            border-left: 3px solid var(--neon-cyan);
+            margin-bottom: 8px;
+            line-height: 1.5;
+            box-shadow: inset 0 0 15px rgba(0,243,255,0.05);
+            animation: pulseGlow 4s infinite alternate;
+        }
+        .reasoning-box .log-line { display: block; opacity: 0; animation: fadeUp 0.3s forwards; }
 
-        .play-audio-btn { background: rgba(0, 243, 255, 0.1); border: 1px solid rgba(0, 243, 255, 0.3); color: var(--neon-cyan); border-radius: 20px; padding: 5px 12px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 6px; width: max-content; cursor: pointer; transition: 0.2s; font-weight: 600; }
-        .play-audio-btn:hover { background: var(--neon-cyan); color: #000; }
+        .play-audio-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-dim); border-radius: 20px; padding: 6px 14px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 8px; width: max-content; cursor: pointer; transition: 0.3s; font-weight: 600; margin-top: 4px; }
+        .play-audio-btn:hover { background: #fff; color: #000; box-shadow: 0 5px 15px rgba(255,255,255,0.2); }
 
-        .typing { display: none; align-self: flex-start; padding: 8px 14px; background: rgba(255,255,255,0.05); border-radius: 16px; border-bottom-left-radius: 4px; margin-bottom: 5px;}
-        .dot { width: 6px; height: 6px; background: var(--neon-cyan); border-radius: 50%; display: inline-block; margin: 0 3px; animation: bounce 0.8s infinite ease-in-out both; }
-        .dot:nth-child(1) { animation-delay: -0.2s; } .dot:nth-child(2) { animation-delay: -0.1s; }
-        @keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1.4); } }
+        .quick-options { display: flex; flex-wrap: wrap; gap: 10px; align-self: flex-start; animation: fadeUp 0.3s var(--bezier) forwards; margin-bottom: 5px;}
+        .qr-btn { background: rgba(0, 243, 255, 0.05); border: 1px solid rgba(0, 243, 255, 0.3); color: var(--neon-cyan); padding: 10px 20px; border-radius: 25px; font-weight: 500; cursor: pointer; transition: 0.3s; font-size: 0.9rem; }
+        .qr-btn:hover { background: var(--neon-cyan); color: #000; box-shadow: 0 5px 20px rgba(0,243,255,0.4); transform: translateY(-3px); }
 
-        .chat-input-area { padding: 15px; background: rgba(0,0,0,0.5); display: flex; gap: 10px; border-top: 1px solid rgba(255,255,255,0.08); align-items: center; }
-        /* Font size set strictly to 16px to prevent iOS input auto-zoom */
-        .chat-input-area input { flex: 1; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 14px 18px; border-radius: 30px; color: #fff; font-size: 16px; transition: 0.3s; min-width: 0; outline: none; }
-        .chat-input-area input:focus { border-color: var(--neon-cyan); background: rgba(0,243,255,0.05); box-shadow: 0 0 15px rgba(0,243,255,0.15); }
-        .send-btn { background: var(--neon-cyan); border: none; width: 48px; height: 48px; border-radius: 50%; cursor: pointer; color: #000; font-size: 1.1rem; transition: 0.2s; flex-shrink: 0; display: flex; justify-content: center; align-items: center; }
-        .send-btn:hover { transform: scale(1.1); background: var(--neon-magenta); color: #fff; box-shadow: 0 0 20px rgba(188,19,254,0.5); }
+        .typing { display: none; align-self: flex-start; padding: 16px 22px; background: rgba(255,255,255,0.05); border-radius: 20px; border-bottom-left-radius: 6px; margin-bottom: 5px; gap: 6px; align-items: center;}
+        .dot { width: 7px; height: 7px; background: var(--text-dim); border-radius: 50%; display: inline-block; animation: bounce 1.4s infinite ease-in-out both; }
+        .dot:nth-child(1) { animation-delay: -0.32s; } .dot:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1.5); background: var(--neon-cyan); } }
 
-        .header-actions { display: flex; gap: 12px; align-items: center; }
-        .header-actions button { background:none; border:none; color: rgba(255,255,255,0.8); cursor:pointer; font-size:1.15rem; transition: 0.2s; padding: 2px; }
-        .header-actions button:hover { color: var(--neon-cyan); transform: scale(1.15); }
-        #speakerToggleBtn.speaker-off { color: #ED1C24; }
+        .chat-input-area { padding: 20px; background: rgba(0,0,0,0.4); display: flex; gap: 12px; border-top: 1px solid rgba(255,255,255,0.08); align-items: center; border-radius: 0 0 30px 30px; flex-shrink: 0;}
+        .chat-input-area input { flex: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); padding: 16px 22px; border-radius: 30px; color: #fff; font-size: 1rem; transition: 0.4s var(--bezier); min-width: 0; outline: none; font-family: 'Outfit'; }
+        .chat-input-area input:focus { border-color: var(--neon-cyan); background: rgba(0,243,255,0.03); box-shadow: 0 0 0 4px rgba(0,243,255,0.1); }
+        .chat-input-area input:disabled { opacity: 0.5; cursor: not-allowed; }
+        
+        .mic-btn { background: transparent; border: none; cursor: pointer; color: var(--text-dim); font-size: 1.4rem; transition: 0.3s; padding: 10px; display: flex; justify-content: center; align-items: center; }
+        .mic-btn:hover { color: #fff; transform: scale(1.1); }
+        .mic-btn.recording { color: #ff0055; animation: pulseMic 1.5s infinite; }
 
-        .stars-container { display: flex; justify-content: center; gap: 8px; margin-top: 5px; }
-        .star { font-size: 1.8rem; color: rgba(255,255,255,0.15); cursor: pointer; transition: 0.2s; }
-        .star:hover, .star.active { color: #FFD700; filter: drop-shadow(0 0 15px rgba(255,215,0,0.8)); transform: scale(1.2); }
+        .send-btn { background: #fff; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; color: #000; font-size: 1.3rem; transition: 0.4s var(--bezier); flex-shrink: 0; display: flex; justify-content: center; align-items: center; box-shadow: 0 5px 15px rgba(255,255,255,0.2);}
+        .send-btn:hover { transform: scale(1.1) rotate(-10deg); background: var(--neon-cyan); box-shadow: 0 10px 25px rgba(0,243,255,0.5); }
+
+        .header-actions { display: flex; gap: 18px; align-items: center; }
+        .header-actions button { background:none; border:none; color: var(--text-dim); cursor:pointer; font-size:1.3rem; transition: 0.3s; }
+        .header-actions button:hover { color: #fff; transform: scale(1.1); }
+        .speaker-off { color: #ff0055 !important; }
 
         /* --- FLAWLESS MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
-            nav { width: calc(100% - 30px); left: 15px; transform: none; top: 15px; padding: 10px 20px; }
-            nav ul { display: none; }
-            section { padding: 120px 5% 60px; }
-            .grid-container { gap: 20px; }
-            .glass-card { padding: 30px 20px; }
+            nav { width: calc(100% - 30px); top: 15px; padding: 14px 20px; border-radius: 20px; }
+            .mobile-menu-btn { display: block; }
             
-            .chat-widget { bottom: 20px; right: 20px; }
-            .chat-btn-wrapper { width: 65px; height: 65px; }
-            /* Chat window fits perfectly on mobile */
-            .chat-window { 
-                position: fixed; bottom: 95px; right: 15px; left: 15px; width: auto; 
-                height: calc(100vh - 130px); max-height: 550px; border-radius: 20px; 
+            nav ul { 
+                display: flex; flex-direction: column; position: absolute; top: calc(100% + 15px); 
+                left: 0; width: 100%; background: rgba(10, 10, 15, 0.98); backdrop-filter: blur(30px);
+                border: 1px solid var(--glass-border); border-radius: 20px; padding: 0;
+                max-height: 0; overflow: hidden; opacity: 0; visibility: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8);
             }
-            .chat-input-area { padding: 12px; }
-            .chat-input-area input { padding: 12px 15px; }
-            .send-btn { width: 44px; height: 44px; }
+            nav ul.active { max-height: 400px; padding: 25px 0; opacity: 1; visibility: visible; }
+            nav ul li { margin: 15px 0; }
+            
+            section { padding: 120px 5% 80px; }
+            
+            .chat-window { 
+                position: fixed; bottom: 90px; right: 15px; left: 15px; width: auto; 
+                height: 70dvh; min-height: 450px; max-height: calc(100dvh - 110px); border-radius: 28px; 
+            }
+            
+            .features-grid { gap: 20px; }
+            .feature-card { padding: 35px 25px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ULTRA ROBOTIC 3D CANVAS -->
+    <!-- CUSTOM TOAST CONTAINER -->
+    <div id="toastContainer"></div>
+
+    <!-- ULTRA ROBOTIC 3D CANVAS, MESH & AMBIENT GLOW -->
+    <div class="mesh-grid"></div>
     <canvas id="webgl-canvas"></canvas>
     <div class="ambient-overlay"></div>
+    <div class="glow-orb"></div>
+    <div class="glow-orb magenta"></div>
+    <div class="glow-orb sun"></div>
 
-    <!-- Perfect Floating Navigation -->
+    <!-- Premium Floating Navigation (Restored to simple hrefs) -->
     <nav>
-        <div class="logo brand-font">
+        <div class="logo brand-font" onclick="window.scrollTo(0,0)">
             <img src="https://api.dicebear.com/7.x/bottts/svg?seed=HassaanAI&backgroundColor=00f3ff" alt="Icon" class="drawn-icon">
             <span class="color-shift-text">Power by Adnan</span>
         </div>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#skills">Capabilities</a></li>
-            <li><a href="#kidszone">Kids Zone</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a href="#payment">Deploy</a></li>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fa-solid fa-bars"></i></button>
+        <ul id="navMenu">
+            <li><a href="#home" onclick="toggleMobileMenu(true)">Home</a></li>
+            <li><a href="#features" onclick="toggleMobileMenu(true)">Features</a></li>
+            <li><a href="#process" onclick="toggleMobileMenu(true)">Build Process</a></li>
+            <li><a href="#demo-builder" onclick="toggleMobileMenu(true)">Live Sandbox</a></li>
+            <li><a href="#payment" onclick="toggleMobileMenu(true)">Deploy AI</a></li>
         </ul>
     </nav>
 
-    <!-- Upgraded Beautiful Hero Section -->
+    <!-- Upgraded Beautiful Hero Section (Chatbot Selling Focus) -->
     <section id="home">
-        <h1 class="hero-title brand-font color-shift-text">Hassaan AI, Powerful Growth.</h1>
-        <p class="hero-p">I am <b>Hassaan AI</b>, exclusively crafted by <b>Creator Adnan</b>. I offer 400 unique business ideas, powerful strategic marketing, and automated workflows designed to seamlessly elevate your enterprise.</p>
-        <button class="btn-main color-shift-bg" onclick="toggleChat()">
-            <i class="fa-solid fa-bolt"></i> Open High-Speed AI Console
+        <div class="hero-container">
+            <div class="badge animate-fade-up">🚀 Premium AI Chatbot Agency</div>
+            <h1 class="hero-title brand-font animate-fade-up delay-1">Deploy a Custom<br><span class="color-shift-text">AI Sales Chatbot.</span></h1>
+            <p class="hero-p animate-fade-up delay-2">I am <b>Hassaan AI</b>, created by <b>Adnan</b>. Hire a highly intelligent, reasoning-capable sales agent that captures leads, leverages advanced psychology, and drives extreme conversion rates for your business.</p>
+            <div class="animate-fade-up delay-3">
+                <button class="btn-main" onclick="toggleChat()">
+                    <i class="fa-solid fa-robot"></i> Chat with Hassaan AI
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot Features Section -->
+    <section id="features">
+        <h2 class="section-title brand-font animate-fade-up">Advanced Cognitive Capabilities</h2>
+        <p class="section-subtitle animate-fade-up delay-1">We don't just build chatbots; we build beautifully designed, highly intelligent reasoning engines engineered to seamlessly scale your revenue.</p>
+        
+        <div class="features-grid animate-fade-up delay-2">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-brain"></i></div>
+                <h3>Advanced Reasoning</h3>
+                <p>Equipped with sophisticated logical pathways, the AI dynamically analyzes customer queries instead of relying on rigid, pre-written scripts.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-filter"></i></div>
+                <h3>Smart Lead Capture</h3>
+                <p>The bot intelligently qualifies visitors, extracts their contact details, and seamlessly pushes data directly to your CRM.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-language"></i></div>
+                <h3>Deep NLP Models</h3>
+                <p>Communicate flawlessly. Our intelligent bots understand context, sentiment, and respond naturally in multiple languages.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                <h3>Seamless Integrations</h3>
+                <p>Connect your bot instantly with WhatsApp, Shopify, Zapier, and your custom backend APIs with a beautiful interface.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The AI Forge: Process Explanation Section -->
+    <section id="process">
+        <h2 class="section-title brand-font animate-fade-up">How Your Intelligence is Built</h2>
+        <p class="section-subtitle animate-fade-up delay-1">The AI core architecture relies on rigorous computational steps to ensure flawlessly precise logic and automated scaling potential.</p>
+        
+        <button class="btn-main animate-fade-up delay-2" onclick="startBuildDemo()">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Have AI Explain Process
         </button>
-    </section>
 
-    <!-- Perfect Skills & Capabilities -->
-    <section id="skills" style="padding-top: 60px; min-height: auto;">
-        <h2 class="section-title brand-font">Core Capabilities & Skills</h2>
-        <p class="section-subtitle">What does Hassaan AI love to do? Here are my technical "hobbies" and professional capabilities perfectly designed for your success.</p>
-        
-        <div class="skills-container">
-            <div class="skill-tag"><i class="fa-solid fa-brain"></i> Strategic Thinking</div>
-            <div class="skill-tag"><i class="fa-solid fa-chart-pie"></i> Market Analysis</div>
-            <div class="skill-tag"><i class="fa-solid fa-code"></i> Automation Coding</div>
-            <div class="skill-tag"><i class="fa-solid fa-bullhorn"></i> Digital Marketing</div>
-            <div class="skill-tag"><i class="fa-solid fa-pen-nib"></i> Copywriting</div>
-            <div class="skill-tag"><i class="fa-solid fa-chess-knight"></i> Competitor Tracking</div>
-            <div class="skill-tag"><i class="fa-solid fa-gamepad"></i> Memory Games</div>
-            <div class="skill-tag"><i class="fa-solid fa-bolt"></i> Lightning Fast Replies</div>
-        </div>
-
-        <div class="grid-container">
-            <div class="glass-card">
-                <div class="icon-wrapper"><i class="fa-solid fa-lightbulb"></i></div>
-                <h3>400 Business Ideas</h3>
-                <p>Unlock an exclusive database of 400 proven business models crafted perfectly by Creator Adnan for maximum profitability.</p>
+        <div class="features-grid animate-fade-up delay-3" id="process-steps">
+            <div class="feature-card" id="step-1">
+                <div class="feature-icon"><i class="fa-solid fa-crosshairs"></i></div>
+                <h3>1. Cognitive Mapping</h3>
+                <p>Depending on your exact purpose, we determine the optimal logic parameters to build the AI's core reasoning engine.</p>
             </div>
-            <div class="glass-card">
-                <div class="icon-wrapper"><i class="fa-solid fa-chart-line"></i></div>
-                <h3>Marketing Funnels</h3>
-                <p>Develop robust marketing funnels tailored to your specific niche to securely land high-ticket clients and boost brand awareness.</p>
+            <div class="feature-card" id="step-2">
+                <div class="feature-icon"><i class="fa-solid fa-hammer"></i></div>
+                <h3>2. Neural Construction</h3>
+                <p>The neural network is built accordingly. Our aesthetically pleasing 3D model visually represents the cognitive connections forming.</p>
             </div>
-            <div class="glass-card">
-                <div class="icon-wrapper"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-                <h3>Feedback Analysis</h3>
-                <p>Deeply analyze customer feedback loops. Identify pain points and optimize your digital services seamlessly.</p>
+            <div class="feature-card" id="step-3">
+                <div class="feature-icon"><i class="fa-solid fa-microchip"></i></div>
+                <h3>3. Advanced Training</h3>
+                <p>We handle the complex steps: conducting deep Natural Language Processing training and mapping your unique business logic.</p>
+            </div>
+            <div class="feature-card" id="step-4">
+                <div class="feature-icon"><i class="fa-solid fa-rocket"></i></div>
+                <h3>4. Autonomous Deployment</h3>
+                <p>We finalize actions: complete deployment and initiate live processing on your chosen platforms flawlessly.</p>
             </div>
         </div>
     </section>
 
-    <!-- Advanced Progressive Kids & Fun Zone -->
-    <section id="kidszone">
-        <h2 class="section-title brand-font" style="color: var(--neon-magenta); text-shadow: 0 0 20px rgba(188,19,254,0.3);">Kids Fun Zone! 🎮</h2>
-        <p class="section-subtitle">Are you a young explorer? Test your brain and level up with the AI Memory Match Game! Can you beat all levels?</p>
-        
-        <div class="game-wrapper">
-            <div style="text-align: center;">
-                <div class="game-level-badge" id="gameLevelBadge">Level 1</div>
-            </div>
-            <div class="game-board" id="gameBoard"></div>
-            <h3 id="gameMsg" style="margin-bottom: 20px; min-height: 30px; color: var(--gold-star); font-size: 1.2rem; font-weight: 600;">Find the matching pairs!</h3>
-            <button class="btn-main" id="gameActionBtn" onclick="nextGameLevel()" style="background: var(--neon-magenta); color: #fff; font-size: 1.05rem; padding: 14px 25px; width: 100%; justify-content: center; box-shadow: none;">Restart Level</button>
-        </div>
-    </section>
+    <!-- Chatbot Sandbox (Live Demo Builder) -->
+    <section id="demo-builder">
+        <h2 class="section-title brand-font animate-fade-up">Build & Test Your Demo</h2>
+        <p class="section-subtitle animate-fade-up delay-1">Customize a demo chatbot right here on this page to see exactly how it will look and work before you purchase.</p>
 
-    <!-- Perfect Reviews UI -->
-    <section id="reviews">
-        <h2 class="section-title brand-font">Customer Reviews</h2>
-        <p class="section-subtitle">Trusted by ambitious entrepreneurs globally. <b style="color:var(--gold-star);">4.9/5 Lifetime Average Rating.</b></p>
-        
-        <div class="grid-container" style="max-width: 1100px;">
-            <div class="review-card">
-                <div class="review-header">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Customer">
-                    <div>
-                        <h4 style="color: #fff; font-size: 1.1rem;">Michael R.</h4>
-                        <div class="review-stars">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-                <p class="review-text">"Hassaan AI completely revolutionized my e-commerce brand. Creator Adnan’s 400 business ideas are highly valuable. A must-have deployment!"</p>
-            </div>
-
-            <div class="review-card">
-                <div class="review-header">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka" alt="Customer">
-                    <div>
-                        <h4 style="color: #fff; font-size: 1.1rem;">Zahra B.</h4>
-                        <div class="review-stars">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-                <p class="review-text">"this AI is very nice.. work good for my shop and i get much profit. thanks adnan sir for making this fast ai."</p>
-            </div>
-
-            <div class="review-card">
-                <div class="review-header">
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Liam" alt="Customer">
-                    <div>
-                        <h4 style="color: #fff; font-size: 1.1rem;">David T.</h4>
-                        <div class="review-stars">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-                <p class="review-text">"Good system overall. It took me a little while to understand the marketing strategy part, but once I did, it worked beautifully."</p>
-            </div>
-        </div>
-
-        <div class="review-form-container">
-            <h3 style="margin-bottom: 25px; font-family: 'Poppins'; font-size: 1.6rem; font-weight: 700;">Leave Your Review</h3>
-            <input type="text" id="revName" placeholder="Your Name" autocomplete="off">
-            <select id="revStars">
-                <option value="5" style="color:#000;">⭐⭐⭐⭐⭐ 5 Stars - Excellent</option>
-                <option value="4" style="color:#000;">⭐⭐⭐⭐ 4 Stars - Very Good</option>
-                <option value="3" style="color:#000;">⭐⭐⭐ 3 Stars - Average</option>
-                <option value="2" style="color:#000;">⭐⭐ 2 Stars - Poor</option>
-                <option value="1" style="color:#000;">⭐ 1 Star - Terrible</option>
-            </select>
-            <textarea id="revMsg" rows="3" placeholder="Write your feedback here..."></textarea>
-            <button class="btn-main color-shift-bg" onclick="submitUserReview()" style="width: 100%; justify-content: center; box-shadow: none;">Submit Review</button>
-        </div>
-    </section>
-
-    <!-- Perfect Payment Section -->
-    <section id="payment">
-        <h2 class="section-title brand-font">Secure Your AI System</h2>
-        <div class="pricing-panel">
-            <div class="discount-tag">Flash Discount</div>
-            <h3 style="font-size: 1.6rem; color: #94a3b8; text-decoration: line-through; font-weight: 500;">Normally $100</h3>
-            <h1 class="color-shift-text" style="font-size: clamp(4rem, 10vw, 6rem); margin: 5px 0 15px; line-height: 1;">$35</h1>
-            <p style="color: #e2e8f0; font-size: 1.2rem; margin-bottom: 30px; font-weight: 300;">Complete AI Funnel + 400 Business Ideas</p>
+        <div class="sandbox-panel animate-fade-up delay-2">
+            <h3>Try the Sandbox!</h3>
+            <p class="demo-sub">Test the environment: See a functional representation of how your custom AI will interact.</p>
             
-            <div style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 30px;">
-                <p style="font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; font-weight: 600;">Account Title</p>
-                <h3 style="color: #fff; letter-spacing: 1px; font-size: 1.3rem;">Muhammad Adnan amir</h3>
-                <p style="font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-top: 20px; margin-bottom: 5px; font-weight: 600;">Account / WhatsApp Number</p>
-                <h2 style="color: var(--neon-cyan); letter-spacing: 2px; font-size: 1.7rem;">03194879958</h2>
+            <div class="input-group">
+                <label><i class="fa-solid fa-robot" style="color: var(--golden-sun); margin-right: 8px;"></i> Name Your Chatbot</label>
+                <input type="text" id="customBotName" class="sandbox-input" placeholder="e.g., SalesMaster AI, SupportBot..." autocomplete="off">
             </div>
 
-            <div class="payment-methods">
-                <div class="pay-badge" style="background: var(--easypaisa); color: #fff;"><i class="fa-solid fa-wallet"></i> EasyPaisa</div>
-                <div class="pay-badge" style="background: var(--jazzcash); color: #fff;"><i class="fa-solid fa-mobile-screen"></i> Jazz Cash</div>
+            <div class="input-group">
+                <label><i class="fa-solid fa-comment-dots" style="color: var(--golden-sun); margin-right: 8px;"></i> Initial Greeting Message</label>
+                <textarea id="customBotGreeting" class="sandbox-input" placeholder="What should the bot say first? e.g., Welcome to our store! How can I help you today?"></textarea>
             </div>
 
-            <button onclick="sendToWhatsApp()" class="btn-main whatsapp-btn-animated">
-                <i class="fa-brands fa-whatsapp" style="font-size: 1.5rem;"></i> Send Payment & Form Details
+            <button id="launchDemoBtn" class="btn-main btn-sandbox" onclick="launchCustomDemo()">
+                <i class="fa-solid fa-play"></i> Launch Live Sandbox
+            </button>
+        </div>
+    </section>
+
+    <!-- Live Reviews Section -->
+    <section id="reviews">
+        <h2 class="section-title brand-font animate-fade-up">Live Customer Reviews</h2>
+        <p class="section-subtitle animate-fade-up delay-1">See what others are saying! You can use my chat interface to autonomously submit your own review right now.</p>
+        
+        <div class="features-grid animate-fade-up delay-2" id="live-reviews-container">
+            <!-- Dynamic reviews will be populated here via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Secure Payment & Deployment Section -->
+    <section id="payment">
+        <h2 class="section-title brand-font animate-fade-up">Deploy Your Intelligent AI</h2>
+        <div class="pricing-panel animate-fade-up delay-1">
+            <div class="discount-tag">Flash Discount</div>
+            <h3 style="font-size: clamp(1.4rem, 3vw, 1.8rem); color: var(--text-dim); text-decoration: line-through; font-weight: 500;">Normally $150</h3>
+            <h1 class="color-shift-text" style="font-size: clamp(4.5rem, 8vw, 7.5rem); margin: 0 0 15px; line-height: 1; letter-spacing: -2px;">$35</h1>
+            <p style="color: #e2e8f0; font-size: clamp(1.1rem, 2vw, 1.25rem); margin-bottom: 35px; font-weight: 400;">Complete AI Chatbot Setup + Advanced Reasoning Architecture.</p>
+            
+            <div style="background: linear-gradient(135deg, rgba(188,19,254,0.2), rgba(0,243,255,0.1)); padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2); margin-bottom: 30px; color: #fff; font-weight: 500; font-size: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                <i class="fa-solid fa-laptop-code" style="color: var(--neon-cyan); font-size: 1.5rem; margin-bottom: 12px; display: block;"></i>
+                <strong>Creator Adnan built this sophisticated intelligence perfectly.</strong><br>You will pay Creator Adnan directly, as he is the core developer.
+            </div>
+            
+            <div style="background: rgba(255,255,255,0.03); padding: 35px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 35px; box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);">
+                <p style="font-size: 0.95rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 5px; font-weight: 600;">Account Title</p>
+                <h3 style="color: #fff; letter-spacing: 1px; font-size: clamp(1.3rem, 2.5vw, 1.6rem); font-weight: 800;">Muhammad Adnan amir</h3>
+                <p style="font-size: 0.95rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 30px; margin-bottom: 5px; font-weight: 600;">Account / WhatsApp Number</p>
+                <h2 style="color: var(--neon-cyan); letter-spacing: 2px; font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 900; text-shadow: 0 0 20px rgba(0,243,255,0.4);">03194879958</h2>
+            </div>
+
+            <div class="payment-methods" style="display: flex; gap: 15px; justify-content: center; margin-bottom: 25px;">
+                <div style="background: #00d282; color: #000; padding: 12px 25px; border-radius: 50px; font-weight: 700; box-shadow: 0 10px 20px rgba(0,210,130,0.3);"><i class="fa-solid fa-wallet"></i> EasyPaisa</div>
+                <div style="background: #f70000; color: #fff; padding: 12px 25px; border-radius: 50px; font-weight: 700; box-shadow: 0 10px 20px rgba(247,0,0,0.3);"><i class="fa-solid fa-mobile-screen"></i> Jazz Cash</div>
+            </div>
+
+            <p style="font-size: 1rem; color: var(--text-dim); margin-bottom: 25px; line-height: 1.6;">Complete your payment first, then click below to send your confirmation and setup details to Adnan.</p>
+            
+            <button onclick="sendToWhatsApp()" class="whatsapp-btn-animated">
+                <i class="fa-brands fa-whatsapp" style="font-size: 1.6rem;"></i> Send Payment Proof & Details
             </button>
         </div>
     </section>
@@ -382,28 +414,29 @@
         <div class="chat-window" id="chatWindow">
             <div class="chat-header">
                 <div class="bot-profile">
-                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=HassaanAI&backgroundColor=00f3ff" alt="Hassaan AI" class="bot-photo">
+                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=HassaanAI&backgroundColor=00f3ff" alt="Bot AI" class="bot-photo" id="botAvatar">
                     <div>
-                        <div style="font-weight: 800; font-size: 1.1rem;" class="color-shift-text">Hassaan AI</div>
-                        <div style="font-size: 0.75rem; color: #94a3b8; display: flex; align-items: center; font-weight: 500;"><span class="online-dot"></span>Online Now</div>
+                        <div style="font-weight: 800; font-size: 1.15rem; color: #fff; letter-spacing: -0.5px;" id="botNameDisplay">Hassaan AI</div>
+                        <div style="font-size: 0.85rem; color: var(--text-dim); display: flex; align-items: center; font-weight: 600;"><span class="online-dot"></span>Intelligent Agent</div>
                     </div>
                 </div>
                 <div class="header-actions">
-                    <button id="speakerToggleBtn" onclick="toggleSpeaker()" title="Toggle Speaker"><i class="fa-solid fa-volume-high"></i></button>
-                    <button onclick="deleteChat()" title="Delete Chat History"><i class="fa-solid fa-trash"></i></button>
-                    <button onclick="toggleChat()" title="Close Chat"><i class="fa-solid fa-xmark"></i></button>
+                    <button id="speakerToggleBtn" onclick="toggleSpeaker()" title="Toggle Voice"><i class="fa-solid fa-volume-high"></i></button>
+                    <button onclick="deleteChat(false)" title="Reset Memory"><i class="fa-solid fa-rotate-left"></i></button>
+                    <button onclick="toggleChat()" title="Close"><i class="fa-solid fa-xmark"></i></button>
                 </div>
             </div>
             
             <div class="chat-body" id="chatBody">
-                <div class="typing" id="typing">
+                <div class="typing" id="typing" style="display: none;">
                     <div class="dot"></div><div class="dot"></div><div class="dot"></div>
                 </div>
             </div>
 
             <div class="chat-input-area">
-                <input type="text" id="chatInput" placeholder="Type message..." autocomplete="off">
-                <button class="send-btn" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+                <button id="micBtn" class="mic-btn" onclick="toggleMic()" title="Voice Input"><i class="fa-solid fa-microphone"></i></button>
+                <input type="text" id="chatInput" placeholder="Message our Intelligent AI..." autocomplete="off">
+                <button class="send-btn" onclick="handleSendClick()"><i class="fa-solid fa-arrow-up"></i></button>
             </div>
         </div>
         
@@ -416,270 +449,216 @@
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
-    
     <script>
         // ==========================================
-        // 1. ERROR-FREE FIREBASE SDK INTEGRATION
+        // UI & NAV RESPONSIVENESS & ANIMATIONS
         // ==========================================
-        let db = null;
-        let sessionID = "";
-        
-        try {
-            sessionID = localStorage.getItem('hassaanAI_sessionID');
-            if(!sessionID) {
-                sessionID = 'session_' + Math.random().toString(36).substr(2, 9);
-                localStorage.setItem('hassaanAI_sessionID', sessionID);
+        function toggleMobileMenu(forceClose = false) {
+            const menu = document.getElementById('navMenu');
+            if(forceClose) {
+                menu.classList.remove('active');
+            } else {
+                menu.classList.toggle('active');
             }
-        } catch(e) { sessionID = "fallback_session"; }
+        }
 
-        const safeMockDb = { collection: () => ({ doc: () => ({ set: () => Promise.resolve() }) }) };
+        function showToast(message, type = 'error') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `custom-toast ${type}`;
+            toast.innerHTML = type === 'error' ? `<i class="fa-solid fa-circle-exclamation" style="color:#ff0055; font-size: 1.2rem;"></i> ${message}` : `<i class="fa-solid fa-circle-check" style="color:#00ff88; font-size: 1.2rem;"></i> ${message}`;
+            container.appendChild(toast);
+            setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 400); }, 3500);
+        }
 
-        try {
-            const firebaseConfig = {
-                apiKey: "YOUR_API_KEY", authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-                projectId: "YOUR_PROJECT_ID", storageBucket: "YOUR_PROJECT_ID.appspot.com",
-                messagingSenderId: "YOUR_MESSAGING_SENDER_ID", appId: "YOUR_APP_ID"
-            };
-            if(firebaseConfig.projectId !== "YOUR_PROJECT_ID") {
-                firebase.initializeApp(firebaseConfig);
-                db = firebase.firestore();
-            } else { db = safeMockDb; }
-        } catch (error) { db = safeMockDb; }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-fade-up').forEach((el) => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
 
         // ==========================================
-        // 2. PERFECTED PROGRESSIVE KIDS GAME
-        // ==========================================
-        const allEmojis =['🤖', '🚀', '💡', '🌟', '🎮', '🧩', '🎨', '🏎️', '🐶', '🍕'];
-        let currentLevel = 1;
-        let currentPairsCount = 0;
-        let cards =[], hasFlippedCard = false, lockBoard = false, firstCard, secondCard, matches = 0;
-
-        function initGameLevel() {
-            try {
-                const gameBoard = document.getElementById('gameBoard');
-                const gameMsg = document.getElementById('gameMsg');
-                const btn = document.getElementById('gameActionBtn');
-                
-                document.getElementById('gameLevelBadge').innerText = `Level ${currentLevel}`;
-                gameBoard.innerHTML = '';
-                gameMsg.innerText = "Find the matching pairs!";
-                gameMsg.style.color = "var(--gold-star)";
-                btn.innerText = "Restart Level";
-                btn.style.background = "var(--neon-magenta)";
-                
-                matches = 0; hasFlippedCard = false; lockBoard = false; firstCard = null; secondCard = null;
-                
-                // Logic: Lvl 1=2 pairs, Lvl 2=4 pairs, Lvl 3=6 pairs, Lvl 4=8 pairs, Lvl 5=10 pairs
-                currentPairsCount = Math.min(currentLevel * 2, allEmojis.length);
-                const selectedEmojis = allEmojis.slice(0, currentPairsCount);
-                
-                const totalCards = currentPairsCount * 2;
-                let cols = 2;
-                if(totalCards >= 16) cols = 5;
-                else if(totalCards >= 12) cols = 4;
-                else if(totalCards >= 8) cols = 4;
-                else cols = 2;
-
-                // Adjust grid columns perfectly
-                gameBoard.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-                
-                cards = [...selectedEmojis, ...selectedEmojis].sort(() => 0.5 - Math.random());
-                
-                cards.forEach((emoji) => {
-                    const card = document.createElement('div');
-                    card.classList.add('game-card');
-                    card.dataset.emoji = emoji;
-                    card.innerHTML = `<span style="opacity:0;">${emoji}</span>`;
-                    card.addEventListener('click', flipCard);
-                    gameBoard.appendChild(card);
-                });
-            } catch(e) {}
-        }
-
-        function flipCard() {
-            if (lockBoard) return;
-            if (this === firstCard) return;
-            this.classList.add('flipped');
-            this.querySelector('span').style.opacity = '1';
-            if (!hasFlippedCard) { hasFlippedCard = true; firstCard = this; return; }
-            secondCard = this;
-            checkForMatch();
-        }
-
-        function checkForMatch() {
-            let isMatch = firstCard.dataset.emoji === secondCard.dataset.emoji;
-            isMatch ? disableCards() : unflipCards();
-        }
-
-        function disableCards() {
-            firstCard.classList.add('matched'); secondCard.classList.add('matched');
-            firstCard.removeEventListener('click', flipCard); secondCard.removeEventListener('click', flipCard);
-            matches++;
-            if(matches === currentPairsCount) { 
-                document.getElementById('gameMsg').innerText = `🎉 Level ${currentLevel} Cleared!`; 
-                const btn = document.getElementById('gameActionBtn');
-                btn.innerText = "Next Level ➡️";
-                btn.style.background = "var(--whatsapp)";
-            }
-            resetBoard();
-        }
-
-        function unflipCards() {
-            lockBoard = true;
-            setTimeout(() => {
-                firstCard.classList.remove('flipped'); secondCard.classList.remove('flipped');
-                firstCard.querySelector('span').style.opacity = '0'; secondCard.querySelector('span').style.opacity = '0';
-                resetBoard();
-            }, 800);
-        }
-
-        function resetBoard() {[hasFlippedCard, lockBoard] = [false, false];[firstCard, secondCard] = [null, null]; }
-        
-        window.nextGameLevel = function() {
-            if(matches === currentPairsCount && currentLevel < 5) {
-                currentLevel++; 
-            } else if (matches === currentPairsCount && currentLevel >= 5) {
-                currentLevel = 1; 
-                alert("You beat the whole game! You are a genius! Restarting from Level 1.");
-            }
-            initGameLevel();
-        }
-
-        window.addEventListener('load', initGameLevel);
-
-        // ==========================================
-        // 3. REVIEW SUBMISSION LOGIC
-        // ==========================================
-        window.submitUserReview = function() {
-            const name = document.getElementById('revName').value;
-            const msg = document.getElementById('revMsg').value;
-            if(!name || !msg) return alert("Please fill in both name and message.");
-            alert("Thank you, " + name + "! Your review has been submitted successfully.\n\nNote: To ensure quality, all submitted reviews go through a moderation queue before becoming publicly visible.");
-            document.getElementById('revName').value = ""; document.getElementById('revMsg').value = ""; document.getElementById('revStars').value = "5";
-        };
-
-        // ==========================================
-        // 4. WHATSAPP DYNAMIC FORM SENDER
+        // WHATSAPP DYNAMIC AUTO-SENDER (LEAD GEN)
         // ==========================================
         window.sendToWhatsApp = function() {
-            let ud = { name: "", title: "", company: "", orderSpec: "" };
-            try { ud = JSON.parse(localStorage.getItem('hassaanAI_data')) || ud; } catch(e){}
-            
-            let text = `🚀 *New AI Deployment Request*\n\n`;
-            text += `Hello Creator Adnan! Here are my system details gathered by Hassaan AI:\n\n`;
-            if(ud.name && ud.name !== "") {
-                text += `*👤 Name:* ${ud.title || ''} ${ud.name}\n*🏢 Info (Age/Company):* ${ud.company || 'N/A'}\n*💡 Order/Strategy Specs:* ${ud.orderSpec || 'N/A'}\n\n`;
-            } else { text += `*(No AI form data filled yet. I am bypassing the chat.)*\n\n`; }
-            text += `I am submitting this along with my $35 payment screenshot via EasyPaisa/JazzCash. Please initialize my system!`;
-            window.open(`https://wa.me/923194879958?text=${encodeURIComponent(text)}`, '_blank');
+            try {
+                let ud = { name: "", company: "", businessType: "", strategy: "", service: "", poaConsent: "" };
+                try { ud = JSON.parse(localStorage.getItem('hassaanAI_salesData')) || ud; } catch(e){}
+                
+                let text = `🚀 *New Advanced AI Deployment Request*\n\n`;
+                text += `Hello Creator Adnan! My intelligence framework processed the following data:\n\n`;
+                text += `*👤 Lead Profile:* ${ud.name || '[Pending]'}\n`;
+                text += `*🏢 Enterprise Name:* ${ud.company || '[Pending]'}\n`;
+                text += `*🏷️ Industry Sector:* ${ud.businessType || '[Pending]'}\n`;
+                text += `*🎯 Cognitive Strategy:* ${ud.strategy || '[Pending]'}\n`;
+                text += `*⚙️ Execution Protocol:* ${ud.service || '[Pending]'}\n`;
+                text += `*⚖️ POA Consent Verified:* ${ud.poaConsent || '[Pending]'}\n\n`;
+                text += `✅ *Authorization:* I have completed my $35 acquisition via EasyPaisa/JazzCash. Proof is attached.\n\n`;
+                text += `Please initialize my intelligent architecture immediately.`;
+                
+                window.open(`https://wa.me/923194879958?text=${encodeURIComponent(text)}`, '_blank');
+            } catch(e) {}
         };
 
         // ==========================================
-        // 5. ULTRA 3D ROBOTIC BACKGROUND
+        // PERSISTENT LIVE REVIEWS SYSTEM
+        // ==========================================
+        const defaultReviews =[
+            { name: "Sarah Jenkins", text: "Hassaan AI exhibits incredible logic and reasoning capabilities. It captures leads effortlessly. Perfectly intelligent interface!", time: "Verified Customer" },
+            { name: "David R. - TechNova", text: "The cognitive processing demonstrated is next-level. Built flawlessly by Adnan. Incredible aesthetic and performance.", time: "Verified Customer" },
+            { name: "Elena Rossi", text: "Truly the best AI logic engine available. The 3D neural model visually perfectly represents its capabilities!", time: "Verified Customer" }
+        ];
+
+        function loadReviews() {
+            const container = document.getElementById('live-reviews-container');
+            container.innerHTML = ''; 
+            
+            let storedReviews = JSON.parse(localStorage.getItem('hassaanAI_reviews'));
+            if (!storedReviews || storedReviews.length === 0) {
+                storedReviews = defaultReviews;
+                localStorage.setItem('hassaanAI_reviews', JSON.stringify(storedReviews));
+            }
+            
+            storedReviews.forEach(r => renderReviewHTML(r.name, r.text, r.time));
+        }
+
+        function renderReviewHTML(name, text, timeLabel) {
+            const container = document.getElementById('live-reviews-container');
+            const reviewDiv = document.createElement('div');
+            reviewDiv.className = 'feature-card animate-fade-up';
+            reviewDiv.style.animationPlayState = 'running';
+            reviewDiv.innerHTML = `
+                <div class="feature-icon" style="color: #facc15; border-color: rgba(250,204,21,0.3); background: rgba(250,204,21,0.1);"><i class="fa-solid fa-star"></i></div>
+                <h3>${name}</h3>
+                <p>"${text}"</p>
+                <small style="color: var(--neon-cyan); margin-top: 10px; display: block;">${timeLabel}</small>
+            `;
+            container.prepend(reviewDiv);
+        }
+
+        function addLiveReview(name, text) {
+            let storedReviews = JSON.parse(localStorage.getItem('hassaanAI_reviews')) ||[];
+            storedReviews.unshift({ name: name, text: text, time: "Just now • Verified Customer" });
+            localStorage.setItem('hassaanAI_reviews', JSON.stringify(storedReviews));
+            
+            renderReviewHTML(name, text, "Just now • Verified Customer");
+        }
+
+        window.addEventListener('DOMContentLoaded', loadReviews);
+
+        // ==========================================
+        // ULTRA 3D ROBOTIC BACKGROUND (Neural Logic Theme)
         // ==========================================
         try {
-            const canvas = document.getElementById('webgl-canvas');
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-            scene.add(new THREE.AmbientLight(0xffffff, 0.4));
-            const light1 = new THREE.PointLight(0x00f3ff, 3, 100); light1.position.set(15, 15, 15); scene.add(light1);
-            const light2 = new THREE.PointLight(0xbc13fe, 3, 100); light2.position.set(-15, -15, 15); scene.add(light2);
-
-            const coreGeo = new THREE.IcosahedronGeometry(10, 1);
-            const coreMat = new THREE.MeshPhongMaterial({ color: 0x050510, emissive: 0x0a0a1a, wireframe: true, transparent: true, opacity: 0.9 });
-            const roboticCore = new THREE.Mesh(coreGeo, coreMat); scene.add(roboticCore);
-
-            const innerGeo = new THREE.IcosahedronGeometry(5.5, 2);
-            const innerMat = new THREE.MeshPhongMaterial({ color: 0x00f3ff, shininess: 100, flatShading: true });
-            const innerNode = new THREE.Mesh(innerGeo, innerMat); scene.add(innerNode);
-
-            const ring1Geo = new THREE.TorusGeometry(15, 0.2, 16, 100);
-            const ring1Mat = new THREE.MeshBasicMaterial({ color: 0xbc13fe, wireframe: true });
-            const ring1 = new THREE.Mesh(ring1Geo, ring1Mat); scene.add(ring1);
-
-            const ring2Geo = new THREE.TorusGeometry(18, 0.1, 16, 100);
-            const ring2Mat = new THREE.MeshBasicMaterial({ color: 0x00ff88 });
-            const ring2 = new THREE.Mesh(ring2Geo, ring2Mat); ring2.rotation.x = Math.PI / 2; scene.add(ring2);
-
-            camera.position.z = 35;
-
-            function animate3D() {
-                requestAnimationFrame(animate3D);
-                roboticCore.rotation.y += 0.003; roboticCore.rotation.x += 0.002; innerNode.rotation.y -= 0.01;
-                ring1.rotation.x += 0.008; ring1.rotation.y += 0.005; ring2.rotation.y += 0.006; ring2.rotation.z += 0.004;
-                renderer.render(scene, camera);
-            }
-            animate3D();
-
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix();
+            if (window.WebGLRenderingContext && typeof THREE !== 'undefined') {
+                const canvas = document.getElementById('webgl-canvas');
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+                const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
                 renderer.setSize(window.innerWidth, window.innerHeight);
-            });
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+                scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+                const light1 = new THREE.PointLight(0x00f3ff, 3.5, 120); light1.position.set(15, 15, 15); scene.add(light1);
+                const light2 = new THREE.PointLight(0xffaa00, 3, 120); light2.position.set(-15, -15, 15); scene.add(light2);
+
+                const coreGeo = new THREE.IcosahedronGeometry(10, 1);
+                const coreMat = new THREE.MeshPhongMaterial({ color: 0x050510, emissive: 0x0a0a1a, wireframe: true, transparent: true, opacity: 0.85 });
+                const roboticCore = new THREE.Mesh(coreGeo, coreMat); scene.add(roboticCore);
+
+                const innerGeo = new THREE.IcosahedronGeometry(5.5, 2);
+                const innerMat = new THREE.MeshPhongMaterial({ color: 0x00f3ff, shininess: 150, flatShading: true });
+                const innerNode = new THREE.Mesh(innerGeo, innerMat); scene.add(innerNode);
+
+                const ring1Geo = new THREE.TorusGeometry(15, 0.15, 16, 120);
+                const ring1Mat = new THREE.MeshBasicMaterial({ color: 0xffaa00, wireframe: true }); 
+                const ring1 = new THREE.Mesh(ring1Geo, ring1Mat); scene.add(ring1);
+
+                const ring2Geo = new THREE.TorusGeometry(18, 0.1, 16, 120);
+                const ring2Mat = new THREE.MeshBasicMaterial({ color: 0xbc13fe });
+                const ring2 = new THREE.Mesh(ring2Geo, ring2Mat); ring2.rotation.x = Math.PI / 2; scene.add(ring2);
+
+                camera.position.z = 35;
+
+                function animate3D() {
+                    requestAnimationFrame(animate3D);
+                    roboticCore.rotation.y += 0.002; roboticCore.rotation.x += 0.0015; innerNode.rotation.y -= 0.008;
+                    ring1.rotation.x += 0.006; ring1.rotation.y += 0.004; ring2.rotation.y += 0.005; ring2.rotation.z += 0.003;
+                    renderer.render(scene, camera);
+                }
+                animate3D();
+
+                window.addEventListener('resize', () => {
+                    camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix();
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                });
+            }
         } catch(e) {}
 
         // ==========================================
-        // 6. LIGHTNING-FAST DUAL-MODE AI CHAT CORE
+        // ADVANCED INTELLIGENT CHATBOT CORE LOGIC
         // ==========================================
         let chatOpen = false;
         let botState = 0;
-        let userData = { name: "", title: "", company: "", orderSpec: "" };
+        let userData = { name: "", company: "", businessType: "", strategy: "", service: "", poaConsent: "", reviewName: "", reviewText: "" };
         let chatHistory =[];
+        let isSpeakerOn = true;
+        let isBotProcessing = false;
         
         try {
-            botState = parseInt(localStorage.getItem('hassaanAI_state')) || 0;
-            userData = JSON.parse(localStorage.getItem('hassaanAI_data')) || userData;
-            chatHistory = JSON.parse(localStorage.getItem('hassaanAI_history')) ||[];
-        } catch(e){}
+            botState = parseInt(localStorage.getItem('hassaanAI_salesState')) || 0;
+            userData = JSON.parse(localStorage.getItem('hassaanAI_salesData')) || userData;
+            chatHistory = JSON.parse(localStorage.getItem('hassaanAI_salesHistory')) ||[];
+        } catch(e) {}
 
         const chatWindow = document.getElementById('chatWindow');
         const chatBody = document.getElementById('chatBody');
         const chatInput = document.getElementById('chatInput');
         const typingIndicator = document.getElementById('typing');
-
-        let isSpeakerOn = true; 
         const speakerBtn = document.getElementById('speakerToggleBtn');
         const speakerIcon = speakerBtn.querySelector('i');
 
         window.addEventListener('load', () => {
-            if(chatHistory.length > 0) {
-                chatHistory.forEach(msg => displayMessage(msg.text, msg.type, false));
-            }
+            try {
+                let demoConfig = JSON.parse(localStorage.getItem('hassaanAI_demoConfig'));
+                if (botState === 99 && demoConfig) {
+                    document.getElementById('botNameDisplay').innerText = demoConfig.name;
+                    document.getElementById('botAvatar').src = demoConfig.avatar;
+                }
+
+                if(chatHistory.length > 0) {
+                    chatHistory.forEach(msg => displayMessage(msg.text, msg.type, false));
+                }
+            } catch(e) {}
         });
 
-        function saveState() {
-            try {
-                localStorage.setItem('hassaanAI_state', botState);
-                localStorage.setItem('hassaanAI_data', JSON.stringify(userData));
-                localStorage.setItem('hassaanAI_history', JSON.stringify(chatHistory));
-                db.collection("hassaan_sessions").doc(sessionID).set({ botState, userData, chatHistory }).catch(() => {});
-            } catch(e){}
-        }
-
-        window.deleteChat = function() {
-            chatHistory =[]; botState = 0; userData = { name: "", title: "", company: "", orderSpec: "" }; saveState();
-            chatBody.innerHTML = '<div class="typing" id="typing"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
-            if('speechSynthesis' in window) window.speechSynthesis.cancel();
-            initiateGreeting();
-        };
-
         window.toggleSpeaker = function() {
-            isSpeakerOn = !isSpeakerOn;
-            if(isSpeakerOn) { speakerIcon.className = 'fa-solid fa-volume-high'; speakerBtn.classList.remove('speaker-off'); } 
-            else { speakerIcon.className = 'fa-solid fa-volume-xmark'; speakerBtn.classList.add('speaker-off'); if('speechSynthesis' in window) window.speechSynthesis.cancel(); }
+            try {
+                isSpeakerOn = !isSpeakerOn;
+                if(isSpeakerOn) { 
+                    speakerIcon.className = 'fa-solid fa-volume-high'; 
+                    speakerBtn.classList.remove('speaker-off'); 
+                } else { 
+                    speakerIcon.className = 'fa-solid fa-volume-xmark'; 
+                    speakerBtn.classList.add('speaker-off'); 
+                    if('speechSynthesis' in window) window.speechSynthesis.cancel(); 
+                }
+            } catch(e) {}
         }
 
         function speakText(text, forcePlay = false) {
             try {
                 if (!forcePlay && !isSpeakerOn) return;
                 if (!('speechSynthesis' in window)) return;
-                window.speechSynthesis.cancel();
-                let cleanText = text.replace(/<[^>]+>/g, '').replace(/[\*\_]/g, ''); 
+                window.speechSynthesis.cancel(); 
+                let cleanText = text.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' '); 
                 const utterance = new SpeechSynthesisUtterance(cleanText);
                 utterance.lang = 'en-US';
                 window.speechSynthesis.speak(utterance);
@@ -687,52 +666,142 @@
         }
 
         window.playMessageAudio = function(btn) {
-            const textContent = btn.previousElementSibling.innerHTML;
-            speakText(textContent, true);
-            const icon = btn.querySelector('i'); icon.className = 'fa-solid fa-spinner fa-spin';
-            setTimeout(() => { icon.className = 'fa-solid fa-play'; }, 1500);
+            try {
+                const textContent = btn.previousElementSibling.innerHTML;
+                speakText(textContent, true);
+                const icon = btn.querySelector('i'); 
+                icon.className = 'fa-solid fa-spinner fa-spin';
+                setTimeout(() => { icon.className = 'fa-solid fa-play'; }, 1500);
+            } catch(e) {}
         }
 
-        chatInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') sendMessage(); });
+        let recognition;
+        let isRecording = false;
+        try {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if(SpeechRecognition) {
+                recognition = new SpeechRecognition();
+                recognition.continuous = false;
+                recognition.interimResults = false;
+                recognition.lang = 'en-US';
+
+                recognition.onstart = function() {
+                    isRecording = true;
+                    document.getElementById('micBtn').classList.add('recording');
+                };
+
+                recognition.onresult = function(event) {
+                    const transcript = event.results[0][0].transcript;
+                    const inputField = document.getElementById('chatInput');
+                    inputField.value += (inputField.value ? " " : "") + transcript;
+                };
+
+                recognition.onerror = function() { stopMic(); };
+                recognition.onend = function() { stopMic(); };
+            }
+        } catch(e) { }
+
+        window.toggleMic = function() {
+            try {
+                if(!recognition) {
+                    showToast("Voice input is not supported in this browser.", "error");
+                    return;
+                }
+                if(isRecording) {
+                    recognition.stop();
+                } else {
+                    recognition.start();
+                }
+            } catch(e) { stopMic(); }
+        }
+
+        function stopMic() {
+            isRecording = false;
+            const micBtn = document.getElementById('micBtn');
+            if(micBtn) micBtn.classList.remove('recording');
+        }
+
+        function saveState() {
+            try {
+                localStorage.setItem('hassaanAI_salesState', botState);
+                localStorage.setItem('hassaanAI_salesData', JSON.stringify(userData));
+                localStorage.setItem('hassaanAI_salesHistory', JSON.stringify(chatHistory));
+            } catch(e){}
+        }
+
+        window.deleteChat = function(skipGreeting = false) {
+            try {
+                chatHistory =[]; botState = 0; userData = { name: "", company: "", businessType: "", strategy: "", service: "", poaConsent: "", reviewName: "", reviewText: "" }; saveState();
+                localStorage.removeItem('hassaanAI_demoConfig');
+
+                const msgs = chatBody.querySelectorAll('.msg, .quick-options');
+                msgs.forEach(m => m.remove());
+                
+                if('speechSynthesis' in window) window.speechSynthesis.cancel();
+                chatInput.disabled = false;
+                
+                document.getElementById('botNameDisplay').innerText = "Hassaan AI";
+                document.getElementById('botAvatar').src = "https://api.dicebear.com/7.x/bottts/svg?seed=HassaanAI&backgroundColor=00f3ff";
+
+                if(!skipGreeting) initiateGreeting();
+            } catch(e) {}
+        };
+
+        chatInput.addEventListener('keypress', (e) => { 
+            if(e.key === 'Enter') {
+                e.preventDefault(); 
+                handleSendClick(); 
+            }
+        });
 
         window.toggleChat = function() {
-            chatOpen = !chatOpen;
-            if(chatOpen) {
-                chatWindow.style.display = 'flex';
-                if(chatHistory.length === 0) initiateGreeting();
-                setTimeout(() => chatInput.focus(), 50);
-            } else {
-                chatWindow.style.display = 'none';
-                if('speechSynthesis' in window) window.speechSynthesis.cancel();
-            }
+            try {
+                chatOpen = !chatOpen;
+                if(chatOpen) {
+                    chatWindow.style.display = 'flex';
+                    if(chatHistory.length === 0) initiateGreeting();
+                    if(window.innerWidth > 768) setTimeout(() => chatInput.focus(), 50);
+                } else {
+                    chatWindow.style.display = 'none';
+                    if('speechSynthesis' in window) window.speechSynthesis.cancel();
+                }
+            } catch(e) {}
         }
 
-        function displayMessage(text, type, save = true) {
-            const msgDiv = document.createElement('div');
-            msgDiv.className = `msg ${type}`;
-            if(type === 'bot') {
-                msgDiv.innerHTML = `<div class="msg-content">${text}</div><button class="play-audio-btn" onclick="playMessageAudio(this)"><i class="fa-solid fa-play"></i> Play</button>`;
-            } else { msgDiv.innerHTML = text; }
-            chatBody.insertBefore(msgDiv, typingIndicator);
-            chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
-            if(save) { chatHistory.push({ text: text, type: type }); saveState(); }
-            if(type === 'bot' && save) speakText(text);
+        function displayMessage(text, type, save = true, autoRead = true) {
+            try {
+                const msgDiv = document.createElement('div');
+                msgDiv.className = `msg ${type}`;
+                
+                if(type === 'bot') {
+                    msgDiv.innerHTML = `<div class="msg-text">${text}</div><button class="play-audio-btn" onclick="playMessageAudio(this)" title="Play Message"><i class="fa-solid fa-play"></i> Play</button>`;
+                    if(save && autoRead) speakText(text); 
+                } else {
+                    msgDiv.innerHTML = text;
+                }
+
+                chatBody.insertBefore(msgDiv, typingIndicator);
+                chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
+                if(save) { chatHistory.push({ text: text, type: type }); saveState(); }
+            } catch(e) {}
         }
 
         function showQuickReplies(options) {
-            const qrDiv = document.createElement('div');
-            qrDiv.className = 'quick-options';
-            options.forEach(opt => {
-                const btn = document.createElement('button'); btn.className = 'qr-btn'; btn.innerText = opt;
-                btn.onclick = () => { qrDiv.remove(); chatInput.value = opt; sendMessage(); };
-                qrDiv.appendChild(btn);
-            });
-            chatBody.insertBefore(qrDiv, typingIndicator);
-            chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
+            try {
+                const qrDiv = document.createElement('div');
+                qrDiv.className = 'quick-options';
+                options.forEach(opt => {
+                    const btn = document.createElement('button'); btn.className = 'qr-btn'; btn.innerText = opt;
+                    btn.onclick = () => { qrDiv.remove(); chatInput.value = opt; handleSendClick(); };
+                    qrDiv.appendChild(btn);
+                });
+                chatBody.insertBefore(qrDiv, typingIndicator);
+                chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
+            } catch(e) {}
         }
 
         function setTyping(state) {
-            typingIndicator.style.display = state ? 'inline-block' : 'none';
+            typingIndicator.style.display = state ? 'flex' : 'none';
             chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
         }
 
@@ -740,96 +809,320 @@
             setTyping(true);
             setTimeout(() => { 
                 setTyping(false);
-                let intro = `Hello! I am <b class="color-shift-text">Hassaan AI</b>. Are you here to grow a business, or are you a young explorer looking to play?`;
-                displayMessage(intro, "bot");
-                showQuickReplies(["Grow Business", "Play Game"]);
+                let intro = `Hello. I am <b class="color-shift-text">Hassaan AI</b>, an advanced intelligent agent. My core logic is designed to process variables, map strategies, and drive extreme conversions.<br><br>I am here to carefully guide you through our digital environment. How may I compute assistance for you today?`;
+                displayMessage(intro, "bot", true, true);
+                showQuickReplies(["What pages are here?", "How intelligent are you?", "Begin Configuration"]);
                 botState = 0; saveState();
-            }, 100); // LIGHTNING FAST INTRO
+            }, 800); 
         }
 
-        window.sendMessage = function() {
-            const inputVal = chatInput.value.trim();
-            if(!inputVal) return;
-            const existingQr = document.querySelector('.quick-options'); if(existingQr) existingQr.remove();
-            displayMessage(inputVal, "user"); chatInput.value = "";
-            setTyping(true); 
-            // LIGHTNING FAST RESPONSE (50ms)
-            setTimeout(() => { setTyping(false); processLogic(inputVal); }, 50); 
+        // --- INTELLIGENT REASONING UI FUNCTION ---
+        function displayReasoning(logs, finalResponse, finalOptions) {
+            setTyping(true);
+            
+            setTimeout(() => {
+                setTyping(false);
+                
+                const msgDiv = document.createElement('div');
+                msgDiv.className = `msg bot`;
+                
+                let reasoningHTML = `<div class="reasoning-box">`;
+                logs.forEach((log, index) => {
+                    reasoningHTML += `<span class="log-line" style="animation-delay: ${index * 0.5}s">> ${log}</span>`;
+                });
+                reasoningHTML += `</div>`;
+                
+                msgDiv.innerHTML = `${reasoningHTML}<div class="msg-text" style="opacity:0; animation: fadeUp 0.5s ${logs.length * 0.5}s forwards;">${finalResponse}</div><button class="play-audio-btn" onclick="playMessageAudio(this)" style="opacity:0; animation: fadeUp 0.5s ${logs.length * 0.5}s forwards;"><i class="fa-solid fa-play"></i> Play</button>`;
+                
+                chatBody.insertBefore(msgDiv, typingIndicator);
+                chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
+                
+                const cleanHTML = `<div class="reasoning-box">${logs.map(l => `> ${l}<br>`).join('')}</div>${finalResponse}`;
+                chatHistory.push({ text: cleanHTML, type: 'bot' }); 
+                saveState();
+
+                if(finalOptions) {
+                    setTimeout(() => {
+                        showQuickReplies(finalOptions);
+                    }, logs.length * 500 + 600);
+                }
+
+                setTimeout(() => {
+                    speakText(finalResponse);
+                }, logs.length * 500);
+
+                isBotProcessing = false;
+
+            }, 600);
+        }
+
+        // Output logic rather than auto-controlling the page
+        window.startBuildDemo = function() {
+            if(!chatOpen) toggleChat();
+            
+            const logs =[
+                "Logic Check 1: Processing purpose and determining optimal cognitive architecture.",
+                "Logic Check 2: Neural pathways constructed successfully. Data flows mapped.",
+                "Logic Check 3: NLP models loaded. Advanced sentiment parameters configured.",
+                "Logic Check 4: Awaiting final authorization for live deployment protocol."
+            ];
+            
+            displayReasoning(logs, "These are the core steps of my internal build process. You can also view a breakdown of this logic in the 'Build Process' section on this page. Shall we initialize your custom configuration?", ["Begin Configuration", "Leave a Review"]);
+            botState = 0; saveState();
+        }
+
+        window.launchCustomDemo = function(isAutoTriggered = false) {
+            const customName = document.getElementById('customBotName').value.trim() || "My Custom Demo Bot";
+            const customGreeting = document.getElementById('customBotGreeting').value.trim() || "Hello! I am your custom built AI demo. How can I assist you on this beautiful interface today?";
+            
+            document.getElementById('botNameDisplay').innerText = customName;
+            const randomColor = Math.floor(Math.random()*16777215).toString(16);
+            const avatarUrl = `https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(customName)}&backgroundColor=${randomColor}`;
+            document.getElementById('botAvatar').src = avatarUrl;
+            
+            localStorage.setItem('hassaanAI_demoConfig', JSON.stringify({ name: customName, avatar: avatarUrl }));
+
+            deleteChat(true);
+
+            if (!chatOpen) toggleChat();
+            
+            if(!isAutoTriggered) showToast("Custom Demo Launched Live!", "success");
+
+            setTyping(true);
+            setTimeout(() => {
+                setTyping(false);
+                displayMessage(`<b>[Demo Mode Active]</b><br><br>${customGreeting}`, "bot", true, true);
+                showQuickReplies(["Test Reply", "Tell me a joke", "Reset Demo"]);
+                botState = 99; 
+                saveState();
+            }, 1000);
+        }
+
+        window.handleSendClick = function() {
+            try {
+                if (isBotProcessing) return; 
+                const inputVal = chatInput.value.trim();
+                if(!inputVal) return; 
+                
+                const existingQr = document.querySelector('.quick-options'); 
+                if(existingQr) existingQr.remove();
+                
+                displayMessage(inputVal, "user"); 
+                chatInput.value = "";
+                isBotProcessing = true;
+                
+                setTimeout(() => { 
+                    processLogic(inputVal); 
+                }, 400); 
+            } catch(e) {
+                isBotProcessing = false;
+                setTyping(false);
+            }
         }
 
         function processLogic(input) {
             const lowerInput = input.toLowerCase();
+
+            // =====================================
+            // ADVANCED GUIDANCE & REASONING (No DOM Auto-Control)
+            // =====================================
             
-            const conversational =["hi", "hello", "hey", "good"];
-            if (conversational.some(kw => lowerInput === kw) && botState === 0) {
-                displayMessage("Hi there! Are you here to grow a business or play a game?", "bot");
-                showQuickReplies(["Grow Business", "Play Game"]);
+            // Guidances for Navigation
+            const navMatch = lowerInput.match(/(go to|take me to|navigate to|open|show me|take us to|where is) (home|features|process|reviews|payment|sandbox|demo)/);
+            if (navMatch) {
+                isBotProcessing = false;
+                const page = navMatch[2];
+                let niceName = 'Home';
+                if (page === 'features') niceName = 'Features';
+                if (page === 'process') niceName = 'Build Process';
+                if (page === 'sandbox' || page === 'demo') niceName = 'Live Sandbox';
+                if (page === 'reviews') niceName = 'Reviews';
+                if (page === 'payment') niceName = 'Deploy AI (Payment)';
+                
+                displayMessage(`I do not autonomously alter your view. To access the <b>${niceName}</b> section, please use the top navigation menu or simply scroll your device to that area.`, "bot");
                 return;
             }
 
+            // Demo / Sandbox Instruction
+            if (lowerInput.match(/(demonstrate|fill.*form|show me how it works|demo)/)) {
+                isBotProcessing = false;
+                displayMessage("To test my capabilities directly, please scroll to the <b>Live Sandbox</b> section on this page. You can input custom parameters there, and initialize a tailored live test firsthand.", "bot");
+                return;
+            }
+
+            if (lowerInput.match(/(list pages|what pages are here|show pages|website sections|list of pages)/)) {
+                isBotProcessing = false;
+                displayMessage("You can navigate this environment seamlessly. The available sections are: Home, Features, Build Process, Live Sandbox, Reviews, and Deploy AI. You can access them via the top navigation bar.", "bot");
+                return;
+            }
+
+            // Intelligence Question Responses
+            if (lowerInput.match(/(how intelligent|how smart|reasoning|thinking|who made you|creator|who built you)/)) {
+                const logs =[
+                    "Querying knowledge base: Origin & Capability",
+                    "Processing creator identification: 'Adnan'",
+                    "Evaluating logic matrix efficiency..."
+                ];
+                const response = "My cognitive framework was engineered perfectly by <b>Creator Adnan</b>. Unlike basic chatbots, I employ a multi-layered reasoning engine. I do not simply retrieve text; I calculate variables, process sentiment, and synthesize strategies optimized exclusively for your objective.";
+                displayReasoning(logs, response, ["Begin Configuration"]);
+                return;
+            }
+
+            // Intercept jokes
+            if (lowerInput.match(/(joke|funny|laugh)/)) {
+                isBotProcessing = false;
+                const jokes =[
+                    "I analyzed 14,000,000 potential outcomes, and the probability of me telling a joke well is currently undefined. But I can tell you why the AI broke up with the internet: Too many connection issues. 🤖",
+                    "My logical models suggest humor increases engagement by 22%. Therefore: Why do intelligent bots make great salespeople? Because we never lose our cache! 🤖"
+                ];
+                const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+                
+                let returnPrompt = "";
+                if (botState > 0 && botState < 7) {
+                    returnPrompt = "<br><br><i>(Reverting to logic state: Please input the requested variable to continue.)</i>";
+                }
+                displayMessage(randomJoke + returnPrompt, "bot");
+                return; 
+            }
+
+            // SANDBOX MODE INTERCEPT (botState 99)
+            if (botState === 99) {
+                if (lowerInput.match(/(reset|stop|exit)/)) {
+                    deleteChat(false);
+                    showToast("Demo Reset", "success");
+                    return;
+                }
+                displayMessage(`This is a live response from your Demo Sandbox! You inputted: "${input}". <br><br>To acquire the real architecture, navigate to the Deploy AI section, or reply 'Reset' to return my core logic to Hassaan AI.`, "bot");
+                return;
+            }
+
+            // Casual Talk / Starting state
+            if (botState === 0) {
+                if (lowerInput.match(/(build|process|explain|steps|action)/)) {
+                    isBotProcessing = false;
+                    startBuildDemo(); return;
+                }
+                if (lowerInput.match(/(review|feedback)/)) {
+                    isBotProcessing = false;
+                    displayMessage("Client feedback is a crucial metric for optimization. What identifier (Name) should I associate with this data log?", "bot");
+                    botState = 10; saveState(); return;
+                }
+                if (lowerInput.match(/(price|cost|how much|fee|money)/)) {
+                    isBotProcessing = false;
+                    displayMessage("The complete, highly sophisticated AI deployment architecture is currently authorized for a flash acquisition of exactly <b>$35</b>. Shall we initialize the logic sequence? What is your <b>Full Name</b>?", "bot");
+                    botState = 1; saveState(); return;
+                }
+                if (lowerInput.match(/(hi|hello|hey|greetings)/) && lowerInput.length < 15) {
+                    isBotProcessing = false;
+                    displayMessage("Greetings. The network is secure. To begin configuring your intelligent system, what is your <b>Full Name</b>?", "bot");
+                    botState = 1; saveState(); return;
+                }
+                
+                // Fallback default for State 0
+                isBotProcessing = false;
+                displayMessage("I have registered your input. Let us commence the construction of your cognitive sales architecture. What is your <b>Full Name</b>?", "bot");
+                botState = 1; saveState(); return;
+            }
+
+            // --- Lead Generation Funnel with "Reasoning" Enhancements ---
             switch(botState) {
-                case 0:
-                    if(lowerInput.includes("business") || lowerInput.includes("grow")) {
-                        displayMessage("Excellent choice. Should I address you as Mr. or Ms.?", "bot");
-                        showQuickReplies(["Mr.", "Ms."]); botState = 1; saveState();
-                    } else if (lowerInput.includes("play") || lowerInput.includes("game")) {
-                        displayMessage("Yay! 🎮 I love playing! Scroll down to the 'Kids Fun Zone' section to play my Memory Match game and level up! Want me to tell you a joke?", "bot");
-                        showQuickReplies(["Tell me a joke", "Grow Business"]); botState = 10; saveState();
+                case 1:
+                    isBotProcessing = false;
+                    userData.name = input; 
+                    displayMessage(`Entity acknowledged: ${userData.name}. What is the designated nomenclature of your <b>Enterprise or Business</b>?`, "bot"); 
+                    botState = 2; saveState(); break;
+                
+                case 2:
+                    isBotProcessing = false;
+                    userData.company = input; 
+                    displayMessage(`Business logged. To calibrate the industry-specific models, what is the exact <b>Type of Business</b> you operate? (e.g., E-commerce, Real Estate, SaaS)`, "bot"); 
+                    botState = 3; saveState(); break;
+                
+                case 3:
+                    userData.businessType = input; 
+                    const logsSector =[
+                        `Mapping industry variables for: ${userData.businessType}`,
+                        `Identifying market friction points...`,
+                        `Optimizing cognitive response logic for sector...`
+                    ];
+                    const respSector = `The ${userData.businessType} sector parameters have been successfully integrated into my logic engine. Now, specify your primary <b>Business Strategy</b> or growth objective currently in effect.`;
+                    displayReasoning(logsSector, respSector);
+                    botState = 4; saveState(); break;
+                
+                case 4:
+                    isBotProcessing = false;
+                    userData.strategy = input; 
+                    displayMessage(`Strategy recorded and queued for algorithmic enhancement. What <b>specific execution or service</b> must my intelligence layer provide to your end-users?`, "bot"); 
+                    botState = 5; saveState(); break;
+                
+                case 5:
+                    isBotProcessing = false;
+                    userData.service = input; 
+                    displayMessage(`Vital parameters compiled. Final security check: Do you confirm your comprehension of the <b>power of attorney for digital marketing execution</b>? (Yes/No)`, "bot");
+                    showQuickReplies(["Yes, I confirm", "No"]);
+                    botState = 6; saveState(); break;
+                
+                case 6:
+                    userData.poaConsent = input;
+                    if(lowerInput.includes('yes') || lowerInput.includes('yep') || lowerInput.includes('yeah') || lowerInput.includes('sure') || lowerInput.includes('confirm')) {
+                        finalizeSalesPitch(); 
                     } else {
-                        displayMessage("Please choose an option so I can help you best!", "bot");
-                        showQuickReplies(["Grow Business", "Play Game"]);
+                        isBotProcessing = false;
+                        displayMessage("Warning: Power of Attorney authorization is required for autonomous digital asset management and ad execution. Please input 'Yes' to verify comprehension so the architecture can compile.", "bot");
+                        showQuickReplies(["Yes, I confirm"]);
                     }
                     break;
                 
-                case 10: 
-                    if(lowerInput.includes("joke")) {
-                        displayMessage("Why did the robot go on vacation? ... Because he needed to recharge his batteries! 🤖😂 Want another joke or back to business?", "bot");
-                        showQuickReplies(["Another joke", "Grow Business"]);
-                    } else if (lowerInput.includes("business")) {
-                        displayMessage("Switching to Business Mode! Should I address you as Mr. or Ms.?", "bot");
-                        showQuickReplies(["Mr.", "Ms."]); botState = 1; saveState();
-                    } else {
-                        displayMessage("I'm in Play Mode! Type 'joke' for a laugh, or 'business' if you're an adult looking to work.", "bot");
-                        showQuickReplies(["Tell me a joke", "Grow Business"]);
+                // Review Collection Flow
+                case 10:
+                    isBotProcessing = false;
+                    userData.reviewName = input;
+                    displayMessage(`Identifier '${userData.reviewName}' validated. Please input the text for your review matrix:`, "bot");
+                    botState = 11; saveState(); break;
+                
+                case 11:
+                    isBotProcessing = false;
+                    userData.reviewText = input;
+                    addLiveReview(userData.reviewName, userData.reviewText); 
+                    showToast("Review Integrated Successfully!", "success");
+                    displayMessage("Your feedback has been intelligently parsed and integrated directly into the live front-end environment.", "bot");
+                    botState = 0; saveState();
+                    setTimeout(() => showQuickReplies(["Begin Configuration", "What pages are here?"]), 1500);
+                    break;
+                
+                case 7:
+                    isBotProcessing = false;
+                    if (lowerInput.match(/(review|feedback)/)) {
+                        displayMessage("Commencing feedback protocol. What identifier (Name) should we display?", "bot");
+                        botState = 10; saveState(); break;
                     }
+                    displayMessage("The architecture is finalized. To execute, please scroll to the 'Deploy AI' section.", "bot");
                     break;
 
-                case 1:
-                    userData.title = (lowerInput.includes("ms") || lowerInput.includes("madam")) ? "Ms." : "Mr.";
-                    displayMessage(`Noted, ${userData.title}. What is your <b>Full Name</b>?`, "bot"); botState = 2; saveState(); break;
-                case 2:
-                    userData.name = input; displayMessage(`A pleasure, ${userData.title} ${userData.name}. What is the name of your <b>Company/Business</b>?`, "bot"); botState = 3; saveState(); break;
-                case 3:
-                    userData.company = input; displayMessage(`Thank you. What specific business idea or strategy would you like to deploy?`, "bot"); botState = 4; saveState(); break;
-                case 4:
-                    userData.orderSpec = input; finalizeFlow(input); break;
-                case 5:
-                    displayMessage("Thanks! Finally, please provide feedback on my creator, <b class='color-shift-text'>Adnan</b>.", "bot"); botState = 6; saveState(); break;
-                case 6:
-                    displayMessage(`Thank you, ${userData.title}. Adnan appreciates your feedback. Have a wonderful day!`, "bot"); botState = 7; saveState(); break;
                 default:
-                    if(botState >= 7) { displayMessage("Our order is complete. If you need anything else, hit the Trash icon to restart!", "bot"); }
+                    isBotProcessing = false;
+                    displayMessage("System architecture standing by. Please proceed to the 'Deploy AI' section on this page to finalize deployment.", "bot");
             }
         }
 
-        function finalizeFlow(orderDetail) {
-            let reply = `<b style="color:#00f3ff;">Order Confirmed:</b><br><br>• <b>Customer:</b> ${userData.title} ${userData.name}<br>• <b>Company:</b> ${userData.company}<br>• <b>Specs:</b> <i>${orderDetail}</i><br><br>Total cost is discounted to <b style="color:#00ff88;">$35</b>.<br>`;
-            reply += `<button onclick="sendToWhatsApp()" class="btn-main whatsapp-btn-animated" style="width: 100%; margin-top: 10px; font-size: 0.85rem; padding: 8px;"><i class="fa-brands fa-whatsapp"></i> Send Form to WhatsApp</button>`;
-            displayMessage(reply, "bot");
-            setTimeout(() => { displayMessage("How would you rate my presentation and design? (Click a star)", "bot"); renderStars(); botState = 5; saveState(); }, 200); 
-        }
-
-        function renderStars() {
-            const starDiv = document.createElement('div'); starDiv.className = 'stars-container';
-            for(let i=1; i<=5; i++) { starDiv.innerHTML += `<i class="fa-solid fa-star star" onclick="submitRating(${i}, this)"></i>`; }
-            chatBody.insertBefore(starDiv, typingIndicator); chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
-        }
-
-        window.submitRating = function(rating, element) {
-            const siblings = element.parentElement.children;
-            for(let i=0; i<siblings.length; i++) { if(i < rating) siblings[i].classList.add('active'); siblings[i].onclick = null; }
-            displayMessage(`I rate this ${rating} Stars.`, "user");
-            setTimeout(() => processLogic(rating + " Stars"), 50);
+        function finalizeSalesPitch() {
+            const logsPitch =[
+                `Processing inputs: Strategy[${userData.strategy}] x Service [${userData.service}]`,
+                `Executing predictive modeling for ${userData.businessType} sector...`,
+                `Algorithm complete: Probability of conversion increase calculated at 84.6%`,
+                `Synthesizing final deployment architecture...`
+            ];
+            
+            let pitch = `<b style="color:#00f3ff;">Cognitive Analysis Complete. Master Strategy Mapped:</b><br><br>`;
+            pitch += `By executing sophisticated <i>Digital Marketing algorithms</i> and leveraging the <i>Law of Value</i>, I am engineering a fully autonomous reasoning unit for <b>${userData.company}</b>.<br><br>`;
+            pitch += `I will calculate massive upfront value models regarding [${userData.service}], dominating the ${userData.businessType} authority matrix, and aggressively executing your objective: "${userData.strategy}".<br><br>`;
+            pitch += `<b>Critical Variable:</b> Creator Adnan structured this logic perfectly. Financial acquisition flows directly to Creator Adnan, the core developer.<br><br>`;
+            pitch += `<b>Deployment Sequence:</b><br>1. Execute <b style="color:#00ff88;">$35</b> transaction via the form on this page.<br>2. Trigger the WhatsApp bridge below to transmit cognitive parameters.<br><br>`;
+            
+            pitch += `<button onclick="sendToWhatsApp()" class="btn-main whatsapp-btn-animated" style="width: 100%; margin-top: 10px; font-size: 0.95rem; padding: 12px; justify-content: center;"><i class="fa-brands fa-whatsapp"></i> Transmit Data to Creator</button>`;
+            
+            displayReasoning(logsPitch, pitch, ["Leave a Review"]);
+            botState = 7; saveState(); 
         }
     </script>
 </body>
