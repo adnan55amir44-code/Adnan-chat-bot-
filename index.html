@@ -3,276 +3,319 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#030305">
-    <title>Hassaan AI | Advanced Intelligent Chatbot Agency</title>
+    <meta name="theme-color" content="#040914">
+    <title>Hassaan AI | Premium Intelligent Chatbot</title>
     
     <!-- Premium Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         /* --- ULTRA-PREMIUM VARIABLES --- */
         :root {
-            --bg-dark: #030305;
-            --glass-bg: rgba(12, 12, 18, 0.4);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-highlight: rgba(255, 255, 255, 0.15);
+            --bg-dark: #040914; 
+            --glass-bg: rgba(14, 22, 40, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.1);
             --text-main: #f8fafc;
             --text-dim: #94a3b8;
-            --whatsapp: #25D366;
-            --neon-cyan: #00f3ff;
-            --neon-magenta: #bc13fe;
-            --neon-purple: #7000ff;
-            --golden-sun: #ffaa00;
+            --neon-cyan: #00F0FF;
+            --neon-purple: #B200FF;
+            --neon-blue: #0055FF;
             --bezier: cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; font-family: 'Outfit', sans-serif; }
-        body { background-color: var(--bg-dark); color: var(--text-main); overflow-x: hidden; scroll-behavior: smooth; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        /* --- HARDWARE ACCELERATION & RESET --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        
+        body { 
+            background-color: var(--bg-dark); color: var(--text-main); 
+            overflow-x: hidden; scroll-behavior: smooth; line-height: 1.6; 
+            -webkit-font-smoothing: antialiased; 
+            font-family: 'Outfit', sans-serif;
+            background-image: 
+                radial-gradient(circle at 20% 40%, rgba(178, 0, 255, 0.05), transparent 40%),
+                radial-gradient(circle at 80% 60%, rgba(0, 240, 255, 0.05), transparent 40%);
+            transition: background 0.4s ease;
+        }
+
+        /* --- TYPOGRAPHY (ENGLISH - LTR) --- */
         h1, h2, h3, h4, .brand-font { font-family: 'Poppins', sans-serif; }
+        .hero-title { font-size: clamp(2.4rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.15; margin-bottom: 18px; letter-spacing: -1px; text-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+        .hero-p { font-size: clamp(1rem, 1.8vw, 1.15rem); color: var(--text-dim); max-width: 750px; margin-bottom: 35px; font-weight: 400; line-height: 1.8; }
+        .section-title { font-size: clamp(1.8rem, 4.5vw, 3.2rem); margin-bottom: 12px; font-weight: 800; letter-spacing: -0.5px; line-height: 1.2; }
+        .section-subtitle { font-size: clamp(0.95rem, 1.8vw, 1.1rem); color: var(--text-dim); margin-bottom: 50px; max-width: 650px; font-weight: 400; line-height: 1.7; }
 
-        ::-webkit-scrollbar { width: 8px; }
+        /* --- TYPOGRAPHY (URDU MODE - RTL) --- */
+        body.rtl-mode { font-family: 'Noto Nastaliq Urdu', serif; direction: rtl; }
+        body.rtl-mode h1, body.rtl-mode h2, body.rtl-mode h3, body.rtl-mode .brand-font { font-family: 'Noto Nastaliq Urdu', serif; font-weight: 700; }
+        body.rtl-mode .hero-title { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.8; margin-bottom: 20px; letter-spacing: 0; }
+        body.rtl-mode .hero-p { font-size: clamp(0.9rem, 1.4vw, 1.05rem); line-height: 2.2; max-width: 800px; }
+        body.rtl-mode .section-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.9; margin-bottom: 10px; }
+        body.rtl-mode .section-subtitle { font-size: clamp(0.85rem, 1.4vw, 0.95rem); line-height: 2.2; }
+        body.rtl-mode .feature-card, body.rtl-mode .sandbox-panel, body.rtl-mode .terminal-container { text-align: right; }
+        body.rtl-mode .bot-profile, body.rtl-mode .header-actions { flex-direction: row; }
+        body.rtl-mode .btn-main { font-size: 1rem; padding: 12px 28px; }
+        body.rtl-mode .qr-btn { font-size: 0.85rem; }
+        body.rtl-mode .lang-btn { font-family: 'Noto Nastaliq Urdu', serif; }
+        body.rtl-mode .terminal-title { margin-left: 0; margin-right: 15px; }
+
+        ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: var(--bg-dark); }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--neon-cyan), var(--golden-sun)); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple)); border-radius: 10px; }
 
-        /* --- STUNNING ANIMATIONS --- */
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        /* --- EXTREME POWER ANIMATIONS --- */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(0,243,255,0.4); } 50% { box-shadow: 0 0 40px rgba(0,243,255,0.8); } }
+        @keyframes floatSmooth { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        @keyframes glowPulse { 0% { box-shadow: 0 0 15px rgba(0,240,255,0.4); } 50% { box-shadow: 0 0 35px rgba(0,240,255,0.8); } 100% { box-shadow: 0 0 15px rgba(0,240,255,0.4); } }
+        @keyframes msgFadeIn { from { opacity: 0; transform: scale(0.95) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        .animate-fade-up { animation: fadeInUp 1s var(--bezier) forwards; opacity: 0; }
+        .animate-fade-up { animation: fadeInUp 0.8s var(--bezier) forwards; opacity: 0; will-change: transform, opacity; }
         .delay-1 { animation-delay: 0.15s; } .delay-2 { animation-delay: 0.3s; } .delay-3 { animation-delay: 0.45s; }
 
         .color-shift-text {
-            background: linear-gradient(270deg, var(--neon-cyan), var(--neon-magenta), var(--golden-sun), var(--neon-cyan));
+            background: linear-gradient(270deg, var(--neon-cyan), #fff, var(--neon-purple), var(--neon-cyan));
             background-size: 300% 300%;
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: gradientShift 8s ease infinite; font-weight: 800;
+            animation: gradientShift 6s ease infinite; font-weight: 800;
         }
 
-        /* --- ULTRA 3D BACKGROUND, MESH & AMBIENT ORBS --- */
-        .mesh-grid { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -3; pointer-events: none; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 50px 50px; mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0)); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0)); }
-        #webgl-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; pointer-events: none; opacity: 0.8; }
-        .ambient-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at center, rgba(3,3,5,0.1) 0%, rgba(3,3,5,0.98) 100%); pointer-events: none; }
+        /* --- BEAUTIFUL 3D BACKGROUND --- */
+        #webgl-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; pointer-events: none; opacity: 0.85; }
         
-        .glow-orb { position: fixed; width: 45vw; height: 45vw; border-radius: 50%; background: var(--neon-cyan); filter: blur(140px); opacity: 0.12; z-index: -1; top: -10%; left: -10%; pointer-events: none; animation: orbMove 25s infinite alternate ease-in-out;}
-        .glow-orb.magenta { background: var(--neon-magenta); top: 60%; left: 70%; animation-delay: -5s; opacity: 0.08;}
-        .glow-orb.sun { background: var(--golden-sun); top: 20%; left: 50%; animation-delay: -10s; opacity: 0.12;}
-        @keyframes orbMove { 0% { transform: scale(1) translate(0, 0); } 100% { transform: scale(1.1) translate(40px, -40px); } }
-
-        /* --- CUSTOM TOAST NOTIFICATIONS --- */
-        #toastContainer { position: fixed; top: 100px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 12px; }
-        .custom-toast { background: rgba(8, 8, 12, 0.95); color: #fff; padding: 16px 24px; border-radius: 16px; font-weight: 500; font-size: 0.95rem; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid var(--neon-cyan); backdrop-filter: blur(10px); animation: toastIn 0.4s var(--bezier) forwards; display: flex; align-items: center; gap: 12px; }
+        /* --- CUSTOM ICONS --- */
+        .custom-logo-svg { width: 40px; height: 40px; animation: floatSmooth 4s ease-in-out infinite; filter: drop-shadow(0 0 12px rgba(0,240,255,0.7)); }
+        
+        /* --- CUSTOM TOAST --- */
+        #toastContainer { position: fixed; top: 90px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 12px; pointer-events: none;}
+        body.rtl-mode #toastContainer { right: auto; left: 20px; }
+        .custom-toast { background: rgba(14, 22, 40, 0.95); color: #fff; padding: 14px 22px; border-radius: 14px; font-weight: 500; font-size: 0.95rem; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8); border: 1px solid var(--glass-border); border-left: 4px solid var(--neon-cyan); animation: fadeInUp 0.4s var(--bezier) forwards; display: flex; align-items: center; gap: 12px; backdrop-filter: blur(15px); }
         .custom-toast.success { border-left-color: #00ff88; }
-        @keyframes toastIn { from { transform: translateX(120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
         /* --- PREMIUM FLOATING NAVBAR --- */
         nav {
-            position: fixed; top: 25px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 1200px;
-            padding: 12px 28px; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
-            background: rgba(10, 10, 15, 0.65); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
-            border: 1px solid var(--glass-border); border-radius: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.1);
-            transition: 0.4s var(--bezier);
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 1200px;
+            padding: 10px 24px; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+            background: rgba(14, 22, 40, 0.7); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border); border-radius: 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.6);
         }
-        .logo { display: flex; align-items: center; gap: 14px; font-size: clamp(1.2rem, 2.5vw, 1.5rem); font-weight: 800; cursor: pointer; letter-spacing: -0.5px;}
-        .drawn-icon { width: 38px; height: 38px; border-radius: 50%; object-fit: contain; background: #fff; padding: 4px; box-shadow: 0 0 20px rgba(0, 243, 255, 0.4); }
+        .logo { display: flex; align-items: center; gap: 12px; font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 800; cursor: pointer; }
         
-        nav ul { list-style: none; display: flex; gap: 40px; align-items: center; transition: 0.3s ease-in-out; }
-        nav ul li a { color: var(--text-dim); text-decoration: none; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.5px; transition: 0.3s var(--bezier); }
-        nav ul li a:hover { color: #fff; text-shadow: 0 0 15px rgba(255,255,255,0.4); transform: translateY(-2px); display: inline-block;}
-        .mobile-menu-btn { display: none; font-size: 1.5rem; color: #fff; cursor: pointer; background: transparent; border: none; transition: 0.3s; }
+        nav ul { list-style: none; display: flex; gap: 24px; align-items: center; transition: 0.3s; }
+        nav ul li a { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
+        nav ul li a:hover { color: #fff; text-shadow: 0 0 15px rgba(255,255,255,0.6); }
 
-        /* --- UPGRADED PERFECT SECTIONS --- */
-        section { padding: clamp(120px, 15vh, 180px) 5% 100px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; z-index: 1; scroll-margin-top: 80px; transition: all 0.5s ease;}
-        .section-title { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 20px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.15; }
-        .section-subtitle { font-size: clamp(1rem, 2vw, 1.15rem); color: var(--text-dim); margin-bottom: 60px; max-width: 700px; font-weight: 400; line-height: 1.8; }
+        .lang-switcher { display: flex; gap: 4px; background: rgba(0,0,0,0.4); padding: 4px; border-radius: 30px; border: 1px solid var(--glass-border); }
+        .lang-btn { background: transparent; border: none; color: var(--text-dim); font-size: 0.85rem; font-weight: 700; padding: 6px 16px; border-radius: 20px; cursor: pointer; transition: 0.3s; font-family: 'Poppins', sans-serif;}
+        .lang-btn:hover { color: #fff; }
+        .lang-btn.active { background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue)); color: #fff; box-shadow: 0 0 15px rgba(0,240,255,0.5); }
         
-        .hero-container { display: flex; flex-direction: column; align-items: center; gap: 30px; max-width: 1000px; margin: 0 auto;}
-        .badge { background: rgba(0,243,255,0.05); border: 1px solid rgba(0,243,255,0.3); color: var(--neon-cyan); padding: 8px 24px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; display: inline-block; margin-bottom: 15px; box-shadow: 0 0 20px rgba(0,243,255,0.1); backdrop-filter: blur(10px); }
-        .hero-title { font-size: clamp(3.2rem, 8vw, 7rem); font-weight: 900; line-height: 1.05; margin-bottom: 25px; letter-spacing: -2.5px; text-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-        .hero-p { font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--text-dim); max-width: 800px; margin-bottom: 45px; font-weight: 400; line-height: 1.8; }
+        .mobile-menu-btn { display: none; font-size: 1.4rem; color: #fff; cursor: pointer; background: transparent; border: none; }
 
-        /* Glowing Button */
-        .btn-main { position: relative; padding: clamp(16px, 2.5vw, 20px) clamp(35px, 5vw, 45px); border-radius: 50px; font-weight: 700; font-size: clamp(1rem, 2vw, 1.1rem); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 12px; transition: 0.4s var(--bezier); background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); color: #fff; border: none; z-index: 1; overflow: hidden; letter-spacing: 0.5px; text-decoration: none; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);}
-        .btn-main::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, var(--neon-purple), var(--neon-cyan)); opacity: 0; transition: 0.4s var(--bezier); z-index: -1; }
+        /* --- SECTIONS --- */
+        section { padding: clamp(100px, 15vh, 140px) 5% 60px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; z-index: 1; scroll-margin-top: 60px; }
+        .hero-container { display: flex; flex-direction: column; align-items: center; gap: 20px; max-width: 900px; margin: 0 auto;}
+        
+        .badge { background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.4); color: var(--neon-cyan); padding: 6px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; box-shadow: 0 0 20px rgba(0,240,255,0.2); backdrop-filter: blur(5px); }
+        
+        .btn-main { position: relative; padding: clamp(14px, 2vw, 16px) clamp(28px, 4vw, 36px); border-radius: 50px; font-weight: 700; font-size: clamp(0.9rem, 2vw, 1.05rem); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 10px; transition: 0.4s var(--bezier); background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); color: #fff; border: none; z-index: 1; overflow: hidden; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); animation: glowPulse 3s infinite alternate; will-change: transform, box-shadow;}
+        .btn-main::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue)); opacity: 0; transition: 0.4s var(--bezier); z-index: -1; }
         .btn-main:hover::before { opacity: 1; }
-        .btn-main:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 243, 255, 0.4); }
+        .btn-main:hover { transform: translateY(-4px) scale(1.02); animation: none; box-shadow: 0 15px 35px rgba(0, 240, 255, 0.6); }
 
         /* --- FLAWLESS FEATURES GRID --- */
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; width: 100%; max-width: 1200px; margin-top: 20px;}
-        .feature-card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-top: 1px solid rgba(255,255,255,0.12); border-radius: 30px; padding: 45px 35px; text-align: left; transition: 0.5s var(--bezier); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4);}
-        .feature-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at top right, rgba(0,243,255,0.1), transparent 60%); opacity: 0; transition: 0.5s; }
-        .feature-card:hover::before { opacity: 1; }
-        .feature-card:hover { transform: translateY(-12px); border-color: rgba(0,243,255,0.4); box-shadow: 0 30px 60px rgba(0,0,0,0.6), inset 0 0 30px rgba(0,243,255,0.05); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; width: 100%; max-width: 1100px; margin-top: 10px;}
+        .feature-card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-top: 1px solid rgba(255,255,255,0.15); border-radius: 24px; padding: 35px 25px; text-align: left; transition: 0.4s var(--bezier); position: relative; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.4); will-change: transform; backdrop-filter: blur(15px); }
+        .feature-card:hover { transform: translateY(-8px); border-color: rgba(0,240,255,0.5); background: rgba(20, 30, 50, 0.7); box-shadow: 0 25px 50px rgba(0,0,0,0.6), inset 0 0 20px rgba(0,240,255,0.1); }
 
-        .feature-icon { width: 65px; height: 65px; border-radius: 20px; background: rgba(0,243,255,0.05); border: 1px solid rgba(0,243,255,0.2); display: flex; justify-content: center; align-items: center; margin-bottom: 30px; color: var(--neon-cyan); font-size: 1.8rem; transition: 0.5s var(--bezier); box-shadow: inset 0 2px 10px rgba(255,255,255,0.05);}
-        .feature-card:hover .feature-icon { background: var(--neon-cyan); color: #000; box-shadow: 0 10px 30px rgba(0,243,255,0.5); transform: scale(1.1) rotate(8deg); border-color: transparent;}
-        .feature-card h3 { font-size: 1.5rem; color: #fff; margin-bottom: 15px; font-weight: 700; letter-spacing: -0.5px;}
-        .feature-card p { font-size: 1.05rem; color: var(--text-dim); line-height: 1.7; }
+        .feature-icon { width: 55px; height: 55px; border-radius: 16px; background: rgba(0,240,255,0.08); border: 1px solid rgba(0,240,255,0.3); display: flex; justify-content: center; align-items: center; margin-bottom: 20px; color: var(--neon-cyan); font-size: 1.4rem; transition: 0.4s; box-shadow: inset 0 0 15px rgba(0,240,255,0.2); }
+        .feature-card:hover .feature-icon { background: var(--neon-cyan); color: #000; box-shadow: 0 10px 25px rgba(0,240,255,0.6); transform: scale(1.15) rotate(8deg); border-color: transparent;}
+        .feature-card h3 { font-size: 1.25rem; color: #fff; margin-bottom: 10px; font-weight: 700; letter-spacing: -0.3px; position: relative; z-index: 2; }
+        .feature-card p { font-size: 0.95rem; color: var(--text-dim); line-height: 1.6; position: relative; z-index: 2; }
 
-        /* --- DEMO SANDBOX SECTION --- */
-        .sandbox-panel { background: rgba(12,12,18,0.7); border: 1px solid rgba(255,170,0,0.3); border-top: 1px solid rgba(255,170,0,0.6); border-radius: 36px; padding: clamp(40px, 6vw, 60px); max-width: 800px; width: 100%; box-shadow: 0 40px 80px rgba(0,0,0,0.8), inset 0 0 50px rgba(255,170,0,0.05); backdrop-filter: blur(40px); margin: 0 auto; text-align: left; transition: 0.5s var(--bezier); position: relative; overflow: hidden;}
-        .sandbox-panel::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,170,0,0.05) 0%, transparent 60%); pointer-events: none; }
-        .sandbox-panel h3 { font-size: 1.8rem; color: #fff; margin-bottom: 10px; font-weight: 800; }
-        .sandbox-panel p.demo-sub { color: var(--golden-sun); font-size: 1.1rem; margin-bottom: 35px; font-weight: 500; letter-spacing: 0.5px; }
+        /* Holographic Step Numbers for Process Section */
+        .step-number { position: absolute; top: -5px; right: 15px; font-size: 5.5rem; font-weight: 900; font-family: 'Poppins', sans-serif; color: transparent; -webkit-text-stroke: 2px rgba(0, 240, 255, 0.08); z-index: 0; transition: 0.4s var(--bezier); pointer-events: none;}
+        body.rtl-mode .step-number { right: auto; left: 15px; }
+        .feature-card:hover .step-number { -webkit-text-stroke: 2px rgba(178, 0, 255, 0.3); transform: scale(1.1) rotate(-5deg); }
+
+        /* --- LIVE TERMINAL UI (NEW FEATURE) --- */
+        .terminal-container { max-width: 900px; width: 100%; margin: 0 auto 30px; background: rgba(5, 9, 20, 0.85); border-radius: 16px; border: 1px solid rgba(0, 240, 255, 0.2); overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.6), inset 0 0 20px rgba(0, 240, 255, 0.05); text-align: left; backdrop-filter: blur(20px); }
+        .terminal-header { background: rgba(255, 255, 255, 0.05); padding: 10px 18px; display: flex; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+        .terminal-dots { display: flex; gap: 8px; }
+        .terminal-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .terminal-dot.red { background: #ff5f56; } .terminal-dot.yellow { background: #ffbd2e; } .terminal-dot.green { background: #27c93f; }
+        .terminal-title { margin-left: 15px; color: var(--text-dim); font-size: 0.85rem; font-family: 'Fira Code', monospace; letter-spacing: 1px; }
+        .terminal-body { padding: 20px; font-family: 'Fira Code', monospace; font-size: 0.95rem; color: #00ff88; height: 160px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+        .term-line { animation: msgFadeIn 0.2s forwards; }
+        .term-warning { color: #ffbd2e; }
+        .term-cursor { display: inline-block; width: 10px; height: 16px; background: var(--neon-cyan); animation: blink 1s infinite; vertical-align: middle; margin-left: 5px; }
+
+        /* --- DEMO SANDBOX & PAYMENT --- */
+        .sandbox-panel, .pricing-panel { background: var(--glass-bg); border: 1px solid rgba(178,0,255,0.4); border-radius: 28px; padding: clamp(30px, 5vw, 45px); max-width: 750px; width: 100%; box-shadow: 0 25px 50px rgba(0,0,0,0.6); margin: 0 auto; text-align: left; transition: 0.5s; backdrop-filter: blur(25px); border-top: 1px solid rgba(255,255,255,0.15); }
+        .sandbox-panel h3 { font-size: 1.5rem; color: #fff; margin-bottom: 8px; font-weight: 800; }
+        .sandbox-panel p.demo-sub { color: var(--neon-cyan); font-size: 1rem; margin-bottom: 25px; font-weight: 500; }
         
-        .input-group { margin-bottom: 25px; position: relative; }
-        .input-group label { display: block; margin-bottom: 10px; color: #fff; font-weight: 600; font-size: 1.05rem; }
-        .sandbox-input { width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15); padding: 18px 25px; border-radius: 20px; color: #fff; font-size: 1rem; transition: 0.4s var(--bezier); outline: none; font-family: 'Outfit'; }
-        .sandbox-input:focus { border-color: var(--golden-sun); background: rgba(255,170,0,0.03); box-shadow: 0 0 0 4px rgba(255,170,0,0.1); }
-        textarea.sandbox-input { resize: vertical; min-height: 120px; }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; margin-bottom: 8px; color: #fff; font-weight: 600; font-size: 0.95rem; }
+        .sandbox-input { width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.2); padding: 14px 20px; border-radius: 14px; color: #fff; font-size: 0.95rem; transition: 0.3s; outline: none; }
+        .sandbox-input:focus { border-color: var(--neon-cyan); background: rgba(0,240,255,0.05); box-shadow: 0 0 0 3px rgba(0,240,255,0.15); }
+        textarea.sandbox-input { resize: vertical; min-height: 100px; }
 
-        .btn-sandbox { background: linear-gradient(135deg, var(--golden-sun), #ff5500); width: 100%; margin-top: 15px; }
-        .btn-sandbox::before { background: linear-gradient(135deg, #ff5500, var(--golden-sun)); }
-        .btn-sandbox:hover { box-shadow: 0 20px 40px rgba(255,170,0,0.4); }
-
-        /* --- FLAWLESS PAYMENT INFO PANEL --- */
-        .pricing-panel { background: rgba(8,8,12,0.85); border: 1px solid rgba(188,19,254,0.3); border-top: 1px solid rgba(188,19,254,0.6); border-radius: 36px; padding: clamp(40px, 6vw, 60px); max-width: 620px; width: 100%; box-shadow: 0 40px 80px rgba(0,0,0,0.8), inset 0 0 40px rgba(188,19,254,0.05); position: relative; backdrop-filter: blur(40px); margin: 0 auto; text-align: center; transition: 0.5s var(--bezier);}
-        .pricing-panel:hover { transform: translateY(-10px); box-shadow: 0 50px 100px rgba(0,0,0,0.9), inset 0 0 40px rgba(188,19,254,0.1); }
-        .discount-tag { position: absolute; top: -20px; right: clamp(20px, 5vw, 40px); background: linear-gradient(135deg, #ff0055, #ED1C24); color: #fff; padding: 10px 28px; border-radius: 30px; font-weight: 800; font-size: 0.9rem; box-shadow: 0 12px 30px rgba(237,28,36,0.5); text-transform: uppercase; letter-spacing: 1.5px; animation: float 4s ease-in-out infinite;}
+        .pricing-panel { max-width: 580px; text-align: center; border-color: rgba(0,240,255,0.4); }
+        .pricing-panel:hover { transform: translateY(-8px); box-shadow: 0 35px 70px rgba(0,0,0,0.8), inset 0 0 30px rgba(0,240,255,0.15); }
         
-        .whatsapp-btn-animated { background: linear-gradient(45deg, #25D366, #128C7E); color: #fff; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); width: 100%; justify-content: center; font-size: clamp(1.1rem, 2.5vw, 1.25rem); border: none; padding: 22px 25px; border-radius: 50px; cursor: pointer; text-decoration: none; display: flex; align-items: center; gap: 12px; font-family: 'Outfit'; font-weight: 800; transition: 0.4s var(--bezier);}
-        .whatsapp-btn-animated:hover { transform: scale(1.02); box-shadow: 0 15px 45px rgba(37, 211, 102, 0.6); filter: brightness(1.1); }
+        .whatsapp-btn-animated { background: linear-gradient(45deg, #25D366, #128C7E); color: #fff; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); width: 100%; justify-content: center; font-size: clamp(1rem, 2vw, 1.1rem); border: none; padding: 16px 24px; border-radius: 50px; cursor: pointer; display: flex; align-items: center; gap: 10px; font-weight: 800; transition: 0.3s; font-family: 'Outfit', sans-serif; }
+        body.rtl-mode .whatsapp-btn-animated { font-family: 'Noto Nastaliq Urdu', serif; font-size: 1.15rem; }
+        .whatsapp-btn-animated:hover { transform: scale(1.03); filter: brightness(1.15); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6); }
 
         /* --- ULTRA-FAST, BEAUTIFUL CHAT WIDGET --- */
-        .chat-widget { position: fixed; bottom: clamp(20px, 4vw, 35px); right: clamp(20px, 4vw, 35px); z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
-        .chat-btn-wrapper { position: relative; width: clamp(65px, 15vw, 80px); height: clamp(65px, 15vw, 80px); animation: fadeInUp 0.8s var(--bezier) forwards; cursor: pointer; }
-        .beautiful-chat-btn { width: 100%; height: 100%; border-radius: 50%; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); box-shadow: 0 15px 40px rgba(0, 243, 255, 0.4); display: flex; justify-content: center; align-items: center; transition: 0.4s var(--bezier); animation: pulseGlow 3s infinite alternate;}
-        .beautiful-chat-btn:hover { transform: scale(1.1) rotate(15deg); box-shadow: 0 20px 50px rgba(112, 0, 255, 0.6); animation: none; }
-        .beautiful-chat-btn img { width: 55%; height: 55%; border-radius: 50%; background: #fff; padding: 3px; object-fit: contain; }
-
-        .chat-window { position: absolute; bottom: calc(100% + 20px); right: 0; width: 400px; height: 650px; max-height: calc(100dvh - 140px); background: rgba(10, 10, 15, 0.95); border: 1px solid rgba(255,255,255,0.15); border-radius: 30px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.95), inset 0 1px 1px rgba(255,255,255,0.2); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); transform-origin: bottom right; animation: popIn 0.4s var(--bezier) forwards; }
-        @keyframes popIn { 0% { opacity: 0; transform: scale(0.8) translateY(30px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
-
-        .chat-header { padding: 22px 24px; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0;}
-        .bot-profile { display: flex; align-items: center; gap: 14px; }
-        .bot-photo { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--neon-cyan); background: #fff; padding: 2px; object-fit: contain; transition: 0.3s; }
-
-        .online-dot { width: 10px; height: 10px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 15px #00ff88; animation: pulseOnline 2s infinite alternate; display: inline-block; margin-right: 6px;}
-        @keyframes pulseOnline { from { opacity: 0.5; transform: scale(0.9); } to { opacity: 1; transform: scale(1.2); } }
-
-        .chat-body { flex: 1; padding: 22px; overflow-y: auto; display: flex; flex-direction: column; gap: 18px; scroll-behavior: smooth; }
-        .chat-body::-webkit-scrollbar { width: 6px; }
-        .chat-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 10px; }
-
-        .msg { max-width: 88%; padding: 16px 20px; border-radius: 20px; font-size: 0.95rem; line-height: 1.6; opacity: 0; animation: fadeUp 0.3s var(--bezier) forwards; word-wrap: break-word; }
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .chat-widget { position: fixed; bottom: clamp(20px, 4vw, 30px); right: clamp(20px, 4vw, 30px); z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
+        body.rtl-mode .chat-widget { right: auto; left: clamp(20px, 4vw, 30px); align-items: flex-start; }
         
-        .msg.bot { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); align-self: flex-start; border-bottom-left-radius: 6px; display: flex; flex-direction: column; gap: 10px; color: #f8fafc; box-shadow: 0 5px 15px rgba(0,0,0,0.2);}
-        .msg.user { background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); color: #fff; align-self: flex-end; border-bottom-right-radius: 6px; box-shadow: 0 10px 25px rgba(0,243,255,0.25); font-weight: 500; }
+        .chat-btn-wrapper { position: relative; width: clamp(60px, 12vw, 70px); height: clamp(60px, 12vw, 70px); animation: fadeInUp 0.8s var(--bezier) forwards; cursor: pointer; }
+        
+        .beautiful-chat-btn { width: 100%; height: 100%; border-radius: 50%; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); box-shadow: 0 10px 30px rgba(0, 240, 255, 0.5); display: flex; justify-content: center; align-items: center; transition: 0.4s var(--bezier); animation: glowPulse 2.5s infinite alternate; will-change: transform, box-shadow; }
+        .beautiful-chat-btn:hover { transform: scale(1.1) rotate(5deg); animation: none; box-shadow: 0 15px 40px rgba(178, 0, 255, 0.7); }
+        .beautiful-chat-btn svg { width: 45%; height: 45%; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.4)); }
 
-        /* AI Reasoning Box UI */
-        .reasoning-box {
-            font-family: 'Fira Code', monospace;
-            font-size: 0.8rem;
-            color: #00ff88;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 12px 14px;
-            border-radius: 8px;
-            border-left: 3px solid var(--neon-cyan);
-            margin-bottom: 8px;
-            line-height: 1.5;
-            box-shadow: inset 0 0 15px rgba(0,243,255,0.05);
-            animation: pulseGlow 4s infinite alternate;
-        }
-        .reasoning-box .log-line { display: block; opacity: 0; animation: fadeUp 0.3s forwards; }
+        .chat-window { position: absolute; bottom: calc(100% + 15px); right: 0; width: 380px; height: 600px; max-height: calc(100dvh - 100px); background: rgba(10, 15, 28, 0.98); border: 1px solid var(--glass-border); border-radius: 28px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 25px 70px rgba(0,0,0,0.9); transform-origin: bottom right; animation: popIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; will-change: transform, opacity; backdrop-filter: blur(30px); border-top: 1px solid rgba(0,240,255,0.4); }
+        body.rtl-mode .chat-window { right: auto; left: 0; transform-origin: bottom left; }
+        @keyframes popIn { 0% { opacity: 0; transform: scale(0.8) translateY(20px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
 
-        .play-audio-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-dim); border-radius: 20px; padding: 6px 14px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 8px; width: max-content; cursor: pointer; transition: 0.3s; font-weight: 600; margin-top: 4px; }
-        .play-audio-btn:hover { background: #fff; color: #000; box-shadow: 0 5px 15px rgba(255,255,255,0.2); }
+        .chat-header { padding: 18px 22px; background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; position: relative; overflow: hidden;}
+        .chat-header::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent); animation: gradientShift 2.5s linear infinite; }
+        
+        .bot-profile { display: flex; align-items: center; gap: 12px; }
+        .bot-icon-small { width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; }
+        .bot-icon-small svg { width: 100%; height: 100%; filter: drop-shadow(0 0 6px rgba(0,240,255,0.6)); }
 
-        .quick-options { display: flex; flex-wrap: wrap; gap: 10px; align-self: flex-start; animation: fadeUp 0.3s var(--bezier) forwards; margin-bottom: 5px;}
-        .qr-btn { background: rgba(0, 243, 255, 0.05); border: 1px solid rgba(0, 243, 255, 0.3); color: var(--neon-cyan); padding: 10px 20px; border-radius: 25px; font-weight: 500; cursor: pointer; transition: 0.3s; font-size: 0.9rem; }
-        .qr-btn:hover { background: var(--neon-cyan); color: #000; box-shadow: 0 5px 20px rgba(0,243,255,0.4); transform: translateY(-3px); }
+        .online-dot { width: 8px; height: 8px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 10px #00ff88; animation: glowPulse 2s infinite alternate; display: inline-block; margin-right: 6px;}
+        body.rtl-mode .online-dot { margin-right: 0; margin-left: 6px; }
 
-        .typing { display: none; align-self: flex-start; padding: 16px 22px; background: rgba(255,255,255,0.05); border-radius: 20px; border-bottom-left-radius: 6px; margin-bottom: 5px; gap: 6px; align-items: center;}
-        .dot { width: 7px; height: 7px; background: var(--text-dim); border-radius: 50%; display: inline-block; animation: bounce 1.4s infinite ease-in-out both; }
+        .chat-body { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; scroll-behavior: smooth; }
+        .chat-body::-webkit-scrollbar { width: 5px; }
+        .chat-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+
+        .msg { max-width: 88%; padding: 14px 18px; border-radius: 18px; font-size: 0.95rem; line-height: 1.5; opacity: 1; animation: msgFadeIn 0.3s cubic-bezier(0.25, 1, 0.5, 1); word-wrap: break-word; white-space: pre-wrap; flex-shrink: 0; position: relative; display: flex; flex-direction: column;}
+        
+        .msg.bot { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.05); align-self: flex-start; border-bottom-left-radius: 4px; color: #f8fafc; }
+        .msg.user { background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue)); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; box-shadow: 0 6px 18px rgba(0,240,255,0.25); font-weight: 500; border: 1px solid rgba(0,240,255,0.3); }
+        body.rtl-mode .msg.bot { border-bottom-left-radius: 18px; border-bottom-right-radius: 4px; }
+        body.rtl-mode .msg.user { border-bottom-right-radius: 18px; border-bottom-left-radius: 4px; }
+
+        .msg-text { display: block; }
+        .msg-time { display: block; font-size: 0.65rem; color: rgba(255,255,255,0.4); margin-top: 6px; align-self: flex-end; font-family: 'Outfit', sans-serif;}
+        body.rtl-mode .msg-time { align-self: flex-start; }
+
+        .play-audio-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 20px; padding: 6px 14px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; cursor: pointer; transition: 0.3s; font-family: 'Outfit', sans-serif; align-self: flex-start;}
+        .play-audio-btn:hover { background: var(--neon-cyan); color: #000; box-shadow: 0 0 12px rgba(0,240,255,0.5); border-color: transparent;}
+        body.rtl-mode .play-audio-btn { font-family: 'Noto Nastaliq Urdu', serif; font-size: 0.85rem; padding: 4px 14px; align-self: flex-start;}
+
+        .quick-options { display: flex; flex-wrap: wrap; gap: 8px; align-self: flex-start; animation: msgFadeIn 0.3s ease-out; flex-shrink: 0; }
+        .qr-btn { background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.3); color: var(--neon-cyan); padding: 8px 16px; border-radius: 20px; font-weight: 500; cursor: pointer; transition: 0.3s; font-size: 0.9rem; font-family: inherit;}
+        .qr-btn:hover { background: var(--neon-cyan); color: #000; box-shadow: 0 5px 15px rgba(0,240,255,0.4); transform: translateY(-2px); }
+
+        .typing { display: none; align-self: flex-start; padding: 14px 18px; background: rgba(255,255,255,0.05); border-radius: 18px; border-bottom-left-radius: 4px; gap: 5px; align-items: center; flex-shrink: 0; }
+        body.rtl-mode .typing { border-bottom-left-radius: 18px; border-bottom-right-radius: 4px; }
+        .dot { width: 6px; height: 6px; background: var(--text-dim); border-radius: 50%; display: inline-block; animation: bounce 1.4s infinite ease-in-out both; }
         .dot:nth-child(1) { animation-delay: -0.32s; } .dot:nth-child(2) { animation-delay: -0.16s; }
-        @keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1.5); background: var(--neon-cyan); } }
 
-        .chat-input-area { padding: 20px; background: rgba(0,0,0,0.4); display: flex; gap: 12px; border-top: 1px solid rgba(255,255,255,0.08); align-items: center; border-radius: 0 0 30px 30px; flex-shrink: 0;}
-        .chat-input-area input { flex: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); padding: 16px 22px; border-radius: 30px; color: #fff; font-size: 1rem; transition: 0.4s var(--bezier); min-width: 0; outline: none; font-family: 'Outfit'; }
-        .chat-input-area input:focus { border-color: var(--neon-cyan); background: rgba(0,243,255,0.03); box-shadow: 0 0 0 4px rgba(0,243,255,0.1); }
-        .chat-input-area input:disabled { opacity: 0.5; cursor: not-allowed; }
+        .chat-input-area { padding: 14px 18px; background: rgba(0,0,0,0.6); display: flex; gap: 10px; border-top: 1px solid rgba(255,255,255,0.08); align-items: center; border-radius: 0 0 28px 28px; flex-shrink: 0; }
+        .chat-input-area input { flex: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 14px 18px; border-radius: 30px; color: #fff; font-size: 0.95rem; transition: 0.3s; outline: none; font-family: inherit; }
+        .chat-input-area input:focus { border-color: var(--neon-cyan); background: rgba(0,240,255,0.05); box-shadow: 0 0 10px rgba(0,240,255,0.2); }
         
-        .mic-btn { background: transparent; border: none; cursor: pointer; color: var(--text-dim); font-size: 1.4rem; transition: 0.3s; padding: 10px; display: flex; justify-content: center; align-items: center; }
+        .mic-btn { background: transparent; border: none; cursor: pointer; color: var(--text-dim); font-size: 1.25rem; transition: 0.3s; padding: 8px; }
         .mic-btn:hover { color: #fff; transform: scale(1.1); }
-        .mic-btn.recording { color: #ff0055; animation: pulseMic 1.5s infinite; }
+        .mic-btn.recording { color: #ff0055; animation: glowPulse 1s infinite alternate; }
 
-        .send-btn { background: #fff; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; color: #000; font-size: 1.3rem; transition: 0.4s var(--bezier); flex-shrink: 0; display: flex; justify-content: center; align-items: center; box-shadow: 0 5px 15px rgba(255,255,255,0.2);}
-        .send-btn:hover { transform: scale(1.1) rotate(-10deg); background: var(--neon-cyan); box-shadow: 0 10px 25px rgba(0,243,255,0.5); }
+        .send-btn { background: #fff; border: none; width: 42px; height: 42px; border-radius: 50%; cursor: pointer; color: #000; font-size: 1.1rem; transition: 0.3s; flex-shrink: 0; display: flex; justify-content: center; align-items: center; }
+        .send-btn:hover { transform: scale(1.1) rotate(-10deg); background: var(--neon-cyan); box-shadow: 0 6px 18px rgba(0,240,255,0.5); }
+        body.rtl-mode .send-btn { transform: scaleX(-1); }
+        body.rtl-mode .send-btn:hover { transform: scaleX(-1) scale(1.1) rotate(-10deg); }
 
-        .header-actions { display: flex; gap: 18px; align-items: center; }
-        .header-actions button { background:none; border:none; color: var(--text-dim); cursor:pointer; font-size:1.3rem; transition: 0.3s; }
+        .header-actions { display: flex; gap: 12px; align-items: center; }
+        .header-actions button { background:none; border:none; color: var(--text-dim); cursor:pointer; font-size:1.15rem; transition: 0.3s; }
         .header-actions button:hover { color: #fff; transform: scale(1.1); }
         .speaker-off { color: #ff0055 !important; }
 
-        /* --- FLAWLESS MOBILE RESPONSIVENESS --- */
+        /* --- PERFECT MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
-            nav { width: calc(100% - 30px); top: 15px; padding: 14px 20px; border-radius: 20px; }
+            nav { width: calc(100% - 20px); top: 10px; padding: 10px 18px; border-radius: 20px; }
             .mobile-menu-btn { display: block; }
-            
             nav ul { 
-                display: flex; flex-direction: column; position: absolute; top: calc(100% + 15px); 
-                left: 0; width: 100%; background: rgba(10, 10, 15, 0.98); backdrop-filter: blur(30px);
+                display: flex; flex-direction: column; position: absolute; top: calc(100% + 12px); 
+                left: 0; width: 100%; background: rgba(14, 22, 40, 0.98);
                 border: 1px solid var(--glass-border); border-radius: 20px; padding: 0;
-                max-height: 0; overflow: hidden; opacity: 0; visibility: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+                max-height: 0; overflow: hidden; opacity: 0; visibility: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.8);
             }
-            nav ul.active { max-height: 400px; padding: 25px 0; opacity: 1; visibility: visible; }
-            nav ul li { margin: 15px 0; }
+            nav ul.active { max-height: 400px; padding: 15px 0; opacity: 1; visibility: visible; }
+            nav ul li { margin: 10px 0; }
             
-            section { padding: 120px 5% 80px; }
+            section { padding: 100px 5% 60px; }
             
             .chat-window { 
-                position: fixed; bottom: 90px; right: 15px; left: 15px; width: auto; 
-                height: 70dvh; min-height: 450px; max-height: calc(100dvh - 110px); border-radius: 28px; 
+                position: fixed; bottom: 85px; right: 12px; left: 12px; width: auto; 
+                height: 75dvh; min-height: 400px; border-radius: 24px; 
             }
-            
-            .features-grid { gap: 20px; }
-            .feature-card { padding: 35px 25px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- CUSTOM TOAST CONTAINER -->
+    <!-- CUSTOM TOAST -->
     <div id="toastContainer"></div>
 
-    <!-- ULTRA ROBOTIC 3D CANVAS, MESH & AMBIENT GLOW -->
-    <div class="mesh-grid"></div>
-    <canvas id="webgl-canvas"></canvas>
+    <!-- ENGAGING 3D "BRAIN" BACKGROUND -->
     <div class="ambient-overlay"></div>
-    <div class="glow-orb"></div>
-    <div class="glow-orb magenta"></div>
-    <div class="glow-orb sun"></div>
+    <canvas id="webgl-canvas"></canvas>
 
-    <!-- Premium Floating Navigation (Restored to simple hrefs) -->
+    <!-- Premium Floating Navigation -->
     <nav>
         <div class="logo brand-font" onclick="window.scrollTo(0,0)">
-            <img src="https://api.dicebear.com/7.x/bottts/svg?seed=HassaanAI&backgroundColor=00f3ff" alt="Icon" class="drawn-icon">
-            <span class="color-shift-text">Power by Adnan</span>
+            <!-- Custom Glowing Tech SVG Icon -->
+            <svg class="custom-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#00F0FF"/>
+                        <stop offset="100%" stop-color="#B200FF"/>
+                    </linearGradient>
+                </defs>
+                <path d="M50 15 L85 35 L85 65 L50 85 L15 65 L15 35 Z" stroke="url(#aiGrad)" stroke-width="6" stroke-linejoin="round"/>
+                <circle cx="50" cy="50" r="12" fill="url(#aiGrad)"/>
+                <path d="M50 27 L50 38 M50 62 L50 73 M32 40 L40 45 M60 55 L68 60 M32 60 L40 55 M60 45 L68 40" stroke="#00F0FF" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+            <span class="color-shift-text" data-en="Power by Adnan" data-ur="پاور بائے عدنان">Power by Adnan</span>
         </div>
+        
         <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fa-solid fa-bars"></i></button>
         <ul id="navMenu">
-            <li><a href="#home" onclick="toggleMobileMenu(true)">Home</a></li>
-            <li><a href="#features" onclick="toggleMobileMenu(true)">Features</a></li>
-            <li><a href="#process" onclick="toggleMobileMenu(true)">Build Process</a></li>
-            <li><a href="#demo-builder" onclick="toggleMobileMenu(true)">Live Sandbox</a></li>
-            <li><a href="#payment" onclick="toggleMobileMenu(true)">Deploy AI</a></li>
+            <li><a href="#home" onclick="toggleMobileMenu(true)" data-en="Home" data-ur="ہوم">Home</a></li>
+            <li><a href="#features" onclick="toggleMobileMenu(true)" data-en="Features" data-ur="خصوصیات">Features</a></li>
+            <li><a href="#process" onclick="toggleMobileMenu(true)" data-en="Process" data-ur="عمل">Process</a></li>
+            <li><a href="#demo-builder" onclick="toggleMobileMenu(true)" data-en="Live Sandbox" data-ur="لائیو ڈیمو">Live Sandbox</a></li>
+            <li><a href="#payment" onclick="toggleMobileMenu(true)" data-en="Deploy AI" data-ur="اے آئی ڈپلائے کریں">Deploy AI</a></li>
+            <li>
+                <!-- Explicit Language Switcher Buttons -->
+                <div class="lang-switcher">
+                    <button id="btn-en" class="lang-btn active" onclick="setLanguage('en')">English</button>
+                    <button id="btn-ur" class="lang-btn" onclick="setLanguage('ur')">اردو</button>
+                </div>
+            </li>
         </ul>
     </nav>
 
-    <!-- Upgraded Beautiful Hero Section (Chatbot Selling Focus) -->
+    <!-- Upgraded Beautiful Hero Section -->
     <section id="home">
         <div class="hero-container">
-            <div class="badge animate-fade-up">🚀 Premium AI Chatbot Agency</div>
-            <h1 class="hero-title brand-font animate-fade-up delay-1">Deploy a Custom<br><span class="color-shift-text">AI Sales Chatbot.</span></h1>
-            <p class="hero-p animate-fade-up delay-2">I am <b>Hassaan AI</b>, created by <b>Adnan</b>. Hire a highly intelligent, reasoning-capable sales agent that captures leads, leverages advanced psychology, and drives extreme conversion rates for your business.</p>
+            <div class="badge animate-fade-up" data-en="🚀 Premium AI Chatbot Agency" data-ur="🚀 پریمیم اے آئی چیٹ بوٹ ایجنسی">🚀 Premium AI Chatbot Agency</div>
+            <h1 class="hero-title brand-font animate-fade-up delay-1" data-en="Deploy a Custom<br><span class='color-shift-text'>AI Sales Chatbot.</span>" data-ur="ایک کسٹم ڈپلائے کریں<br><span class='color-shift-text'>اے آئی سیلز چیٹ بوٹ۔</span>">Deploy a Custom<br><span class="color-shift-text">AI Sales Chatbot.</span></h1>
+            <p class="hero-p animate-fade-up delay-2" data-en="I am <b>Hassaan AI</b>, created by <b>Adnan</b>. Hire a highly intelligent, reasoning-capable sales agent that captures leads, leverages advanced psychology, and drives extreme conversion rates for your business." data-ur="میں <b>حسان اے آئی</b> ہوں، جسے <b>عدنان</b> نے بنایا ہے۔ ایک انتہائی ذہین سیلز ایجنٹ ہائر کریں جو لیڈز پکڑتا ہے، نفسیات کا استعمال کرتا ہے، اور آپ کے کاروبار کی سیلز کو بڑھاتا ہے۔">I am <b>Hassaan AI</b>, created by <b>Adnan</b>. Hire a highly intelligent, reasoning-capable sales agent that captures leads, leverages advanced psychology, and drives extreme conversion rates for your business.</p>
             <div class="animate-fade-up delay-3">
                 <button class="btn-main" onclick="toggleChat()">
-                    <i class="fa-solid fa-robot"></i> Chat with Hassaan AI
+                    <i class="fa-solid fa-bolt"></i> <span data-en="Build Your Custom Bot" data-ur="اپنا کسٹم بوٹ بنائیں">Build Your Custom Bot</span>
                 </button>
             </div>
         </div>
@@ -280,131 +323,135 @@
 
     <!-- Chatbot Features Section -->
     <section id="features">
-        <h2 class="section-title brand-font animate-fade-up">Advanced Cognitive Capabilities</h2>
-        <p class="section-subtitle animate-fade-up delay-1">We don't just build chatbots; we build beautifully designed, highly intelligent reasoning engines engineered to seamlessly scale your revenue.</p>
+        <h2 class="section-title brand-font animate-fade-up" data-en="Advanced Cognitive Capabilities" data-ur="جدید ترین خصوصیات">Advanced Cognitive Capabilities</h2>
+        <p class="section-subtitle animate-fade-up delay-1" data-en="We build beautifully designed, highly intelligent reasoning engines engineered to seamlessly scale your revenue." data-ur="ہم خوبصورت ڈیزائن اور انتہائی ذہین اے آئی بناتے ہیں جو آپ کی آمدنی کو تیزی سے بڑھانے کے لیے تیار کیے گئے ہیں۔">We build beautifully designed, highly intelligent reasoning engines engineered to seamlessly scale your revenue.</p>
         
         <div class="features-grid animate-fade-up delay-2">
             <div class="feature-card">
-                <div class="feature-icon"><i class="fa-solid fa-brain"></i></div>
-                <h3>Advanced Reasoning</h3>
-                <p>Equipped with sophisticated logical pathways, the AI dynamically analyzes customer queries instead of relying on rigid, pre-written scripts.</p>
+                <div class="feature-icon"><i class="fa-solid fa-microchip"></i></div>
+                <h3 data-en="Advanced Reasoning" data-ur="جدید استدلال (Reasoning)">Advanced Reasoning</h3>
+                <p data-en="Equipped with sophisticated logical pathways, the AI dynamically analyzes customer queries." data-ur="اے آئی گاہکوں کے سوالات کا منطقی طور پر تجزیہ کرنے کی صلاحیت رکھتا ہے۔">Equipped with sophisticated logical pathways, the AI dynamically analyzes customer queries.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><i class="fa-solid fa-filter"></i></div>
-                <h3>Smart Lead Capture</h3>
-                <p>The bot intelligently qualifies visitors, extracts their contact details, and seamlessly pushes data directly to your CRM.</p>
+                <h3 data-en="Smart Lead Capture" data-ur="سمارٹ لیڈ کیپچر">Smart Lead Capture</h3>
+                <p data-en="The bot intelligently qualifies visitors and extracts their contact details directly to your CRM." data-ur="یہ بوٹ ذہانت سے زائرین کا ڈیٹا نکالتا ہے اور آپ کے سسٹم میں بھیجتا ہے۔">The bot intelligently qualifies visitors and extracts their contact details directly to your CRM.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><i class="fa-solid fa-language"></i></div>
-                <h3>Deep NLP Models</h3>
-                <p>Communicate flawlessly. Our intelligent bots understand context, sentiment, and respond naturally in multiple languages.</p>
+                <h3 data-en="Deep NLP Models" data-ur="متعدد زبانوں کی سپورٹ">Deep NLP Models</h3>
+                <p data-en="Our intelligent bots understand context, sentiment, and respond naturally in multiple languages." data-ur="ہمارے ذہین بوٹس سیاق و سباق سمجھتے ہیں اور کئی زبانوں میں جواب دیتے ہیں۔">Our intelligent bots understand context, sentiment, and respond naturally in multiple languages.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
-                <h3>Seamless Integrations</h3>
-                <p>Connect your bot instantly with WhatsApp, Shopify, Zapier, and your custom backend APIs with a beautiful interface.</p>
+                <div class="feature-icon"><i class="fa-solid fa-plug"></i></div>
+                <h3 data-en="Seamless Integrations" data-ur="آسان انضمام (Integrations)">Seamless Integrations</h3>
+                <p data-en="Connect your bot instantly with WhatsApp, Shopify, Zapier, and custom APIs." data-ur="اپنے بوٹ کو واٹس ایپ، شاپیفائی، اور دیگر ایپس کے ساتھ فوراً جوڑیں۔">Connect your bot instantly with WhatsApp, Shopify, Zapier, and custom APIs.</p>
             </div>
         </div>
     </section>
 
-    <!-- The AI Forge: Process Explanation Section -->
+    <!-- NEW FEATURE: AI PROCESS & TERMINAL -->
     <section id="process">
-        <h2 class="section-title brand-font animate-fade-up">How Your Intelligence is Built</h2>
-        <p class="section-subtitle animate-fade-up delay-1">The AI core architecture relies on rigorous computational steps to ensure flawlessly precise logic and automated scaling potential.</p>
-        
-        <button class="btn-main animate-fade-up delay-2" onclick="startBuildDemo()">
-            <i class="fa-solid fa-wand-magic-sparkles"></i> Have AI Explain Process
-        </button>
+        <h2 class="section-title brand-font animate-fade-up" data-en="How Your AI is Built" data-ur="آپ کا اے آئی کیسے بنتا ہے">How Your AI is Built</h2>
+        <p class="section-subtitle animate-fade-up delay-1" data-en="Watch the live neural compiler sequence as we architect your custom cognitive logic framework." data-ur="لائیو نیورل کمپائلر دیکھیں جب ہم آپ کا کسٹم منطقی فریم ورک تیار کرتے ہیں۔">Watch the live neural compiler sequence as we architect your custom cognitive logic framework.</p>
 
-        <div class="features-grid animate-fade-up delay-3" id="process-steps">
-            <div class="feature-card" id="step-1">
+        <!-- Live Terminal Simulator -->
+        <div class="terminal-container animate-fade-up delay-2">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <div class="terminal-dot red"></div>
+                    <div class="terminal-dot yellow"></div>
+                    <div class="terminal-dot green"></div>
+                </div>
+                <div class="terminal-title">System_Compiler.exe</div>
+            </div>
+            <div class="terminal-body" id="liveTerminal">
+                <!-- Javascript will inject live logs here -->
+            </div>
+        </div>
+
+        <div class="features-grid animate-fade-up delay-3">
+            <div class="feature-card">
+                <div class="step-number">01</div>
                 <div class="feature-icon"><i class="fa-solid fa-crosshairs"></i></div>
-                <h3>1. Cognitive Mapping</h3>
-                <p>Depending on your exact purpose, we determine the optimal logic parameters to build the AI's core reasoning engine.</p>
+                <h3 data-en="Cognitive Mapping" data-ur="علمی نقشہ سازی">Cognitive Mapping</h3>
+                <p data-en="We determine the optimal logic parameters to build the AI's core reasoning engine." data-ur="ہم اے آئی کے بنیادی استدلال کے انجن کو بنانے کے لیے بہترین منطقی پیرامیٹرز کا تعین کرتے ہیں۔">We determine the optimal logic parameters to build the AI's core reasoning engine.</p>
             </div>
-            <div class="feature-card" id="step-2">
-                <div class="feature-icon"><i class="fa-solid fa-hammer"></i></div>
-                <h3>2. Neural Construction</h3>
-                <p>The neural network is built accordingly. Our aesthetically pleasing 3D model visually represents the cognitive connections forming.</p>
+            <div class="feature-card">
+                <div class="step-number">02</div>
+                <div class="feature-icon"><i class="fa-solid fa-network-wired"></i></div>
+                <h3 data-en="Neural Construction" data-ur="عصبی تعمیر">Neural Construction</h3>
+                <p data-en="The neural network is built with custom pathways tailored to your business." data-ur="عصبی نیٹ ورک آپ کے کاروبار کے مطابق اپنی مرضی کے راستوں کے ساتھ بنایا گیا ہے۔">The neural network is built with custom pathways tailored to your business.</p>
             </div>
-            <div class="feature-card" id="step-3">
-                <div class="feature-icon"><i class="fa-solid fa-microchip"></i></div>
-                <h3>3. Advanced Training</h3>
-                <p>We handle the complex steps: conducting deep Natural Language Processing training and mapping your unique business logic.</p>
+            <div class="feature-card">
+                <div class="step-number">03</div>
+                <div class="feature-icon"><i class="fa-solid fa-server"></i></div>
+                <h3 data-en="Deep Training" data-ur="گہری تربیت">Deep Training</h3>
+                <p data-en="Conducting deep NLP training and mapping your unique conversion logic." data-ur="گہری این ایل پی کی تربیت اور آپ کے منفرد تبادلوں کی منطق کا نقشہ بنانا۔">Conducting deep NLP training and mapping your unique conversion logic.</p>
             </div>
-            <div class="feature-card" id="step-4">
+            <div class="feature-card">
+                <div class="step-number">04</div>
                 <div class="feature-icon"><i class="fa-solid fa-rocket"></i></div>
-                <h3>4. Autonomous Deployment</h3>
-                <p>We finalize actions: complete deployment and initiate live processing on your chosen platforms flawlessly.</p>
+                <h3 data-en="Live Deployment" data-ur="لائیو تعیناتی">Live Deployment</h3>
+                <p data-en="Complete deployment and initiate live processing on your chosen platforms." data-ur="مکمل تعیناتی اور آپ کے منتخب کردہ پلیٹ فارمز پر لائیو پروسیسنگ کا آغاز۔">Complete deployment and initiate live processing on your chosen platforms.</p>
             </div>
         </div>
     </section>
 
     <!-- Chatbot Sandbox (Live Demo Builder) -->
     <section id="demo-builder">
-        <h2 class="section-title brand-font animate-fade-up">Build & Test Your Demo</h2>
-        <p class="section-subtitle animate-fade-up delay-1">Customize a demo chatbot right here on this page to see exactly how it will look and work before you purchase.</p>
+        <h2 class="section-title brand-font animate-fade-up" data-en="Build & Test Your Demo" data-ur="اپنا ڈیمو بنائیں اور ٹیسٹ کریں">Build & Test Your Demo</h2>
+        <p class="section-subtitle animate-fade-up delay-1" data-en="Customize a demo chatbot right here on this page to see exactly how it works." data-ur="یہ دیکھنے کے لیے کہ یہ کیسے کام کرتا ہے، اسی صفحے پر اپنا ڈیمو چیٹ بوٹ بنائیں۔">Customize a demo chatbot right here on this page to see exactly how it works.</p>
 
         <div class="sandbox-panel animate-fade-up delay-2">
-            <h3>Try the Sandbox!</h3>
-            <p class="demo-sub">Test the environment: See a functional representation of how your custom AI will interact.</p>
+            <h3 data-en="Try the Sandbox!" data-ur="سینڈ باکس آزمائیں!">Try the Sandbox!</h3>
+            <p class="demo-sub" data-en="Test the environment: See a functional representation." data-ur="ماحول کی جانچ کریں: لائیو کام کرتا ہوا دیکھیں۔">Test the environment: See a functional representation.</p>
             
             <div class="input-group">
-                <label><i class="fa-solid fa-robot" style="color: var(--golden-sun); margin-right: 8px;"></i> Name Your Chatbot</label>
-                <input type="text" id="customBotName" class="sandbox-input" placeholder="e.g., SalesMaster AI, SupportBot..." autocomplete="off">
+                <label><i class="fa-solid fa-robot" style="color: var(--neon-cyan); margin-right: 8px;"></i> <span data-en="Name Your Chatbot" data-ur="اپنے چیٹ بوٹ کا نام لکھیں">Name Your Chatbot</span></label>
+                <input type="text" id="customBotName" class="sandbox-input" placeholder="e.g., SalesMaster AI" autocomplete="off">
             </div>
 
             <div class="input-group">
-                <label><i class="fa-solid fa-comment-dots" style="color: var(--golden-sun); margin-right: 8px;"></i> Initial Greeting Message</label>
-                <textarea id="customBotGreeting" class="sandbox-input" placeholder="What should the bot say first? e.g., Welcome to our store! How can I help you today?"></textarea>
+                <label><i class="fa-solid fa-comment-dots" style="color: var(--neon-cyan); margin-right: 8px;"></i> <span data-en="Initial Greeting Message" data-ur="ابتدائی خوش آمدید کا پیغام">Initial Greeting Message</span></label>
+                <textarea id="customBotGreeting" class="sandbox-input" placeholder="Welcome to our store! How can I help you today?"></textarea>
             </div>
 
-            <button id="launchDemoBtn" class="btn-main btn-sandbox" onclick="launchCustomDemo()">
-                <i class="fa-solid fa-play"></i> Launch Live Sandbox
+            <button id="launchDemoBtn" class="btn-main" style="width: 100%; margin-top: 15px;" onclick="launchCustomDemo()">
+                <i class="fa-solid fa-play"></i> <span data-en="Launch Live Sandbox" data-ur="لائیو سینڈ باکس شروع کریں">Launch Live Sandbox</span>
             </button>
-        </div>
-    </section>
-
-    <!-- Live Reviews Section -->
-    <section id="reviews">
-        <h2 class="section-title brand-font animate-fade-up">Live Customer Reviews</h2>
-        <p class="section-subtitle animate-fade-up delay-1">See what others are saying! You can use my chat interface to autonomously submit your own review right now.</p>
-        
-        <div class="features-grid animate-fade-up delay-2" id="live-reviews-container">
-            <!-- Dynamic reviews will be populated here via JavaScript -->
         </div>
     </section>
 
     <!-- Secure Payment & Deployment Section -->
     <section id="payment">
-        <h2 class="section-title brand-font animate-fade-up">Deploy Your Intelligent AI</h2>
+        <h2 class="section-title brand-font animate-fade-up" data-en="Deploy Your Intelligent AI" data-ur="اپنا ذہین اے آئی ڈپلائے کریں">Deploy Your Intelligent AI</h2>
         <div class="pricing-panel animate-fade-up delay-1">
-            <div class="discount-tag">Flash Discount</div>
-            <h3 style="font-size: clamp(1.4rem, 3vw, 1.8rem); color: var(--text-dim); text-decoration: line-through; font-weight: 500;">Normally $150</h3>
-            <h1 class="color-shift-text" style="font-size: clamp(4.5rem, 8vw, 7.5rem); margin: 0 0 15px; line-height: 1; letter-spacing: -2px;">$35</h1>
-            <p style="color: #e2e8f0; font-size: clamp(1.1rem, 2vw, 1.25rem); margin-bottom: 35px; font-weight: 400;">Complete AI Chatbot Setup + Advanced Reasoning Architecture.</p>
+            <h1 class="color-shift-text" style="font-size: clamp(3.2rem, 8vw, 5rem); margin: 0 0 10px; line-height: 1;">$35</h1>
+            <p style="color: #e2e8f0; font-size: clamp(0.9rem, 2vw, 1rem); margin-bottom: 25px;" data-en="Complete AI Chatbot Setup + Advanced Reasoning Architecture." data-ur="مکمل اے آئی چیٹ بوٹ سیٹ اپ اور جدید آرکیٹیکچر۔">Complete AI Chatbot Setup + Advanced Reasoning Architecture.</p>
             
-            <div style="background: linear-gradient(135deg, rgba(188,19,254,0.2), rgba(0,243,255,0.1)); padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2); margin-bottom: 30px; color: #fff; font-weight: 500; font-size: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-                <i class="fa-solid fa-laptop-code" style="color: var(--neon-cyan); font-size: 1.5rem; margin-bottom: 12px; display: block;"></i>
-                <strong>Creator Adnan built this sophisticated intelligence perfectly.</strong><br>You will pay Creator Adnan directly, as he is the core developer.
+            <div style="background: rgba(255,255,255,0.05); padding: 18px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 25px; color: #fff;">
+                <i class="fa-solid fa-laptop-code" style="color: var(--neon-cyan); font-size: 1.3rem; margin-bottom: 8px; display: block;"></i>
+                <strong data-en="Creator Adnan built this sophisticated intelligence perfectly." data-ur="کریئٹر عدنان نے اس ذہین نظام کو مکمل پرفیکشن کے ساتھ بنایا ہے۔">Creator Adnan built this sophisticated intelligence perfectly.</strong><br>
+                <span data-en="You will pay Creator Adnan directly, as he is the core developer." data-ur="آپ براہ راست کریئٹر عدنان کو ادائیگی کریں گے۔">You will pay Creator Adnan directly, as he is the core developer.</span>
             </div>
             
-            <div style="background: rgba(255,255,255,0.03); padding: 35px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 35px; box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);">
-                <p style="font-size: 0.95rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 5px; font-weight: 600;">Account Title</p>
-                <h3 style="color: #fff; letter-spacing: 1px; font-size: clamp(1.3rem, 2.5vw, 1.6rem); font-weight: 800;">Muhammad Adnan amir</h3>
-                <p style="font-size: 0.95rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 30px; margin-bottom: 5px; font-weight: 600;">Account / WhatsApp Number</p>
-                <h2 style="color: var(--neon-cyan); letter-spacing: 2px; font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 900; text-shadow: 0 0 20px rgba(0,243,255,0.4);">03194879958</h2>
+            <div style="background: rgba(0,0,0,0.4); padding: 22px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 25px;">
+                <p style="font-size: 0.8rem; color: var(--text-dim);" data-en="ACCOUNT TITLE" data-ur="اکاؤنٹ کا نام">ACCOUNT TITLE</p>
+                <h3 style="color: #fff; font-size: clamp(1rem, 2.5vw, 1.3rem);">Muhammad Adnan amir</h3>
+                <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 15px;" data-en="ACCOUNT / WHATSAPP NUMBER" data-ur="اکاؤنٹ / واٹس ایپ نمبر">ACCOUNT / WHATSAPP NUMBER</p>
+                <h2 style="color: var(--neon-cyan); font-size: clamp(1.3rem, 3.5vw, 1.8rem); font-weight: 900; letter-spacing: 1px;">03194879958</h2>
             </div>
 
-            <div class="payment-methods" style="display: flex; gap: 15px; justify-content: center; margin-bottom: 25px;">
-                <div style="background: #00d282; color: #000; padding: 12px 25px; border-radius: 50px; font-weight: 700; box-shadow: 0 10px 20px rgba(0,210,130,0.3);"><i class="fa-solid fa-wallet"></i> EasyPaisa</div>
-                <div style="background: #f70000; color: #fff; padding: 12px 25px; border-radius: 50px; font-weight: 700; box-shadow: 0 10px 20px rgba(247,0,0,0.3);"><i class="fa-solid fa-mobile-screen"></i> Jazz Cash</div>
+            <div class="payment-methods" style="display: flex; gap: 10px; justify-content: center; margin-bottom: 20px;">
+                <div style="background: #00d282; color: #000; padding: 6px 16px; border-radius: 50px; font-weight: 700; font-family: 'Outfit', sans-serif; font-size: 0.9rem;"><i class="fa-solid fa-wallet"></i> EasyPaisa</div>
+                <div style="background: #f70000; color: #fff; padding: 6px 16px; border-radius: 50px; font-weight: 700; font-family: 'Outfit', sans-serif; font-size: 0.9rem;"><i class="fa-solid fa-mobile-screen"></i> Jazz Cash</div>
             </div>
 
-            <p style="font-size: 1rem; color: var(--text-dim); margin-bottom: 25px; line-height: 1.6;">Complete your payment first, then click below to send your confirmation and setup details to Adnan.</p>
+            <p style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 20px;" data-en="Complete your payment first, then click below to send your confirmation to Adnan." data-ur="پہلے اپنی ادائیگی مکمل کریں، پھر نیچے کلک کر کے عدنان کو تصدیق بھیجیں۔">Complete your payment first, then click below to send your confirmation to Adnan.</p>
             
             <button onclick="sendToWhatsApp()" class="whatsapp-btn-animated">
-                <i class="fa-brands fa-whatsapp" style="font-size: 1.6rem;"></i> Send Payment Proof & Details
+                <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> <span data-en="Send Payment Proof & Details" data-ur="ادائیگی کا ثبوت اور تفصیلات بھیجیں">Send Payment Proof & Details</span>
             </button>
         </div>
     </section>
@@ -414,16 +461,21 @@
         <div class="chat-window" id="chatWindow">
             <div class="chat-header">
                 <div class="bot-profile">
-                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=HassaanAI&backgroundColor=00f3ff" alt="Bot AI" class="bot-photo" id="botAvatar">
+                    <div class="bot-icon-small">
+                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 15 L85 35 L85 65 L50 85 L15 65 L15 35 Z" stroke="url(#aiGrad)" stroke-width="8" stroke-linejoin="round"/>
+                            <circle cx="50" cy="50" r="16" fill="url(#aiGrad)"/>
+                        </svg>
+                    </div>
                     <div>
-                        <div style="font-weight: 800; font-size: 1.15rem; color: #fff; letter-spacing: -0.5px;" id="botNameDisplay">Hassaan AI</div>
-                        <div style="font-size: 0.85rem; color: var(--text-dim); display: flex; align-items: center; font-weight: 600;"><span class="online-dot"></span>Intelligent Agent</div>
+                        <div style="font-weight: 800; font-size: 1.05rem; color: #fff; font-family: 'Outfit', sans-serif;" id="botNameDisplay">Hassaan AI</div>
+                        <div style="font-size: 0.75rem; color: var(--text-dim); display: flex; align-items: center; font-weight: 600;"><span class="online-dot"></span><span data-en="Intelligent Agent" data-ur="ذہین ایجنٹ">Intelligent Agent</span></div>
                     </div>
                 </div>
                 <div class="header-actions">
                     <button id="speakerToggleBtn" onclick="toggleSpeaker()" title="Toggle Voice"><i class="fa-solid fa-volume-high"></i></button>
-                    <button onclick="deleteChat(false)" title="Reset Memory"><i class="fa-solid fa-rotate-left"></i></button>
-                    <button onclick="toggleChat()" title="Close"><i class="fa-solid fa-xmark"></i></button>
+                    <button onclick="deleteChat(false, true)" title="Reset Memory"><i class="fa-solid fa-rotate-left"></i></button>
+                    <button onclick="toggleChat()" title="Close"><i class="fa-solid fa-chevron-down"></i></button>
                 </div>
             </div>
             
@@ -434,15 +486,18 @@
             </div>
 
             <div class="chat-input-area">
-                <button id="micBtn" class="mic-btn" onclick="toggleMic()" title="Voice Input"><i class="fa-solid fa-microphone"></i></button>
-                <input type="text" id="chatInput" placeholder="Message our Intelligent AI..." autocomplete="off">
-                <button class="send-btn" onclick="handleSendClick()"><i class="fa-solid fa-arrow-up"></i></button>
+                <button id="micBtn" class="mic-btn" onclick="toggleMic()"><i class="fa-solid fa-microphone"></i></button>
+                <input type="text" id="chatInput" placeholder="Message..." autocomplete="off">
+                <button class="send-btn" onclick="handleSendClick()"><i class="fa-solid fa-paper-plane"></i></button>
             </div>
         </div>
         
         <div class="chat-btn-wrapper" onclick="toggleChat()">
             <div class="beautiful-chat-btn">
-                <img src="https://api.dicebear.com/7.x/bottts/svg?seed=HassaanAI&backgroundColor=bc13fe" alt="Chat Bot">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 15 L85 35 L85 65 L50 85 L15 65 L15 35 Z" stroke="#fff" stroke-width="6" stroke-linejoin="round"/>
+                    <circle cx="50" cy="50" r="14" fill="#fff"/>
+                </svg>
             </div>
         </div>
     </div>
@@ -451,22 +506,293 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
         // ==========================================
-        // UI & NAV RESPONSIVENESS & ANIMATIONS
+        // "SPINNING BRAIN" 3D ANIMATION
+        // ==========================================
+        try {
+            if (window.WebGLRenderingContext && typeof THREE !== 'undefined') {
+                const canvas = document.getElementById('webgl-canvas');
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+                
+                const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5)); 
+
+                scene.add(new THREE.AmbientLight(0xffffff, 0.4));
+                const light1 = new THREE.PointLight(0x00F0FF, 5, 150); light1.position.set(20, 20, 20); scene.add(light1);
+                const light2 = new THREE.PointLight(0xB200FF, 5, 150); light2.position.set(-20, -20, 20); scene.add(light2);
+
+                // Rotating Neural Brain
+                const torusGeo = new THREE.TorusKnotGeometry(7, 1.5, 100, 16);
+                const torusMat = new THREE.MeshPhongMaterial({ color: 0x00F0FF, emissive: 0x050510, shininess: 100, wireframe: true, transparent: true, opacity: 0.6 });
+                const aiBrain = new THREE.Mesh(torusGeo, torusMat);
+                scene.add(aiBrain);
+
+                // Core Sphere
+                const sphereGeo = new THREE.IcosahedronGeometry(13, 2);
+                const sphereMat = new THREE.MeshBasicMaterial({ color: 0xB200FF, wireframe: true, transparent: true, opacity: 0.15 });
+                const aiCore = new THREE.Mesh(sphereGeo, sphereMat);
+                scene.add(aiCore);
+
+                camera.position.z = 45;
+
+                function animate3D() {
+                    requestAnimationFrame(animate3D);
+                    aiBrain.rotation.x += 0.002;
+                    aiBrain.rotation.y += 0.003;
+                    aiCore.rotation.x -= 0.001;
+                    aiCore.rotation.y -= 0.0015;
+                    
+                    const scale = 1 + Math.sin(Date.now() * 0.0015) * 0.05;
+                    aiBrain.scale.set(scale, scale, scale);
+
+                    renderer.render(scene, camera);
+                }
+                animate3D();
+
+                window.addEventListener('resize', () => {
+                    camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix();
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                });
+            }
+        } catch(e) { console.warn("WebGL gracefully degraded to save resources."); }
+
+        // ==========================================
+        // NEW: LIVE TERMINAL SIMULATOR LOGIC
+        // ==========================================
+        const terminalLogs = {
+            en:[
+                "> Initializing cognitive architecture...",
+                "<span class='term-warning'>[SYSTEM] Calibrating logic nodes...</span>",
+                "> Training NLP models on dataset...",
+                "Loading advanced sentiment analysis parameters.",
+                "<span class='term-warning'>[WARNING] Optimizing latency paths...</span>",
+                "> Deploying neural pathways...",
+                "<span style='color:#00ff88;'>[SUCCESS] AI System 100% Ready.</span>"
+            ],
+            ur:[
+                "> علمی فن تعمیر کا آغاز کیا جا رہا ہے...",
+                "<span class='term-warning'>[سسٹم] منطقی نوڈز کو کیلیبریٹ کیا جا رہا ہے...</span>",
+                "> ڈیٹا سیٹ پر این ایل پی ماڈلز کی تربیت...",
+                "جدید تجزیاتی پیرامیٹرز لوڈ کیے جا رہے ہیں۔",
+                "<span class='term-warning'>[انتباہ] تاخیر کے راستوں کو بہتر بنایا جا رہا ہے...</span>",
+                "> عصبی راستوں کو تعینات کیا جا رہا ہے...",
+                "<span style='color:#00ff88;'>[کامیابی] اے آئی سسٹم 100% تیار ہے۔</span>"
+            ]
+        };
+
+        let termIndex = 0;
+        const terminalBox = document.getElementById('liveTerminal');
+        
+        function terminalTick() {
+            if(termIndex >= terminalLogs[currentLang].length) {
+                // Loop it after a delay
+                setTimeout(() => { 
+                    terminalBox.innerHTML = ''; 
+                    termIndex = 0; 
+                    terminalTick(); 
+                }, 4000);
+                return;
+            }
+            
+            // Remove cursor from previous
+            const oldCursor = document.getElementById('term-cursor');
+            if(oldCursor) oldCursor.remove();
+
+            const p = document.createElement('div');
+            p.className = 'term-line';
+            p.innerHTML = `${terminalLogs[currentLang][termIndex]} <span id="term-cursor" class="term-cursor"></span>`;
+            terminalBox.appendChild(p);
+            
+            terminalBox.scrollTop = terminalBox.scrollHeight;
+            termIndex++;
+
+            // Random typing delay
+            setTimeout(terminalTick, Math.random() * 1000 + 800);
+        }
+        
+        // Start terminal shortly after load
+        setTimeout(terminalTick, 1000);
+
+        // ==========================================
+        // EXPLICIT TRANSLATION & LANGUAGE SYSTEM
+        // ==========================================
+        let currentLang = 'en';
+
+        const chatLocales = {
+            en: {
+                greeting: "Hi! I am a custom digital marketing AI. To get started and personalize your experience using advanced psychology and logic, could you please tell me your <b>Name</b>?",
+                askGender: "Nice to meet you, {name}. To ensure I address you correctly and connect personally, could you please provide your <b>Gender</b>? (Male/Female/Other)",
+                pitchBot: "Thank you, {title} {name}. By applying the power of logic, digital marketing strategies, and psychology, a custom AI can elevate your business conversions drastically. Would you like to create a custom chatbot? (Yes/No)",
+                yes: "Yes", no: "No", male: "Male", female: "Female", other: "Other", jokeBtn: "Joke", finishBtn: "Finish",
+                askCompany: "Excellent decision! Please provide your <b>Company Name</b>.",
+                cancelPitch: "No problem. If you ever change your mind and want to build a custom AI, just type 'Yes'.",
+                askIdea: "Great. Now, what is your core <b>Business Idea</b> or objective for {company}?",
+                masterLevel: "Creator Adnan has developed this to a master level, which is incredibly elegant and effective tailored specifically for your idea: \"{idea}\".<br><br>Now, you can choose a demo mode to test it. First, what should we <b>Name</b> your demo chatbot?",
+                askDemoGreeting: "Awesome. Now, provide the initial <b>Instructions or Greeting</b> your demo bot should use.",
+                demoActive: "<b>[Demo Mode Active: {demoName}]</b><br><br>{demoGreeting}<br><br><i>(You are now chatting with your demo bot. You can test it! Type <b>'stop demo'</b> when you are ready to proceed.)</i>",
+                checkoutMsg: "After testing, when ready, please make a payment of $35. Send a screenshot via WhatsApp to Creator Adnan, and then it will deliver a fully built chatbot and website.<br><br><button onclick=\"sendToWhatsApp()\" class=\"btn-main whatsapp-btn-animated\" style=\"width: 100%; margin-top: 10px; font-size: 0.9rem; padding: 10px; justify-content: center;\"><i class=\"fa-brands fa-whatsapp\"></i> Send Screenshot to Adnan</button><br><br>At the end, you can choose a <b>Joke</b> option for fun, or click Finish!",
+                jokeText: "Why do digital marketers and AI get along so well? Because we both love a high conversion rate and never lose our cache! 😄<br><br>It's finished! Would you like to create another chatbot? (Yes/No)",
+                chooseOption: "Please choose 'Joke' or 'Finish'.",
+                farewell: "Thank you for your time. Your journey with logic, marketing, and psychology concludes here. Have a wonderful day!",
+                demoReply: "[{demoName} Response]: I am programmed to process your request. You said: \"{input}\". (Type 'stop demo' when you are done testing!)",
+                playAudio: "Listen",
+                navWarning: "I do not autonomously alter your view. To access that section, please use the top navigation menu or scroll the page.",
+                langResetMsg: "Language changed. Restarting session to apply new logic..."
+            },
+            ur: {
+                greeting: "ہیلو! میں ایک کسٹم ڈیجیٹل مارکیٹنگ اے آئی ہوں۔ جدید نفسیات اور منطق کا استعمال کرتے ہوئے آپ کے تجربے کو ذاتی بنانے کے لیے، کیا آپ مجھے اپنا <b>نام</b> بتا سکتے ہیں؟",
+                askGender: "آپ سے مل کر خوشی ہوئی، {name}۔ درست طریقے سے مخاطب کرنے کے لیے، براہ کرم اپنی <b>صنف (Gender)</b> بتائیں؟ (مرد/عورت/دیگر)",
+                pitchBot: "شکریہ، {title} {name}۔ منطق، ڈیجیٹل مارکیٹنگ اور نفسیات کا استعمال کرتے ہوئے، ایک کسٹم اے آئی آپ کے کاروبار کی سیلز کو تیزی سے بڑھا سکتا ہے۔ کیا آپ ایک کسٹم چیٹ بوٹ بنانا چاہیں گے؟ (ہاں/نہیں)",
+                yes: "ہاں", no: "نہیں", male: "مرد", female: "عورت", other: "دیگر", jokeBtn: "لطیفہ (Joke)", finishBtn: "ختم کریں",
+                askCompany: "بہترین فیصلہ! براہ کرم اپنی <b>کمپنی کا نام</b> بتائیں۔",
+                cancelPitch: "کوئی مسئلہ نہیں۔ اگر آپ کبھی بھی کسٹم اے آئی بنانا چاہیں، تو بس 'ہاں' لکھیں۔",
+                askIdea: "زبردست۔ اب، {company} کے لیے آپ کا بنیادی <b>کاروباری آئیڈیا</b> کیا ہے؟",
+                masterLevel: "کریئٹر عدنان نے اسے ماسٹر لیول پر تیار کیا ہے، جو خاص طور پر آپ کے آئیڈیا: \"{idea}\" کے لیے بہترین ہے۔<br><br>اب، آپ اسے ٹیسٹ کرنے کے لیے ڈیمو موڈ منتخب کر سکتے ہیں۔ سب سے پہلے، ہم آپ کے ڈیمو چیٹ بوٹ کا <b>نام</b> کیا رکھیں؟",
+                askDemoGreeting: "بہترین۔ اب ابتدائی <b>ہدایات یا خوش آمدید کا پیغام</b> بتائیں جو آپ کا ڈیمو بوٹ استعمال کرے۔",
+                demoActive: "<b>[ڈیمو موڈ ایکٹو: {demoName}]</b><br><br>{demoGreeting}<br><br><i>(آپ اب اپنے ڈیمو بوٹ کے ساتھ چیٹ کر رہے ہیں۔ آپ اسے ٹیسٹ کر سکتے ہیں! جب آپ تیار ہوں تو <b>'stop demo' یا 'ڈیمو ختم کریں'</b> ٹائپ کریں۔)</i>",
+                checkoutMsg: "ٹیسٹنگ کے بعد، جب آپ تیار ہوں، تو براہ کرم $35 کی ادائیگی کریں۔ واٹس ایپ کے ذریعے کریئٹر عدنان کو اسکرین شاٹ بھیجیں، اور وہ آپ کو مکمل تیار شدہ چیٹ بوٹ اور ویب سائٹ فراہم کریں گے۔<br><br><button onclick=\"sendToWhatsApp()\" class=\"btn-main whatsapp-btn-animated\" style=\"width: 100%; margin-top: 10px; font-size: 0.95rem; padding: 10px; justify-content: center;\"><i class=\"fa-brands fa-whatsapp\"></i> اسکرین شاٹ عدنان کو بھیجیں</button><br><br>آخر میں، آپ تفریح کے لیے <b>لطیفہ</b> کا انتخاب کر سکتے ہیں، یا ختم کریں پر کلک کریں!",
+                jokeText: "ڈیجیٹل مارکیٹرز اور اے آئی کی اتنی اچھی کیوں بنتی ہے؟ کیونکہ ہم دونوں کو ہائی کنورژن ریٹ پسند ہے! 😄<br><br>یہ مکمل ہو گیا! کیا آپ ایک اور چیٹ بوٹ بنانا چاہیں گے؟ (ہاں/نہیں)",
+                chooseOption: "براہ کرم 'لطیفہ' یا 'ختم کریں' کا انتخاب کریں۔",
+                farewell: "آپ کے وقت کا شکریہ۔ آپ کا یہ سفر یہیں ختم ہوتا ہے۔ آپ کا دن اچھا گزرے!",
+                demoReply: "[{demoName} کا جواب]: میں آپ کی درخواست پر کارروائی کرنے کے لیے پروگرام کیا گیا ہوں۔ آپ نے کہا: \"{input}\"۔ (ٹیسٹنگ ختم ہونے پر 'stop demo' ٹائپ کریں!)",
+                playAudio: "آواز سنیں",
+                navWarning: "میں خودکار طور پر آپ کا ویو تبدیل نہیں کرتا۔ اس سیکشن تک رسائی کے لیے، براہ کرم ٹاپ نیویگیشن مینو استعمال کریں۔",
+                langResetMsg: "زبان تبدیل ہو گئی۔ نیا سیشن شروع کیا جا رہا ہے..."
+            }
+        };
+
+        function getChatText(key, replacements = {}) {
+            let text = chatLocales[currentLang][key];
+            for (let r in replacements) { text = text.replace(`{${r}}`, replacements[r]); }
+            return text;
+        }
+
+        window.setLanguage = function(lang) {
+            if(currentLang === lang) return; 
+            currentLang = lang;
+            
+            document.getElementById('btn-en').classList.toggle('active', currentLang === 'en');
+            document.getElementById('btn-ur').classList.toggle('active', currentLang === 'ur');
+
+            if(currentLang === 'ur') {
+                document.body.classList.add('rtl-mode');
+                document.getElementById('chatInput').placeholder = "یہاں پیغام لکھیں...";
+            } else {
+                document.body.classList.remove('rtl-mode');
+                document.getElementById('chatInput').placeholder = "Message...";
+            }
+
+            const elements = document.querySelectorAll(`[data-${currentLang}]`);
+            elements.forEach(el => { el.innerHTML = el.getAttribute(`data-${currentLang}`); });
+
+            // Instantly clear and restart Terminal in new language
+            terminalBox.innerHTML = '';
+            termIndex = 0;
+
+            showToast(currentLang === 'en' ? "Language Set to English" : "زبان اردو میں تبدیل ہو گئی", "success");
+            
+            if(chatHistory.length > 0) {
+                const msg = getChatText('langResetMsg');
+                displayMessage(msg, "bot", false, false);
+                setTimeout(() => { deleteChat(false, true); }, 1500);
+            }
+        }
+
+        // ==========================================
+        // FLAWLESS TTS (TEXT TO SPEECH) BUG FIX
+        // ==========================================
+        try { window.speechSynthesis.onvoiceschanged = () => { window.speechSynthesis.getVoices(); }; } catch(e){}
+        let audioUnlocked = false;
+
+        function speakText(text, forcePlay = false) {
+            try {
+                if (!forcePlay && !isSpeakerOn) return;
+                if (!('speechSynthesis' in window)) return;
+                
+                window.speechSynthesis.cancel(); 
+                
+                // Secure HTML Stripping
+                let tempDiv = document.createElement("div");
+                tempDiv.innerHTML = text;
+                let cleanText = tempDiv.textContent || tempDiv.innerText || "";
+                
+                const utterance = new SpeechSynthesisUtterance(cleanText);
+                utterance.lang = currentLang === 'ur' ? 'ur-PK' : 'en-US';
+                utterance.rate = currentLang === 'ur' ? 0.9 : 1.0; 
+                
+                const voices = window.speechSynthesis.getVoices();
+                if (voices.length > 0) {
+                    let targetVoice = voices.find(v => v.lang.toLowerCase().includes(currentLang === 'ur' ? 'ur' : 'en'));
+                    if(!targetVoice && currentLang === 'ur') {
+                        targetVoice = voices.find(v => v.lang.toLowerCase().includes('hi'));
+                    }
+                    if(targetVoice) utterance.voice = targetVoice;
+                }
+
+                window.speechSynthesis.speak(utterance);
+            } catch(e) { console.warn("TTS Error: ", e); }
+        }
+
+        window.playMessageAudio = function(btn) {
+            const textNode = btn.parentElement.querySelector('.msg-text');
+            if(!textNode) return;
+            
+            speakText(textNode.innerHTML, true);
+            const icon = btn.querySelector('i'); 
+            icon.className = 'fa-solid fa-spinner fa-spin';
+            setTimeout(() => { icon.className = 'fa-solid fa-play'; }, 1500);
+        }
+
+        // ==========================================
+        // SPEECH TO TEXT (MIC BUTTON)
+        // ==========================================
+        let recognition;
+        let isRecording = false;
+        try {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if(SpeechRecognition) {
+                recognition = new SpeechRecognition();
+                recognition.continuous = false;
+                recognition.interimResults = false;
+                recognition.onstart = () => { isRecording = true; document.getElementById('micBtn').classList.add('recording'); };
+                recognition.onresult = (e) => { 
+                    chatInput.value += (chatInput.value ? " " : "") + e.results[0][0].transcript; 
+                    setTimeout(() => handleSendClick(), 500); // Auto send!
+                };
+                recognition.onerror = (e) => { console.warn("Mic Error:", e.error); stopMic(); };
+                recognition.onend = () => stopMic();
+            }
+        } catch(e) { console.warn("Speech Recognition Not Supported"); }
+
+        window.toggleMic = function() {
+            if(!recognition) return showToast("Voice input not supported on this browser.", "error");
+            if(isRecording) recognition.stop();
+            else {
+                recognition.lang = currentLang === 'ur' ? 'ur-PK' : 'en-US';
+                try { recognition.start(); } catch(e){}
+            }
+        }
+
+        function stopMic() {
+            isRecording = false;
+            document.getElementById('micBtn').classList.remove('recording');
+        }
+
+        // ==========================================
+        // UI & CORE JS
         // ==========================================
         function toggleMobileMenu(forceClose = false) {
             const menu = document.getElementById('navMenu');
-            if(forceClose) {
-                menu.classList.remove('active');
-            } else {
-                menu.classList.toggle('active');
-            }
+            if(forceClose) menu.classList.remove('active');
+            else menu.classList.toggle('active');
         }
 
         function showToast(message, type = 'error') {
             const container = document.getElementById('toastContainer');
             const toast = document.createElement('div');
             toast.className = `custom-toast ${type}`;
-            toast.innerHTML = type === 'error' ? `<i class="fa-solid fa-circle-exclamation" style="color:#ff0055; font-size: 1.2rem;"></i> ${message}` : `<i class="fa-solid fa-circle-check" style="color:#00ff88; font-size: 1.2rem;"></i> ${message}`;
+            toast.innerHTML = type === 'error' ? `<i class="fa-solid fa-circle-exclamation" style="color:#ff0055; font-size: 1.1rem;"></i> ${message}` : `<i class="fa-solid fa-circle-check" style="color:#00ff88; font-size: 1.1rem;"></i> ${message}`;
             container.appendChild(toast);
             setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 400); }, 3500);
         }
@@ -484,130 +810,30 @@
             observer.observe(el);
         });
 
-        // ==========================================
-        // WHATSAPP DYNAMIC AUTO-SENDER (LEAD GEN)
-        // ==========================================
         window.sendToWhatsApp = function() {
             try {
-                let ud = { name: "", company: "", businessType: "", strategy: "", service: "", poaConsent: "" };
+                let ud = { name: "", title: "", company: "", idea: "", demoName: "" };
                 try { ud = JSON.parse(localStorage.getItem('hassaanAI_salesData')) || ud; } catch(e){}
                 
-                let text = `🚀 *New Advanced AI Deployment Request*\n\n`;
-                text += `Hello Creator Adnan! My intelligence framework processed the following data:\n\n`;
-                text += `*👤 Lead Profile:* ${ud.name || '[Pending]'}\n`;
-                text += `*🏢 Enterprise Name:* ${ud.company || '[Pending]'}\n`;
-                text += `*🏷️ Industry Sector:* ${ud.businessType || '[Pending]'}\n`;
-                text += `*🎯 Cognitive Strategy:* ${ud.strategy || '[Pending]'}\n`;
-                text += `*⚙️ Execution Protocol:* ${ud.service || '[Pending]'}\n`;
-                text += `*⚖️ POA Consent Verified:* ${ud.poaConsent || '[Pending]'}\n\n`;
-                text += `✅ *Authorization:* I have completed my $35 acquisition via EasyPaisa/JazzCash. Proof is attached.\n\n`;
-                text += `Please initialize my intelligent architecture immediately.`;
+                let text = `🚀 *New Custom Chatbot Order*\n\n`;
+                text += `Hello Creator Adnan!\n\n`;
+                text += `*👤 Client Name:* ${ud.title || ''} ${ud.name || '[Not Provided]'}\n`;
+                text += `*🏢 Company:* ${ud.company || '[Not Provided]'}\n`;
+                text += `*💡 Business Idea:* ${ud.idea || '[Not Provided]'}\n`;
+                text += `*🤖 Demo Bot Name:* ${ud.demoName || '[N/A]'}\n\n`;
+                text += `✅ *Authorization:* I have completed my payment. My screenshot proof is attached.\n\n`;
+                text += `Please process my chatbot and website.`;
                 
                 window.open(`https://wa.me/923194879958?text=${encodeURIComponent(text)}`, '_blank');
             } catch(e) {}
         };
 
         // ==========================================
-        // PERSISTENT LIVE REVIEWS SYSTEM
-        // ==========================================
-        const defaultReviews =[
-            { name: "Sarah Jenkins", text: "Hassaan AI exhibits incredible logic and reasoning capabilities. It captures leads effortlessly. Perfectly intelligent interface!", time: "Verified Customer" },
-            { name: "David R. - TechNova", text: "The cognitive processing demonstrated is next-level. Built flawlessly by Adnan. Incredible aesthetic and performance.", time: "Verified Customer" },
-            { name: "Elena Rossi", text: "Truly the best AI logic engine available. The 3D neural model visually perfectly represents its capabilities!", time: "Verified Customer" }
-        ];
-
-        function loadReviews() {
-            const container = document.getElementById('live-reviews-container');
-            container.innerHTML = ''; 
-            
-            let storedReviews = JSON.parse(localStorage.getItem('hassaanAI_reviews'));
-            if (!storedReviews || storedReviews.length === 0) {
-                storedReviews = defaultReviews;
-                localStorage.setItem('hassaanAI_reviews', JSON.stringify(storedReviews));
-            }
-            
-            storedReviews.forEach(r => renderReviewHTML(r.name, r.text, r.time));
-        }
-
-        function renderReviewHTML(name, text, timeLabel) {
-            const container = document.getElementById('live-reviews-container');
-            const reviewDiv = document.createElement('div');
-            reviewDiv.className = 'feature-card animate-fade-up';
-            reviewDiv.style.animationPlayState = 'running';
-            reviewDiv.innerHTML = `
-                <div class="feature-icon" style="color: #facc15; border-color: rgba(250,204,21,0.3); background: rgba(250,204,21,0.1);"><i class="fa-solid fa-star"></i></div>
-                <h3>${name}</h3>
-                <p>"${text}"</p>
-                <small style="color: var(--neon-cyan); margin-top: 10px; display: block;">${timeLabel}</small>
-            `;
-            container.prepend(reviewDiv);
-        }
-
-        function addLiveReview(name, text) {
-            let storedReviews = JSON.parse(localStorage.getItem('hassaanAI_reviews')) ||[];
-            storedReviews.unshift({ name: name, text: text, time: "Just now • Verified Customer" });
-            localStorage.setItem('hassaanAI_reviews', JSON.stringify(storedReviews));
-            
-            renderReviewHTML(name, text, "Just now • Verified Customer");
-        }
-
-        window.addEventListener('DOMContentLoaded', loadReviews);
-
-        // ==========================================
-        // ULTRA 3D ROBOTIC BACKGROUND (Neural Logic Theme)
-        // ==========================================
-        try {
-            if (window.WebGLRenderingContext && typeof THREE !== 'undefined') {
-                const canvas = document.getElementById('webgl-canvas');
-                const scene = new THREE.Scene();
-                const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-                const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-                renderer.setSize(window.innerWidth, window.innerHeight);
-                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-                scene.add(new THREE.AmbientLight(0xffffff, 0.5));
-                const light1 = new THREE.PointLight(0x00f3ff, 3.5, 120); light1.position.set(15, 15, 15); scene.add(light1);
-                const light2 = new THREE.PointLight(0xffaa00, 3, 120); light2.position.set(-15, -15, 15); scene.add(light2);
-
-                const coreGeo = new THREE.IcosahedronGeometry(10, 1);
-                const coreMat = new THREE.MeshPhongMaterial({ color: 0x050510, emissive: 0x0a0a1a, wireframe: true, transparent: true, opacity: 0.85 });
-                const roboticCore = new THREE.Mesh(coreGeo, coreMat); scene.add(roboticCore);
-
-                const innerGeo = new THREE.IcosahedronGeometry(5.5, 2);
-                const innerMat = new THREE.MeshPhongMaterial({ color: 0x00f3ff, shininess: 150, flatShading: true });
-                const innerNode = new THREE.Mesh(innerGeo, innerMat); scene.add(innerNode);
-
-                const ring1Geo = new THREE.TorusGeometry(15, 0.15, 16, 120);
-                const ring1Mat = new THREE.MeshBasicMaterial({ color: 0xffaa00, wireframe: true }); 
-                const ring1 = new THREE.Mesh(ring1Geo, ring1Mat); scene.add(ring1);
-
-                const ring2Geo = new THREE.TorusGeometry(18, 0.1, 16, 120);
-                const ring2Mat = new THREE.MeshBasicMaterial({ color: 0xbc13fe });
-                const ring2 = new THREE.Mesh(ring2Geo, ring2Mat); ring2.rotation.x = Math.PI / 2; scene.add(ring2);
-
-                camera.position.z = 35;
-
-                function animate3D() {
-                    requestAnimationFrame(animate3D);
-                    roboticCore.rotation.y += 0.002; roboticCore.rotation.x += 0.0015; innerNode.rotation.y -= 0.008;
-                    ring1.rotation.x += 0.006; ring1.rotation.y += 0.004; ring2.rotation.y += 0.005; ring2.rotation.z += 0.003;
-                    renderer.render(scene, camera);
-                }
-                animate3D();
-
-                window.addEventListener('resize', () => {
-                    camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix();
-                    renderer.setSize(window.innerWidth, window.innerHeight);
-                });
-            }
-        } catch(e) {}
-
-        // ==========================================
-        // ADVANCED INTELLIGENT CHATBOT CORE LOGIC
+        // FLAWLESS CHATBOT LOGIC ENGINE
         // ==========================================
         let chatOpen = false;
         let botState = 0;
-        let userData = { name: "", company: "", businessType: "", strategy: "", service: "", poaConsent: "", reviewName: "", reviewText: "" };
+        let userData = { name: "", gender: "", title: "", company: "", idea: "", demoName: "", demoGreeting: "" };
         let chatHistory =[];
         let isSpeakerOn = true;
         let isBotProcessing = false;
@@ -625,100 +851,28 @@
         const speakerBtn = document.getElementById('speakerToggleBtn');
         const speakerIcon = speakerBtn.querySelector('i');
 
-        window.addEventListener('load', () => {
-            try {
-                let demoConfig = JSON.parse(localStorage.getItem('hassaanAI_demoConfig'));
-                if (botState === 99 && demoConfig) {
-                    document.getElementById('botNameDisplay').innerText = demoConfig.name;
-                    document.getElementById('botAvatar').src = demoConfig.avatar;
-                }
+        function forceScroll() {
+            chatBody.scrollTop = chatBody.scrollHeight;
+            setTimeout(() => { chatBody.scrollTop = chatBody.scrollHeight; }, 50);
+        }
 
-                if(chatHistory.length > 0) {
-                    chatHistory.forEach(msg => displayMessage(msg.text, msg.type, false));
-                }
-            } catch(e) {}
+        window.addEventListener('load', () => {
+            if(chatHistory.length > 0) {
+                chatHistory.forEach(msg => displayMessage(msg.text, msg.type, false, false));
+                forceScroll();
+            }
         });
 
         window.toggleSpeaker = function() {
-            try {
-                isSpeakerOn = !isSpeakerOn;
-                if(isSpeakerOn) { 
-                    speakerIcon.className = 'fa-solid fa-volume-high'; 
-                    speakerBtn.classList.remove('speaker-off'); 
-                } else { 
-                    speakerIcon.className = 'fa-solid fa-volume-xmark'; 
-                    speakerBtn.classList.add('speaker-off'); 
-                    if('speechSynthesis' in window) window.speechSynthesis.cancel(); 
-                }
-            } catch(e) {}
-        }
-
-        function speakText(text, forcePlay = false) {
-            try {
-                if (!forcePlay && !isSpeakerOn) return;
-                if (!('speechSynthesis' in window)) return;
-                window.speechSynthesis.cancel(); 
-                let cleanText = text.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' '); 
-                const utterance = new SpeechSynthesisUtterance(cleanText);
-                utterance.lang = 'en-US';
-                window.speechSynthesis.speak(utterance);
-            } catch(e){}
-        }
-
-        window.playMessageAudio = function(btn) {
-            try {
-                const textContent = btn.previousElementSibling.innerHTML;
-                speakText(textContent, true);
-                const icon = btn.querySelector('i'); 
-                icon.className = 'fa-solid fa-spinner fa-spin';
-                setTimeout(() => { icon.className = 'fa-solid fa-play'; }, 1500);
-            } catch(e) {}
-        }
-
-        let recognition;
-        let isRecording = false;
-        try {
-            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-            if(SpeechRecognition) {
-                recognition = new SpeechRecognition();
-                recognition.continuous = false;
-                recognition.interimResults = false;
-                recognition.lang = 'en-US';
-
-                recognition.onstart = function() {
-                    isRecording = true;
-                    document.getElementById('micBtn').classList.add('recording');
-                };
-
-                recognition.onresult = function(event) {
-                    const transcript = event.results[0][0].transcript;
-                    const inputField = document.getElementById('chatInput');
-                    inputField.value += (inputField.value ? " " : "") + transcript;
-                };
-
-                recognition.onerror = function() { stopMic(); };
-                recognition.onend = function() { stopMic(); };
+            isSpeakerOn = !isSpeakerOn;
+            if(isSpeakerOn) { 
+                speakerIcon.className = 'fa-solid fa-volume-high'; 
+                speakerBtn.classList.remove('speaker-off'); 
+            } else { 
+                speakerIcon.className = 'fa-solid fa-volume-xmark'; 
+                speakerBtn.classList.add('speaker-off'); 
+                if('speechSynthesis' in window) window.speechSynthesis.cancel(); 
             }
-        } catch(e) { }
-
-        window.toggleMic = function() {
-            try {
-                if(!recognition) {
-                    showToast("Voice input is not supported in this browser.", "error");
-                    return;
-                }
-                if(isRecording) {
-                    recognition.stop();
-                } else {
-                    recognition.start();
-                }
-            } catch(e) { stopMic(); }
-        }
-
-        function stopMic() {
-            isRecording = false;
-            const micBtn = document.getElementById('micBtn');
-            if(micBtn) micBtn.classList.remove('recording');
         }
 
         function saveState() {
@@ -729,400 +883,226 @@
             } catch(e){}
         }
 
-        window.deleteChat = function(skipGreeting = false) {
-            try {
-                chatHistory =[]; botState = 0; userData = { name: "", company: "", businessType: "", strategy: "", service: "", poaConsent: "", reviewName: "", reviewText: "" }; saveState();
-                localStorage.removeItem('hassaanAI_demoConfig');
+        window.deleteChat = function(skipGreeting = false, isUserTriggered = false) {
+            chatHistory =[]; botState = 0; 
+            userData = { name: "", gender: "", title: "", company: "", idea: "", demoName: "", demoGreeting: "" }; 
+            saveState();
 
-                const msgs = chatBody.querySelectorAll('.msg, .quick-options');
-                msgs.forEach(m => m.remove());
-                
-                if('speechSynthesis' in window) window.speechSynthesis.cancel();
-                chatInput.disabled = false;
-                
-                document.getElementById('botNameDisplay').innerText = "Hassaan AI";
-                document.getElementById('botAvatar').src = "https://api.dicebear.com/7.x/bottts/svg?seed=HassaanAI&backgroundColor=00f3ff";
-
-                if(!skipGreeting) initiateGreeting();
-            } catch(e) {}
+            const msgs = chatBody.querySelectorAll('.msg, .quick-options');
+            msgs.forEach(m => m.remove());
+            
+            if('speechSynthesis' in window) window.speechSynthesis.cancel();
+            
+            if(isUserTriggered) showToast("Memory Cleared", "success");
+            if(!skipGreeting) initiateGreeting();
         };
 
         chatInput.addEventListener('keypress', (e) => { 
-            if(e.key === 'Enter') {
-                e.preventDefault(); 
-                handleSendClick(); 
-            }
+            if(e.key === 'Enter') { e.preventDefault(); handleSendClick(); }
         });
 
         window.toggleChat = function() {
-            try {
-                chatOpen = !chatOpen;
-                if(chatOpen) {
-                    chatWindow.style.display = 'flex';
-                    if(chatHistory.length === 0) initiateGreeting();
-                    if(window.innerWidth > 768) setTimeout(() => chatInput.focus(), 50);
-                } else {
-                    chatWindow.style.display = 'none';
-                    if('speechSynthesis' in window) window.speechSynthesis.cancel();
-                }
-            } catch(e) {}
+            chatOpen = !chatOpen;
+            
+            // Unlock Audio on First Click to fix browser auto-play policies
+            if (!audioUnlocked && 'speechSynthesis' in window) {
+                let u = new SpeechSynthesisUtterance("");
+                u.volume = 0;
+                window.speechSynthesis.speak(u);
+                audioUnlocked = true;
+            }
+
+            if(chatOpen) {
+                chatWindow.style.display = 'flex';
+                if(chatHistory.length === 0) initiateGreeting();
+                if(window.innerWidth > 768) setTimeout(() => chatInput.focus(), 50);
+                forceScroll();
+            } else {
+                chatWindow.style.display = 'none';
+                if('speechSynthesis' in window) window.speechSynthesis.cancel();
+            }
+        }
+
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag]));
         }
 
         function displayMessage(text, type, save = true, autoRead = true) {
-            try {
-                const msgDiv = document.createElement('div');
-                msgDiv.className = `msg ${type}`;
-                
-                if(type === 'bot') {
-                    msgDiv.innerHTML = `<div class="msg-text">${text}</div><button class="play-audio-btn" onclick="playMessageAudio(this)" title="Play Message"><i class="fa-solid fa-play"></i> Play</button>`;
-                    if(save && autoRead) speakText(text); 
-                } else {
-                    msgDiv.innerHTML = text;
-                }
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `msg ${type}`;
+            
+            const timeStr = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            
+            if(type === 'bot') {
+                const btnLabel = getChatText('playAudio');
+                msgDiv.innerHTML = `<div class="msg-text">${text}</div><span class="msg-time">${timeStr}</span><button class="play-audio-btn" onclick="playMessageAudio(this)"><i class="fa-solid fa-play"></i> ${btnLabel}</button>`;
+                if(save && autoRead) speakText(text); 
+            } else {
+                msgDiv.innerHTML = `<span class="msg-text">${text}</span><span class="msg-time">${timeStr}</span>`;
+            }
 
-                chatBody.insertBefore(msgDiv, typingIndicator);
-                chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
-                if(save) { chatHistory.push({ text: text, type: type }); saveState(); }
-            } catch(e) {}
+            chatBody.insertBefore(msgDiv, typingIndicator);
+            forceScroll();
+            if(save) { chatHistory.push({ text: text, type: type }); saveState(); }
         }
 
         function showQuickReplies(options) {
-            try {
-                const qrDiv = document.createElement('div');
-                qrDiv.className = 'quick-options';
-                options.forEach(opt => {
-                    const btn = document.createElement('button'); btn.className = 'qr-btn'; btn.innerText = opt;
-                    btn.onclick = () => { qrDiv.remove(); chatInput.value = opt; handleSendClick(); };
-                    qrDiv.appendChild(btn);
-                });
-                chatBody.insertBefore(qrDiv, typingIndicator);
-                chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
-            } catch(e) {}
+            const qrDiv = document.createElement('div');
+            qrDiv.className = 'quick-options';
+            options.forEach(opt => {
+                const btn = document.createElement('button'); btn.className = 'qr-btn'; btn.innerText = opt;
+                btn.onclick = () => { qrDiv.remove(); chatInput.value = opt; handleSendClick(); };
+                qrDiv.appendChild(btn);
+            });
+            chatBody.insertBefore(qrDiv, typingIndicator);
+            forceScroll();
         }
 
         function setTyping(state) {
             typingIndicator.style.display = state ? 'flex' : 'none';
-            chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
+            forceScroll();
         }
 
         function initiateGreeting() {
             setTyping(true);
             setTimeout(() => { 
                 setTyping(false);
-                let intro = `Hello. I am <b class="color-shift-text">Hassaan AI</b>, an advanced intelligent agent. My core logic is designed to process variables, map strategies, and drive extreme conversions.<br><br>I am here to carefully guide you through our digital environment. How may I compute assistance for you today?`;
-                displayMessage(intro, "bot", true, true);
-                showQuickReplies(["What pages are here?", "How intelligent are you?", "Begin Configuration"]);
+                displayMessage(getChatText('greeting'), "bot", true, true);
                 botState = 0; saveState();
             }, 800); 
         }
 
-        // --- INTELLIGENT REASONING UI FUNCTION ---
-        function displayReasoning(logs, finalResponse, finalOptions) {
-            setTyping(true);
-            
-            setTimeout(() => {
-                setTyping(false);
-                
-                const msgDiv = document.createElement('div');
-                msgDiv.className = `msg bot`;
-                
-                let reasoningHTML = `<div class="reasoning-box">`;
-                logs.forEach((log, index) => {
-                    reasoningHTML += `<span class="log-line" style="animation-delay: ${index * 0.5}s">> ${log}</span>`;
-                });
-                reasoningHTML += `</div>`;
-                
-                msgDiv.innerHTML = `${reasoningHTML}<div class="msg-text" style="opacity:0; animation: fadeUp 0.5s ${logs.length * 0.5}s forwards;">${finalResponse}</div><button class="play-audio-btn" onclick="playMessageAudio(this)" style="opacity:0; animation: fadeUp 0.5s ${logs.length * 0.5}s forwards;"><i class="fa-solid fa-play"></i> Play</button>`;
-                
-                chatBody.insertBefore(msgDiv, typingIndicator);
-                chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
-                
-                const cleanHTML = `<div class="reasoning-box">${logs.map(l => `> ${l}<br>`).join('')}</div>${finalResponse}`;
-                chatHistory.push({ text: cleanHTML, type: 'bot' }); 
-                saveState();
-
-                if(finalOptions) {
-                    setTimeout(() => {
-                        showQuickReplies(finalOptions);
-                    }, logs.length * 500 + 600);
-                }
-
-                setTimeout(() => {
-                    speakText(finalResponse);
-                }, logs.length * 500);
-
-                isBotProcessing = false;
-
-            }, 600);
-        }
-
-        // Output logic rather than auto-controlling the page
-        window.startBuildDemo = function() {
-            if(!chatOpen) toggleChat();
-            
-            const logs =[
-                "Logic Check 1: Processing purpose and determining optimal cognitive architecture.",
-                "Logic Check 2: Neural pathways constructed successfully. Data flows mapped.",
-                "Logic Check 3: NLP models loaded. Advanced sentiment parameters configured.",
-                "Logic Check 4: Awaiting final authorization for live deployment protocol."
-            ];
-            
-            displayReasoning(logs, "These are the core steps of my internal build process. You can also view a breakdown of this logic in the 'Build Process' section on this page. Shall we initialize your custom configuration?", ["Begin Configuration", "Leave a Review"]);
-            botState = 0; saveState();
-        }
-
-        window.launchCustomDemo = function(isAutoTriggered = false) {
+        window.launchCustomDemo = function() {
             const customName = document.getElementById('customBotName').value.trim() || "My Custom Demo Bot";
-            const customGreeting = document.getElementById('customBotGreeting').value.trim() || "Hello! I am your custom built AI demo. How can I assist you on this beautiful interface today?";
+            const customGreeting = document.getElementById('customBotGreeting').value.trim() || "Welcome to the demo! I'm active and listening.";
             
-            document.getElementById('botNameDisplay').innerText = customName;
-            const randomColor = Math.floor(Math.random()*16777215).toString(16);
-            const avatarUrl = `https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(customName)}&backgroundColor=${randomColor}`;
-            document.getElementById('botAvatar').src = avatarUrl;
-            
-            localStorage.setItem('hassaanAI_demoConfig', JSON.stringify({ name: customName, avatar: avatarUrl }));
-
-            deleteChat(true);
-
             if (!chatOpen) toggleChat();
-            
-            if(!isAutoTriggered) showToast("Custom Demo Launched Live!", "success");
+
+            userData.demoName = customName;
+            userData.demoGreeting = customGreeting;
 
             setTyping(true);
             setTimeout(() => {
                 setTyping(false);
-                displayMessage(`<b>[Demo Mode Active]</b><br><br>${customGreeting}`, "bot", true, true);
-                showQuickReplies(["Test Reply", "Tell me a joke", "Reset Demo"]);
-                botState = 99; 
-                saveState();
+                displayMessage(getChatText('demoActive', { demoName: escapeHTML(customName), demoGreeting: escapeHTML(customGreeting) }), "bot", true, true);
+                botState = 7; saveState();
             }, 1000);
         }
 
         window.handleSendClick = function() {
-            try {
-                if (isBotProcessing) return; 
-                const inputVal = chatInput.value.trim();
-                if(!inputVal) return; 
-                
-                const existingQr = document.querySelector('.quick-options'); 
-                if(existingQr) existingQr.remove();
-                
-                displayMessage(inputVal, "user"); 
-                chatInput.value = "";
-                isBotProcessing = true;
-                
-                setTimeout(() => { 
-                    processLogic(inputVal); 
-                }, 400); 
-            } catch(e) {
-                isBotProcessing = false;
+            if (isBotProcessing) return; 
+            const inputVal = chatInput.value.trim();
+            if(!inputVal) return; 
+            
+            const existingQr = document.querySelector('.quick-options'); 
+            if(existingQr) existingQr.remove();
+            
+            const safeInput = escapeHTML(inputVal);
+            displayMessage(safeInput, "user"); 
+            chatInput.value = "";
+            isBotProcessing = true;
+            
+            setTyping(true);
+            setTimeout(() => { 
                 setTyping(false);
-            }
+                processLogic(safeInput); 
+            }, 700); 
         }
 
         function processLogic(input) {
             const lowerInput = input.toLowerCase();
 
-            // =====================================
-            // ADVANCED GUIDANCE & REASONING (No DOM Auto-Control)
-            // =====================================
-            
-            // Guidances for Navigation
             const navMatch = lowerInput.match(/(go to|take me to|navigate to|open|show me|take us to|where is) (home|features|process|reviews|payment|sandbox|demo)/);
-            if (navMatch) {
+            if (navMatch && botState !== 7) {
                 isBotProcessing = false;
-                const page = navMatch[2];
-                let niceName = 'Home';
-                if (page === 'features') niceName = 'Features';
-                if (page === 'process') niceName = 'Build Process';
-                if (page === 'sandbox' || page === 'demo') niceName = 'Live Sandbox';
-                if (page === 'reviews') niceName = 'Reviews';
-                if (page === 'payment') niceName = 'Deploy AI (Payment)';
-                
-                displayMessage(`I do not autonomously alter your view. To access the <b>${niceName}</b> section, please use the top navigation menu or simply scroll your device to that area.`, "bot");
+                displayMessage(getChatText('navWarning'), "bot");
                 return;
             }
 
-            // Demo / Sandbox Instruction
-            if (lowerInput.match(/(demonstrate|fill.*form|show me how it works|demo)/)) {
-                isBotProcessing = false;
-                displayMessage("To test my capabilities directly, please scroll to the <b>Live Sandbox</b> section on this page. You can input custom parameters there, and initialize a tailored live test firsthand.", "bot");
-                return;
-            }
+            isBotProcessing = false;
 
-            if (lowerInput.match(/(list pages|what pages are here|show pages|website sections|list of pages)/)) {
-                isBotProcessing = false;
-                displayMessage("You can navigate this environment seamlessly. The available sections are: Home, Features, Build Process, Live Sandbox, Reviews, and Deploy AI. You can access them via the top navigation bar.", "bot");
-                return;
-            }
-
-            // Intelligence Question Responses
-            if (lowerInput.match(/(how intelligent|how smart|reasoning|thinking|who made you|creator|who built you)/)) {
-                const logs =[
-                    "Querying knowledge base: Origin & Capability",
-                    "Processing creator identification: 'Adnan'",
-                    "Evaluating logic matrix efficiency..."
-                ];
-                const response = "My cognitive framework was engineered perfectly by <b>Creator Adnan</b>. Unlike basic chatbots, I employ a multi-layered reasoning engine. I do not simply retrieve text; I calculate variables, process sentiment, and synthesize strategies optimized exclusively for your objective.";
-                displayReasoning(logs, response, ["Begin Configuration"]);
-                return;
-            }
-
-            // Intercept jokes
-            if (lowerInput.match(/(joke|funny|laugh)/)) {
-                isBotProcessing = false;
-                const jokes =[
-                    "I analyzed 14,000,000 potential outcomes, and the probability of me telling a joke well is currently undefined. But I can tell you why the AI broke up with the internet: Too many connection issues. 🤖",
-                    "My logical models suggest humor increases engagement by 22%. Therefore: Why do intelligent bots make great salespeople? Because we never lose our cache! 🤖"
-                ];
-                const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
-                
-                let returnPrompt = "";
-                if (botState > 0 && botState < 7) {
-                    returnPrompt = "<br><br><i>(Reverting to logic state: Please input the requested variable to continue.)</i>";
-                }
-                displayMessage(randomJoke + returnPrompt, "bot");
-                return; 
-            }
-
-            // SANDBOX MODE INTERCEPT (botState 99)
-            if (botState === 99) {
-                if (lowerInput.match(/(reset|stop|exit)/)) {
-                    deleteChat(false);
-                    showToast("Demo Reset", "success");
-                    return;
-                }
-                displayMessage(`This is a live response from your Demo Sandbox! You inputted: "${input}". <br><br>To acquire the real architecture, navigate to the Deploy AI section, or reply 'Reset' to return my core logic to Hassaan AI.`, "bot");
-                return;
-            }
-
-            // Casual Talk / Starting state
-            if (botState === 0) {
-                if (lowerInput.match(/(build|process|explain|steps|action)/)) {
-                    isBotProcessing = false;
-                    startBuildDemo(); return;
-                }
-                if (lowerInput.match(/(review|feedback)/)) {
-                    isBotProcessing = false;
-                    displayMessage("Client feedback is a crucial metric for optimization. What identifier (Name) should I associate with this data log?", "bot");
-                    botState = 10; saveState(); return;
-                }
-                if (lowerInput.match(/(price|cost|how much|fee|money)/)) {
-                    isBotProcessing = false;
-                    displayMessage("The complete, highly sophisticated AI deployment architecture is currently authorized for a flash acquisition of exactly <b>$35</b>. Shall we initialize the logic sequence? What is your <b>Full Name</b>?", "bot");
-                    botState = 1; saveState(); return;
-                }
-                if (lowerInput.match(/(hi|hello|hey|greetings)/) && lowerInput.length < 15) {
-                    isBotProcessing = false;
-                    displayMessage("Greetings. The network is secure. To begin configuring your intelligent system, what is your <b>Full Name</b>?", "bot");
-                    botState = 1; saveState(); return;
-                }
-                
-                // Fallback default for State 0
-                isBotProcessing = false;
-                displayMessage("I have registered your input. Let us commence the construction of your cognitive sales architecture. What is your <b>Full Name</b>?", "bot");
-                botState = 1; saveState(); return;
-            }
-
-            // --- Lead Generation Funnel with "Reasoning" Enhancements ---
             switch(botState) {
+                case 0:
+                    userData.name = input;
+                    displayMessage(getChatText('askGender', { name: userData.name }), "bot");
+                    showQuickReplies([getChatText('male'), getChatText('female')]);
+                    botState = 1; saveState(); break;
+
                 case 1:
-                    isBotProcessing = false;
-                    userData.name = input; 
-                    displayMessage(`Entity acknowledged: ${userData.name}. What is the designated nomenclature of your <b>Enterprise or Business</b>?`, "bot"); 
+                    userData.gender = input;
+                    if (lowerInput.includes('male') || lowerInput.includes('مرد')) userData.title = currentLang==='en'?"Mr.":"جناب";
+                    else if (lowerInput.includes('female') || lowerInput.includes('عورت')) userData.title = currentLang==='en'?"Ms.":"محترمہ";
+                    else userData.title = "";
+                    
+                    displayMessage(getChatText('pitchBot', { title: userData.title, name: userData.name }), "bot");
+                    showQuickReplies([getChatText('yes'), getChatText('no')]);
                     botState = 2; saveState(); break;
-                
+
                 case 2:
-                    isBotProcessing = false;
-                    userData.company = input; 
-                    displayMessage(`Business logged. To calibrate the industry-specific models, what is the exact <b>Type of Business</b> you operate? (e.g., E-commerce, Real Estate, SaaS)`, "bot"); 
-                    botState = 3; saveState(); break;
-                
-                case 3:
-                    userData.businessType = input; 
-                    const logsSector =[
-                        `Mapping industry variables for: ${userData.businessType}`,
-                        `Identifying market friction points...`,
-                        `Optimizing cognitive response logic for sector...`
-                    ];
-                    const respSector = `The ${userData.businessType} sector parameters have been successfully integrated into my logic engine. Now, specify your primary <b>Business Strategy</b> or growth objective currently in effect.`;
-                    displayReasoning(logsSector, respSector);
-                    botState = 4; saveState(); break;
-                
-                case 4:
-                    isBotProcessing = false;
-                    userData.strategy = input; 
-                    displayMessage(`Strategy recorded and queued for algorithmic enhancement. What <b>specific execution or service</b> must my intelligence layer provide to your end-users?`, "bot"); 
-                    botState = 5; saveState(); break;
-                
-                case 5:
-                    isBotProcessing = false;
-                    userData.service = input; 
-                    displayMessage(`Vital parameters compiled. Final security check: Do you confirm your comprehension of the <b>power of attorney for digital marketing execution</b>? (Yes/No)`, "bot");
-                    showQuickReplies(["Yes, I confirm", "No"]);
-                    botState = 6; saveState(); break;
-                
-                case 6:
-                    userData.poaConsent = input;
-                    if(lowerInput.includes('yes') || lowerInput.includes('yep') || lowerInput.includes('yeah') || lowerInput.includes('sure') || lowerInput.includes('confirm')) {
-                        finalizeSalesPitch(); 
+                    if (lowerInput.includes('yes') || lowerInput.includes('ہاں') || lowerInput.includes('yep') || lowerInput.includes('sure')) {
+                        displayMessage(getChatText('askCompany'), "bot");
+                        botState = 3; saveState();
                     } else {
-                        isBotProcessing = false;
-                        displayMessage("Warning: Power of Attorney authorization is required for autonomous digital asset management and ad execution. Please input 'Yes' to verify comprehension so the architecture can compile.", "bot");
-                        showQuickReplies(["Yes, I confirm"]);
+                        displayMessage(getChatText('cancelPitch'), "bot");
                     }
                     break;
-                
-                // Review Collection Flow
-                case 10:
-                    isBotProcessing = false;
-                    userData.reviewName = input;
-                    displayMessage(`Identifier '${userData.reviewName}' validated. Please input the text for your review matrix:`, "bot");
-                    botState = 11; saveState(); break;
-                
-                case 11:
-                    isBotProcessing = false;
-                    userData.reviewText = input;
-                    addLiveReview(userData.reviewName, userData.reviewText); 
-                    showToast("Review Integrated Successfully!", "success");
-                    displayMessage("Your feedback has been intelligently parsed and integrated directly into the live front-end environment.", "bot");
-                    botState = 0; saveState();
-                    setTimeout(() => showQuickReplies(["Begin Configuration", "What pages are here?"]), 1500);
-                    break;
-                
+
+                case 3:
+                    userData.company = input;
+                    displayMessage(getChatText('askIdea', { company: userData.company }), "bot");
+                    botState = 4; saveState(); break;
+
+                case 4:
+                    userData.idea = input;
+                    displayMessage(getChatText('masterLevel', { idea: userData.idea }), "bot");
+                    botState = 5; saveState(); break;
+
+                case 5:
+                    userData.demoName = input;
+                    displayMessage(getChatText('askDemoGreeting'), "bot");
+                    botState = 6; saveState(); break;
+
+                case 6:
+                    userData.demoGreeting = input;
+                    displayMessage(getChatText('demoActive', { demoName: userData.demoName, demoGreeting: userData.demoGreeting }), "bot");
+                    botState = 7; saveState(); break;
+
                 case 7:
-                    isBotProcessing = false;
-                    if (lowerInput.match(/(review|feedback)/)) {
-                        displayMessage("Commencing feedback protocol. What identifier (Name) should we display?", "bot");
-                        botState = 10; saveState(); break;
+                    if (lowerInput.includes('stop') || lowerInput.includes('exit') || lowerInput.includes('ختم') || lowerInput.includes('done')) {
+                        displayMessage(getChatText('checkoutMsg'), "bot");
+                        showQuickReplies([getChatText('jokeBtn'), getChatText('finishBtn')]);
+                        botState = 8; saveState();
+                    } else {
+                        displayMessage(getChatText('demoReply', { demoName: userData.demoName, input: input }), "bot");
                     }
-                    displayMessage("The architecture is finalized. To execute, please scroll to the 'Deploy AI' section.", "bot");
+                    break;
+
+                case 8:
+                    if (lowerInput.includes('joke') || lowerInput.includes('لطیفہ')) {
+                        displayMessage(getChatText('jokeText'), "bot");
+                        showQuickReplies([getChatText('yes'), getChatText('no')]);
+                        botState = 9; saveState();
+                    } else if (lowerInput.includes('finish') || lowerInput.includes('ختم')) {
+                        displayMessage(getChatText('farewell'), "bot");
+                        botState = 10; saveState();
+                    } else {
+                        displayMessage(getChatText('chooseOption'), "bot");
+                        showQuickReplies([getChatText('jokeBtn'), getChatText('finishBtn')]);
+                    }
+                    break;
+
+                case 9:
+                    if (lowerInput.includes('yes') || lowerInput.includes('ہاں') || lowerInput.includes('yep')) {
+                        deleteChat(false, true);
+                    } else {
+                        displayMessage(getChatText('farewell'), "bot");
+                        botState = 10; saveState();
+                    }
                     break;
 
                 default:
-                    isBotProcessing = false;
-                    displayMessage("System architecture standing by. Please proceed to the 'Deploy AI' section on this page to finalize deployment.", "bot");
+                    displayMessage("Session finished.", "bot");
             }
-        }
-
-        function finalizeSalesPitch() {
-            const logsPitch =[
-                `Processing inputs: Strategy[${userData.strategy}] x Service [${userData.service}]`,
-                `Executing predictive modeling for ${userData.businessType} sector...`,
-                `Algorithm complete: Probability of conversion increase calculated at 84.6%`,
-                `Synthesizing final deployment architecture...`
-            ];
-            
-            let pitch = `<b style="color:#00f3ff;">Cognitive Analysis Complete. Master Strategy Mapped:</b><br><br>`;
-            pitch += `By executing sophisticated <i>Digital Marketing algorithms</i> and leveraging the <i>Law of Value</i>, I am engineering a fully autonomous reasoning unit for <b>${userData.company}</b>.<br><br>`;
-            pitch += `I will calculate massive upfront value models regarding [${userData.service}], dominating the ${userData.businessType} authority matrix, and aggressively executing your objective: "${userData.strategy}".<br><br>`;
-            pitch += `<b>Critical Variable:</b> Creator Adnan structured this logic perfectly. Financial acquisition flows directly to Creator Adnan, the core developer.<br><br>`;
-            pitch += `<b>Deployment Sequence:</b><br>1. Execute <b style="color:#00ff88;">$35</b> transaction via the form on this page.<br>2. Trigger the WhatsApp bridge below to transmit cognitive parameters.<br><br>`;
-            
-            pitch += `<button onclick="sendToWhatsApp()" class="btn-main whatsapp-btn-animated" style="width: 100%; margin-top: 10px; font-size: 0.95rem; padding: 12px; justify-content: center;"><i class="fa-brands fa-whatsapp"></i> Transmit Data to Creator</button>`;
-            
-            displayReasoning(logsPitch, pitch, ["Leave a Review"]);
-            botState = 7; saveState(); 
         }
     </script>
 </body>
